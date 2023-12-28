@@ -1,22 +1,20 @@
-package com.example.InsuranceApplication;
+package com.example.InsuranceApplication.client;
 
-public class Client {
+import java.util.Date;
+
+public class PersonalData {
     private String firstName;
     private String secondName;
     private String email;
-    private int age;
+    private Date birthDate;
     private int number;
-    private String nickName;
-    private String password;
 
-    public Client(String firstName, String secondName, String email, int age, int number, String nickName, String password) {
+    public PersonalData(String firstName, String secondName, String email, Date birthDate, int number) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.email = email;
-        this.age = age;
+        this.birthDate = birthDate;
         this.number = number;
-        this.nickName = nickName;
-        this.password = password;
     }
 
     public String getFirstName() {
@@ -43,12 +41,12 @@ public class Client {
         this.email = email;
     }
 
-    public int getAge() {
-        return age;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public int getNumber() {
@@ -57,21 +55,5 @@ public class Client {
 
     public void setNumber(int number) {
         this.number = number;
-    }
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
