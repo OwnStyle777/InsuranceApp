@@ -1,6 +1,13 @@
 package com.example.InsuranceApplication;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "insurance")
 public class Insurance {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String identificationNumberOfInsured;
     private int insuranceNumber;
     private String nameOfInsuranceCompany;

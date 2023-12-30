@@ -1,22 +1,18 @@
 package com.example.InsuranceApplication.client;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
 @Table (name = "personalData")
 public class PersonalData {
-    @Column (name = "firstName")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String firstName;
-    @Column (name = "secondName")
     private String secondName;
-    @Column (name = "email")
     private String email;
-    @Column (name = "birthDate")
     private Date birthDate;
-    @Column (name = "number")
     private int number;
 
     public PersonalData(String firstName, String secondName, String email, Date birthDate, int number) {

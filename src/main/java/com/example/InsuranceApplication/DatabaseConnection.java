@@ -32,13 +32,4 @@ public class DatabaseConnection {
 
     }
 
-//            statement = connection.createStatement();
-//
-//          statement.execute("CREATE TABLE IF NOT EXISTS clients (" +
-//             "name varchar NOT NULL," +
-//                  "surname varchar NOT NULL," +
-//                "email INTEGER NOT NULL PRIMARY KEY" +
-//                  ")");
-
-
 }

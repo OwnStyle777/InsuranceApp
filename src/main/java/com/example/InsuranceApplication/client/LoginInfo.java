@@ -1,15 +1,15 @@
 package com.example.InsuranceApplication.client;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "loginInfo")
 public class LoginInfo {
-    @Column (name = "nickName")
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nickName;
-    @Column (name = "password")
     private String password;
 
     public LoginInfo(String nickName, String password) {

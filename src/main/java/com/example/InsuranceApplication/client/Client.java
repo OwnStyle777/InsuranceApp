@@ -10,11 +10,14 @@ public class Client {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column (name = "personalData")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "personalDataId", referencedColumnName = "id")
     private PersonalData personalData;
-    @Column (name = "loginInfo")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "loginInfoId", referencedColumnName = "id")
     private LoginInfo loginInfo;
-    @Column (name = "insuranceInfo")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "insuranceInfoId", referencedColumnName = "id")
     private Insurance insuranceInfo;
 
     public Client(Long id, PersonalData personalData, LoginInfo loginInfo, Insurance insuranceInfo) {
