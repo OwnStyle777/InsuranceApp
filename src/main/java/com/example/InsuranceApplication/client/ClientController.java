@@ -10,13 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/clients")
-public class clientController {
+public class ClientController {
     @Autowired
     private ClientService clientService;
     @PostMapping("/create")
     public ResponseEntity<Client> createClient(@RequestBody Client client) {
-        Client createdClient = clientService.createClient();
-        return ResponseEntity.ok(createdClient);
+
+
+            Client createdClient = clientService.createClient();
+            return ResponseEntity.ok(createdClient);
+
+
     }
 
 }
