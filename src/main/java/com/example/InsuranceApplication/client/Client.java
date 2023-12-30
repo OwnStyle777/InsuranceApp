@@ -5,16 +5,16 @@ import jakarta.persistence.*;
 
 import java.util.Date;
 @Entity
-@Table(name = "clients")
+@Table (name = "clients")
 public class Client {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "personalData")
+    @Column (name = "personalData")
     private PersonalData personalData;
-    @Column(name = "loginInfo")
+    @Column (name = "loginInfo")
     private LoginInfo loginInfo;
-    @Column(name = "insuranceInfo")
+    @Column (name = "insuranceInfo")
     private Insurance insuranceInfo;
 
     public Client(Long id, PersonalData personalData, LoginInfo loginInfo, Insurance insuranceInfo) {
