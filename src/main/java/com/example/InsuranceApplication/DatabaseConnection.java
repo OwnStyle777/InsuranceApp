@@ -31,8 +31,7 @@ public class DatabaseConnection {
         return dataSource;
 
     }
-
-
+    
 //            statement = connection.createStatement();
 //
 //          statement.execute("CREATE TABLE IF NOT EXISTS meals (" +
