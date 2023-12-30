@@ -11,13 +11,13 @@ public class Client {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "personalDataId", referencedColumnName = "id")
+    @JoinColumn(name = "personal_data_id", referencedColumnName = "id")
     private PersonalData personalData;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "loginInfoId", referencedColumnName = "id")
+    @JoinColumn(name = "login_info_id", referencedColumnName = "id")
     private LoginInfo loginInfo;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "insuranceInfoId", referencedColumnName = "id")
+    @JoinColumn(name = "insurance_info_id", referencedColumnName = "id")
     private Insurance insuranceInfo;
 
     public Client(Long id, PersonalData personalData, LoginInfo loginInfo, Insurance insuranceInfo) {

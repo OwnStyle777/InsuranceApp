@@ -3,7 +3,7 @@ package com.example.InsuranceApplication.client;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "loginInfo")
+@Table(name = "login_info")
 public class LoginInfo {
 
     @Id
