@@ -13,12 +13,6 @@ public class Insurance {
     private String nameOfInsuranceCompany;
     private int birthNumber;
 
-    public Insurance(String identificationNumberOfInsured, int insuranceNumber, String nameOfInsuranceCompany, int birthNumber) {
-        this.identificationNumberOfInsured = identificationNumberOfInsured;
-        this.insuranceNumber = insuranceNumber;
-        this.nameOfInsuranceCompany = nameOfInsuranceCompany;
-        this.birthNumber = birthNumber;
-    }
 
     public String getIdentificationNumberOfInsured() {
         return identificationNumberOfInsured;

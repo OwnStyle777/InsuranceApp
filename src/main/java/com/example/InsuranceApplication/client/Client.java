@@ -20,12 +20,6 @@ public class Client {
     @JoinColumn(name = "insurance_info_id", referencedColumnName = "id")
     private Insurance insuranceInfo;
 
-    public Client(Long id, PersonalData personalData, LoginInfo loginInfo, Insurance insuranceInfo) {
-        this.id = id;
-        this.personalData = personalData;
-        this.loginInfo = loginInfo;
-
-    }
 
     public Long getId() {
         return id;

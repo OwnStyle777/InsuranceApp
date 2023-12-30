@@ -15,13 +15,6 @@ public class PersonalData {
     private Date birthDate;
     private int number;
 
-    public PersonalData(String firstName, String secondName, String email, Date birthDate, int number) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.email = email;
-        this.birthDate = birthDate;
-        this.number = number;
-    }
 
     public String getFirstName() {
         return firstName;
