@@ -2,14 +2,23 @@ package com.example.InsuranceApplication.client;
 
 import com.example.InsuranceApplication.Insurance;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ClientService {
    public Client createClient (){
       Client client = new Client();
-      client.setPersonalData(createPersonalData("ss","a","ada",new Date("6.2.1997"),5));
+          SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+       Date birthDate = null;
+       try {
+           birthDate = sdf.parse("06.02.1997");
+       } catch (ParseException e) {
+           System.out.println("parse ERROR");
+       }
+      client.setPersonalData(createPersonalData("ss","a","ada",birthDate,5));
       client.setLoginInfo(createLoginInfo("haha","aaa"));
-      client.setInsuranceInfo(createInsuranceInfo("sad",55,"sadd",66));
+      client.setInsuranceInfo(createInsuranceInfo("sad",55,"said",66));
 
       return client;
    }
