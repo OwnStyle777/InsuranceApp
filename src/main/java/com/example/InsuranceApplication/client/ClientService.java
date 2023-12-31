@@ -1,12 +1,20 @@
 package com.example.InsuranceApplication.client;
 
 import com.example.InsuranceApplication.Insurance;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Service
 public class ClientService {
+
+
    public Client createClient (){
       Client client = new Client();
           SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
@@ -22,6 +30,7 @@ public class ClientService {
 
       return client;
    }
+
    public PersonalData createPersonalData(String firstName, String secondName, String email, Date birthDate, int number){
        PersonalData personalData = new PersonalData();
        personalData.setFirstName(firstName);

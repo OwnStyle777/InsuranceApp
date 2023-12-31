@@ -8,18 +8,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 
 public class ClientController {
-//    @Autowired
-//    private ClientService clientService;
-//    @PostMapping("/create")
-//    public ResponseEntity<Client> createClient(@RequestBody Client client) {
-//
-//
-//        Client createdClient = clientService.createClient();
-//        return ResponseEntity.ok(createdClient);
-//
-//
-//    }
-
+    @Autowired
+  ClientService clientService;
+    @GetMapping("/clientInfo")
+    public ResponseEntity<String> createClient() {
+        Client createdClient = clientService.createClient();
+        String clientInfo = "Client created: " + createdClient.getPersonalData().getFirstName(); // Príklad, ako by mohol vyzerať reťazec s informáciami o klientovi
+        return ResponseEntity.ok(clientInfo);
+    }
     @GetMapping("/hello")
     public ResponseEntity<String> hello() {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
