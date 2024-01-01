@@ -4,15 +4,13 @@ import java.util.Random;
 
 public class InsuranceDataGeneration {
     public static int generateInsuranceNumber(String insuranceCompany) {
-        switch (insuranceCompany) {
-            case "DOVERA":
-                return 100;
-            case "ALLIANZ":
-                return 150;
+        return switch (insuranceCompany) {
+            case "DOVERA" -> 100;
+            case "ALLIANZ" -> 150;
+
             // Ďalšie poistovne...
-            default:
-                return 0; // Nedefinovaná poistovňa
-        }
+            default -> 0; // Nedefinovaná poistovňa
+        };
     }
 
     public static String generateIdentificationNumber() {
@@ -32,7 +30,7 @@ public class InsuranceDataGeneration {
             int randomDigit = random.nextInt(10); // Náhodné číslice
             identificationNumber.append(randomDigit);
         }
-        
+
         return identificationNumber.toString();
     }
 }

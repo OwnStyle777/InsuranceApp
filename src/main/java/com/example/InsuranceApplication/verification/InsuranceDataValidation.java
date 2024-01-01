@@ -1,6 +1,6 @@
 package com.example.InsuranceApplication.verification;
 
-import com.example.InsuranceApplication.InsuranceCompanies;
+import com.example.InsuranceApplication.insurance.InsuranceCompanies;
 
 public interface InsuranceDataValidation {
     default boolean isBirthNumberValid(int birthNumber){
