@@ -7,8 +7,13 @@ public class InsuranceDataGeneration {
         return switch (insuranceCompany) {
             case "DOVERA" -> 100;
             case "ALLIANZ" -> 150;
-
-            // Ďalšie poistovne...
+            case "UNIQA" -> 200;
+            case "UNION" -> 250;
+            case "KOOPERATIVA" -> 300;
+            case "KOMUNALNA" -> 350;
+            case "CSOB" -> 400;
+            case "WUSTENROT" -> 450;
+            case "METLIFE" -> 500;
             default -> 0; // Nedefinovaná poistovňa
         };
     }
