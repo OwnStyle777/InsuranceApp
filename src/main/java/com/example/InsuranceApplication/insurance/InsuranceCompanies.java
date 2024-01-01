@@ -1,4 +1,4 @@
-package com.example.InsuranceApplication;
+package com.example.InsuranceApplication.insurance;
 
 public enum InsuranceCompanies {
     DOVERA,
