@@ -1,4 +1,4 @@
-package com.example.InsuranceApplication;
+package com.example.InsuranceApplication.insurance;
 
 import jakarta.persistence.*;
 

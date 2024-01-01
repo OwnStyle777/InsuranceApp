@@ -1,9 +1,8 @@
 package com.example.InsuranceApplication.client;
 
-import com.example.InsuranceApplication.Insurance;
+import com.example.InsuranceApplication.insurance.Insurance;
 import jakarta.persistence.*;
 
-import java.util.Date;
 @Entity
 @Table (name = "clients")
 public class Client {

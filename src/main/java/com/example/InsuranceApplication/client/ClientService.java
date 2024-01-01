@@ -1,12 +1,8 @@
 package com.example.InsuranceApplication.client;
 
-import com.example.InsuranceApplication.Insurance;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.InsuranceApplication.insurance.Insurance;
 import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
