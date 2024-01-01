@@ -1,6 +1,6 @@
 package com.example.InsuranceApplication.client;
 
-import jakarta.persistence.Query;
+import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -80,6 +80,24 @@ public class ClientDAO {
             // handle exception
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public boolean isEmailInDatabase(String email) {
+
+        try (Session session = sessionFactory.openSession()) {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<Long> criteriaQuery = builder.createQuery(Long.class);
+            Root<Client> root = criteriaQuery.from(Client.class);
+            criteriaQuery.select(builder.count(root)).where(builder.equal(root.get("loginInfo").get("email"), email));
+
+            Query query = session.createQuery(criteriaQuery);
+            Long count = (Long) query.getSingleResult();
+
+            return count > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }
