@@ -13,20 +13,20 @@ import org.springframework.web.servlet.view.RedirectView;
 public class ClientController implements EmailValidator, PasswordValidator {
     @Autowired
   ClientService clientService;
-    @GetMapping("/clientInfo")
+    @GetMapping ("/clientInfo")
     public ResponseEntity<String> createClient() {
         Client createdClient = clientService.createClient();
         String clientInfo = "Client created: " + createdClient.getPersonalData().getFirstName(); // Príklad, ako by mohol vyzerať reťazec s informáciami o klientovi
         return ResponseEntity.ok(clientInfo);
     }
-    @GetMapping("/hello")
+    @GetMapping ("/hello")
     public ResponseEntity<String> hello() {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
     }
 
 
-    @PostMapping("/login")
-    public ResponseEntity<?> registerUser(@RequestBody LoginInfo loginInfo) {
+    @PostMapping ("/login")
+    public ResponseEntity<?> loginUser(@RequestBody LoginInfo loginInfo) {
 
         String userEmail = loginInfo.getEmail();
         String userPassword = loginInfo.getPassword();
@@ -36,7 +36,7 @@ public class ClientController implements EmailValidator, PasswordValidator {
                 RedirectView redirectView = new RedirectView();
                 redirectView.setUrl("/client");
                 // Vrátenie úspešnej odpovede
-                return ResponseEntity.ok().body("Login success!");
+                return ResponseEntity.ok().body("Login was successful!");
             } else {
 
                 return ResponseEntity.badRequest().body("Password must contain at least one special character, uppercase and lowercase and one digit");
@@ -46,4 +46,13 @@ public class ClientController implements EmailValidator, PasswordValidator {
             return ResponseEntity.badRequest().body("Wrong format of email address.");
         }
     }
+
+    @PostMapping ("/register")
+    public ResponseEntity<?> registerUser(@RequestBody Client client){
+        if(!(client == null)){
+            return ResponseEntity.ok().body("Registration was successful!");
+        }
+       return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");
+    }
+
 }
