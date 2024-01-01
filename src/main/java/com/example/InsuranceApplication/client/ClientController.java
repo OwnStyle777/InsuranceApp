@@ -3,6 +3,7 @@ package com.example.InsuranceApplication.client;
 
 import com.example.InsuranceApplication.verification.EmailValidator;
 import com.example.InsuranceApplication.verification.PasswordValidator;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,17 +25,20 @@ public class ClientController implements EmailValidator, PasswordValidator {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
     }
 
-
+    @Autowired
+    SessionFactory sessionFactory ;
     @PostMapping ("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginInfo loginInfo) {
+
+        ClientDAO dao = new ClientDAO(sessionFactory);
 
         String userEmail = loginInfo.getEmail();
         String userPassword = loginInfo.getPassword();
         if (isEmailValid(userEmail)) {
-
-            if (validatePassword(userPassword)) {
+            Client client = dao.getClientByEmail(userEmail);
+            if (client != null && isPasswordValid(userPassword,client.getLoginInfo().getPassword())) {
                 RedirectView redirectView = new RedirectView();
-                redirectView.setUrl("/client");
+                redirectView.setUrl("/clientInfo");
                 // Vrátenie úspešnej odpovede
                 return ResponseEntity.ok().body("Login was successful!");
             } else {

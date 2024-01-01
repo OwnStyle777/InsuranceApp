@@ -1,5 +1,9 @@
 package com.example.InsuranceApplication.client;
 
+import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +60,22 @@ public class ClientDAO {
     public Client getClientById(Long id) {
         try (Session session = sessionFactory.openSession()) {
             return session.get(Client.class, id);
+        } catch (Exception e) {
+            // handle exception
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Client getClientByEmail(String email) {
+        try (Session session = sessionFactory.openSession()) {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<Client> criteriaQuery = builder.createQuery(Client.class);
+            Root<Client> root = criteriaQuery.from(Client.class);
+            criteriaQuery.select(root).where(builder.equal(root.get("loginInfo").get("email"), email));
+
+            Query query = session.createQuery(criteriaQuery);
+            return (Client) query.getSingleResult();
         } catch (Exception e) {
             // handle exception
             e.printStackTrace();
