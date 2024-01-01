@@ -1,6 +1,7 @@
 package com.example.InsuranceApplication.client;
 
 
+import com.example.InsuranceApplication.verification.ClientValidator;
 import com.example.InsuranceApplication.verification.EmailValidator;
 import com.example.InsuranceApplication.verification.PasswordValidator;
 import org.hibernate.SessionFactory;
@@ -11,7 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 
-public class ClientController implements EmailValidator, PasswordValidator {
+public class ClientController implements EmailValidator, PasswordValidator, ClientValidator {
     @Autowired
     ClientService clientService;
     @Autowired
@@ -54,11 +55,10 @@ public class ClientController implements EmailValidator, PasswordValidator {
     @PostMapping ("/register")
     public ResponseEntity<?> registerUser(@RequestBody Client client){
         ClientDAO dao = new ClientDAO(sessionFactory);
-        if(!(client == null)){
+        if(validateClient(client)){
             dao.saveClient(client);
             return ResponseEntity.ok().body("Registration was successful!");
         }
        return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");
     }
-
 }
