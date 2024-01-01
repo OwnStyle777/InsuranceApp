@@ -11,9 +11,8 @@ public class PersonalData {
     private Long id;
     private String firstName;
     private String secondName;
-    private String email;
     private Date birthDate;
-    private int number;
+    private String number;
 
 
     public String getFirstName() {
@@ -32,14 +31,6 @@ public class PersonalData {
         this.secondName = secondName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public Date getBirthDate() {
         return birthDate;
     }
@@ -48,11 +39,11 @@ public class PersonalData {
         this.birthDate = birthDate;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 }

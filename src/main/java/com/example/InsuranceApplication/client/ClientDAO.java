@@ -37,7 +37,7 @@ public class ClientDAO {
             Client existingClient = session.get(Client.class, updatedClient.getId());
 
             if (existingClient != null) {
-               existingClient = updatedClient;
+                existingClient = updatedClient;
                 session.merge(existingClient);
             }
 

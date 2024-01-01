@@ -13,7 +13,10 @@ import org.springframework.web.servlet.view.RedirectView;
 
 public class ClientController implements EmailValidator, PasswordValidator {
     @Autowired
-  ClientService clientService;
+    ClientService clientService;
+    @Autowired
+    SessionFactory sessionFactory ;
+
     @GetMapping ("/clientInfo")
     public ResponseEntity<String> createClient() {
         Client createdClient = clientService.createClient();
@@ -25,16 +28,13 @@ public class ClientController implements EmailValidator, PasswordValidator {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
     }
 
-    @Autowired
-    SessionFactory sessionFactory ;
     @PostMapping ("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginInfo loginInfo) {
 
         ClientDAO dao = new ClientDAO(sessionFactory);
-
         String userEmail = loginInfo.getEmail();
         String userPassword = loginInfo.getPassword();
-        if (isEmailValid(userEmail)) {
+        if (dao.isEmailInDatabase(userEmail)) {
             Client client = dao.getClientByEmail(userEmail);
             if (client != null && isPasswordValid(userPassword,client.getLoginInfo().getPassword())) {
                 RedirectView redirectView = new RedirectView();
@@ -43,17 +43,19 @@ public class ClientController implements EmailValidator, PasswordValidator {
                 return ResponseEntity.ok().body("Login was successful!");
             } else {
 
-                return ResponseEntity.badRequest().body("Password must contain at least one special character, uppercase and lowercase and one digit");
+                return ResponseEntity.badRequest().body("Password must contain at least one special character, uppercase and lowercase and one digit.");
             }
         } else {
 
-            return ResponseEntity.badRequest().body("Wrong format of email address.");
+            return ResponseEntity.badRequest().body("This email address is not registered.");
         }
     }
 
     @PostMapping ("/register")
     public ResponseEntity<?> registerUser(@RequestBody Client client){
+        ClientDAO dao = new ClientDAO(sessionFactory);
         if(!(client == null)){
+            dao.saveClient(client);
             return ResponseEntity.ok().body("Registration was successful!");
         }
        return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");

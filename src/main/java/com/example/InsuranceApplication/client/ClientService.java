@@ -24,18 +24,17 @@ public class ClientService {
        } catch (ParseException e) {
            System.out.println("parse ERROR");
        }
-      client.setPersonalData(createPersonalData("ss","a","ada",birthDate,5));
+      client.setPersonalData(createPersonalData("ss","ada",birthDate,"aad"));
       client.setLoginInfo(createLoginInfo("haha","aaa"));
       client.setInsuranceInfo(createInsuranceInfo("sad",55,"said",66));
 
       return client;
    }
 
-   public PersonalData createPersonalData(String firstName, String secondName, String email, Date birthDate, int number){
+   public PersonalData createPersonalData(String firstName, String secondName, Date birthDate, String number){
        PersonalData personalData = new PersonalData();
        personalData.setFirstName(firstName);
        personalData.setSecondName(secondName);
-       personalData.setEmail(email);
        personalData.setBirthDate(birthDate);
        personalData.setNumber(number);
        return personalData;
