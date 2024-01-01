@@ -25,8 +25,22 @@ public class ClientDAO {
         }
     }
 
-    public void updateClient(Client client) {
+    public void updateClient(Client updatedClient) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
 
+            // Nájdenie existujúceho klienta podľa ID
+            Client existingClient = session.get(Client.class, updatedClient.getId());
+
+            if (existingClient != null) {
+               existingClient = updatedClient;
+                session.merge(existingClient);
+            }
+
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void deleteClient(Client client) {
