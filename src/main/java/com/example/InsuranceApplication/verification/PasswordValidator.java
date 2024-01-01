@@ -75,8 +75,10 @@ public interface PasswordValidator {
         return passwordEncoder.matches(enteredPassword, hashedPasswordFromDatabase);
     }
 
-   default String getHashedPassword (String password) {
-       PasswordEncoder encoder = new BCryptPasswordEncoder();
-       return encoder.encode(password);
-   }
+    default String getHashedPassword (String password) {
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder.encode(password);
+    }
+
+
 }
