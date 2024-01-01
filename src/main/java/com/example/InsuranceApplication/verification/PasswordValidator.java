@@ -8,23 +8,18 @@ public interface PasswordValidator {
 
     default boolean validatePassword(String password) {
         if (!isPasswordLengthOK(password)) {
-            System.out.println("Password length must be from 10 to 35 characters (inclusive)");
             return false;
         }
         if (!containsPasswordSpecialChar(password)) {
-            System.out.println("Password must contain at least one special character");
             return false;
         }
         if (!containsPasswordDigit(password)) {
-            System.out.println("Password must contain at least one digit");
             return false;
         }
         if (!containsPasswordUppercase(password)) {
-            System.out.println("Password must contain at least one upper case character");
             return false;
         }
         if (!containsPasswordLowercase(password)) {
-            System.out.println("Password must contain at least one lower case character");
             return false;
         }
         return true;

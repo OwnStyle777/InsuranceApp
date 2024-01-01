@@ -41,9 +41,9 @@ public class ClientService {
        return personalData;
    }
 
-   public LoginInfo createLoginInfo(String nickName, String password){
+   public LoginInfo createLoginInfo(String email, String password){
        LoginInfo loginInfo = new LoginInfo();
-       loginInfo.setNickName(nickName);
+       loginInfo.setEmail(email);
        loginInfo.setPassword(password);
        return loginInfo;
    }

@@ -9,16 +9,16 @@ public class LoginInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nickName;
+    private String email;
     private String password;
 
 
-    public String getNickName() {
-        return nickName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
