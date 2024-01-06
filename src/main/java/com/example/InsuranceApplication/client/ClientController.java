@@ -6,9 +6,16 @@ import com.example.InsuranceApplication.verification.EmailValidator;
 import com.example.InsuranceApplication.verification.PasswordValidator;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.swing.text.html.HTML;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 @RestController
 
@@ -60,5 +67,11 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             return ResponseEntity.ok().body("Registration was successful!");
         }
        return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");
+    }
+    @GetMapping("/login")
+    public ResponseEntity<byte[]> showLoginPage() throws IOException {
+        ClassPathResource htmlFile = new ClassPathResource("static/login.html");
+        byte[] html = Files.readAllBytes(Path.of(htmlFile.getURI()));
+        return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(html);
     }
 }
