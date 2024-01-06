@@ -1,0 +1,37 @@
+html,
+body {
+  height: 100%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-sign-in:hover {
+  transform: scale(1.1); /* Zväčšiť tlačidlo o 10% */
+  transition: transform 0.3s ease; /* Plynulý prechod */
+}
+.btn-sign-in {
+  --bs-btn-hover-bg: rgb(2, 30, 82);
+    --bs-btn-hover-border-color: rgb(0, 89, 255);
+  background-color: rgb(0, 89, 255); /* Zmena farby pozadia */
+  color: white; /* Zmena farby textu */
+  font-family:'Lexend Deca', sans-serif;
+
+}
