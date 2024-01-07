@@ -19,13 +19,15 @@ public class ClientDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    public void saveClient(Client client) {
+    public boolean saveClient(Client client) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             session.persist(client);
             session.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 

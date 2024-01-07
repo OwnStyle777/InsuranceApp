@@ -15,8 +15,8 @@ public class InsuranceApplication {
 
 		ClientService clientService = new ClientService();
 
-		Client peter = clientService.createClient();
-		System.out.println(peter + "  here is created client");
+//		Client peter = clientService.createClient();
+//		System.out.println(peter + "  here is created client");
 		SpringApplication.run(InsuranceApplication.class, args);
 	}
 

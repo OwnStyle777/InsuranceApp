@@ -3,7 +3,7 @@ package com.example.InsuranceApplication.insurance;
 import java.util.Random;
 
 public class InsuranceDataGeneration {
-    public static int generateInsuranceNumber(String insuranceCompany) {
+    public int generateInsuranceNumber(String insuranceCompany) {
         return switch (insuranceCompany) {
             case "DOVERA" -> 100;
             case "ALLIANZ" -> 150;
@@ -18,7 +18,7 @@ public class InsuranceDataGeneration {
         };
     }
 
-    public static String generateIdentificationNumber() {
+    public String generateIdentificationNumber() {
         StringBuilder identificationNumber = new StringBuilder();
         Random random = new Random();
         // Generovanie náhodných písmen
