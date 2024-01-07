@@ -74,4 +74,6 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         byte[] html = Files.readAllBytes(Path.of(htmlFile.getURI()));
         return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(html);
     }
+
+    
 }
