@@ -32,6 +32,12 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         String clientInfo = "Client created: " + createdClient.getPersonalData().getFirstName(); // Príklad, ako by mohol vyzerať reťazec s informáciami o klientovi
         return ResponseEntity.ok(clientInfo);
     }
+    @GetMapping("/register")
+    public ResponseEntity<byte[]> showRegisterPage() throws IOException {
+        ClassPathResource htmlFile = new ClassPathResource("static/form.html");
+        byte[] html = Files.readAllBytes(Path.of(htmlFile.getURI()));
+        return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(html);
+    }
     @GetMapping ("/hello")
     public ResponseEntity<String> hello() {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
