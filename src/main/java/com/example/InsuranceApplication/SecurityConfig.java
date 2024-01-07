@@ -19,6 +19,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         //permit for pages below
+                        .requestMatchers("/css/**", "/js/**").permitAll()
                         .requestMatchers("/login/**").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/register/**").permitAll()
