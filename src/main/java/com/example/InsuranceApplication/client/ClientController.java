@@ -7,6 +7,7 @@ import com.example.InsuranceApplication.verification.PasswordValidator;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,28 +37,6 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         return ResponseEntity.ok("Hello, this is a test endpoint!");
     }
 
-    @PostMapping ("/login")
-    public ResponseEntity<?> loginUser(@RequestBody LoginInfo loginInfo) {
-
-        ClientDAO dao = new ClientDAO(sessionFactory);
-        String userEmail = loginInfo.getEmail();
-        String userPassword = loginInfo.getPassword();
-        if (dao.isEmailInDatabase(userEmail)) {
-            Client client = dao.getClientByEmail(userEmail);
-            if (client != null && isPasswordValid(userPassword,client.getLoginInfo().getPassword())) {
-                RedirectView redirectView = new RedirectView();
-                redirectView.setUrl("/clientInfo");
-                // Vrátenie úspešnej odpovede
-                return ResponseEntity.ok().body("Login was successful!");
-            } else {
-
-                return ResponseEntity.badRequest().body("Password must contain at least one special character, uppercase and lowercase and one digit.");
-            }
-        } else {
-
-            return ResponseEntity.badRequest().body("This email address is not registered.");
-        }
-    }
 
     @PostMapping ("/register")
     public ResponseEntity<?> registerUser(@RequestBody Client client){
@@ -75,5 +54,22 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(html);
     }
 
-    
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser (@RequestParam("email") String email, @RequestParam("password") String password){
+        ClientDAO dao = new ClientDAO(sessionFactory);
+        if (dao.isEmailInDatabase(email)) {
+            Client client = dao.getClientByEmail(email);
+            if (client != null && isPasswordValid(password,client.getLoginInfo().getPassword())) {
+                RedirectView redirectView = new RedirectView();
+                redirectView.setUrl("/clientInfo");
+                // Vrátenie úspešnej odpovede
+                return ResponseEntity.ok().body(redirectView);
+            } else {
+
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Password must contain at least one special character, uppercase and lowercase and one digit.");
+            }
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("This email address is not registered.");
+        }
+    }
 }
