@@ -1,6 +1,8 @@
 package com.example.InsuranceApplication.client;
 
+import com.example.InsuranceApplication.RegistrationForm;
 import com.example.InsuranceApplication.insurance.Insurance;
+import com.example.InsuranceApplication.insurance.InsuranceDataGeneration;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -9,47 +11,41 @@ import java.util.Date;
 
 @Service
 public class ClientService {
+   public Client createClient (RegistrationForm registrationForm){
+       Client client = new Client();
+       client.setPersonalData(createPersonalData(registrationForm));
+       client.setLoginInfo(createLoginInfo(registrationForm));
+       client.setInsuranceInfo(createInsuranceInfo(registrationForm));
 
+       return client;
 
-   public Client createClient (){
-      Client client = new Client();
-          SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-       Date birthDate = null;
-       try {
-           birthDate = sdf.parse("06.02.1997");
-       } catch (ParseException e) {
-           System.out.println("parse ERROR");
-       }
-      client.setPersonalData(createPersonalData("ss","ada",birthDate,"aad"));
-      client.setLoginInfo(createLoginInfo("haha","aaa"));
-      client.setInsuranceInfo(createInsuranceInfo("sad",55,"said",66));
-
-      return client;
    }
 
-   public PersonalData createPersonalData(String firstName, String secondName, Date birthDate, String number){
+   public PersonalData createPersonalData(RegistrationForm registrationForm){
+
        PersonalData personalData = new PersonalData();
-       personalData.setFirstName(firstName);
-       personalData.setSecondName(secondName);
-       personalData.setBirthDate(birthDate);
-       personalData.setNumber(number);
+       personalData.setFirstName(registrationForm.getFirstName());
+       personalData.setSecondName(registrationForm.getLastName());
+       personalData.setBirthDate(new Date(registrationForm.getBirthDate()));
+       personalData.setNumber(registrationForm.getPhoneNumber());
        return personalData;
    }
 
-   public LoginInfo createLoginInfo(String email, String password){
+   public LoginInfo createLoginInfo(RegistrationForm registrationForm){
        LoginInfo loginInfo = new LoginInfo();
-       loginInfo.setEmail(email);
-       loginInfo.setPassword(password);
+       loginInfo.setEmail(registrationForm.getEmail());
+       loginInfo.setPassword(registrationForm.getPassword());
        return loginInfo;
    }
 
-   public Insurance createInsuranceInfo(String identificationNumberOfInsured, int insuranceNumber, String nameOfInsuranceCompany, int birthNumber){
+   public Insurance createInsuranceInfo(RegistrationForm registrationForm){
        Insurance insuranceInfo = new Insurance();
+       InsuranceDataGeneration dataGeneration  = new InsuranceDataGeneration();
 
-       insuranceInfo.setIdentificationNumberOfInsured(identificationNumberOfInsured);
-       insuranceInfo.setInsuranceNumber(insuranceNumber);
-       insuranceInfo.setNameOfInsuranceCompany(nameOfInsuranceCompany);
-       insuranceInfo.setBirthNumber(birthNumber);
+       insuranceInfo.setIdentificationNumberOfInsured(dataGeneration.generateIdentificationNumber());
+       insuranceInfo.setInsuranceNumber(dataGeneration.generateInsuranceNumber(registrationForm.getInsuranceCompany()));
+       insuranceInfo.setNameOfInsuranceCompany(registrationForm.getInsuranceCompany());
+       insuranceInfo.setBirthNumber(Integer.parseInt(registrationForm.getBirthNumber()));
 
        return insuranceInfo;
 
