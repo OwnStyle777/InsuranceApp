@@ -88,7 +88,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <label for="firstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required style="width: 350px;">
+                    <input type="text" class="form-control" id="firstName"name="firstName" placeholder="" value="" required style="width: 350px;">
                     <div class="invalid-feedback">
                       Valid first name is required.
                     </div>
@@ -96,7 +96,7 @@
 
                   <div class="col-md-12">
                     <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required style="width: 350px;">
+                    <input type="text" class="form-control" id="lastName"name="lastName" placeholder="" value="" required style="width: 350px;">
                     <div class="invalid-feedback">
                       Valid last name is required.
                     </div>
@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-12">
                   <label for="email" class="form-label">Email <span class="text-body-secondary"></span></label>
-                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                   <div class="invalid-feedback">
                     Please enter a valid email address.
                   </div>
@@ -112,7 +112,7 @@
 
                 <div class="col-12 ">
                   <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password" placeholder="" required>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="" required>
                 </div>
                 <div class="invalid-feedback">
                   Your password is required
@@ -122,20 +122,20 @@
 
                 <div class="col-12">
                   <label for="birth date" class="form-label">Birth date <span class="text-body-secondary"></span></label>
-                  <input type="text" class="form-control" id="birth date" placeholder="01.01.2000">
+                  <input type="text" class="form-control" id="birth date" name="birtDate" placeholder="01.01.2000">
                 </div>
                 <div class="col-12">
                   <label for="birth number" class="form-label">Birth number <span class="text-body-secondary"></span></label>
-                  <input type="text" class="form-control" id="birth number" placeholder="Please enter valid birth number without slash">
+                  <input type="text" class="form-control" id="birth number" name="birthNumber" placeholder="Please enter valid birth number without slash">
                 </div>
                 <div class="col-12">
                   <label for="phone number" class="form-label">Phone number <span class="text-body-secondary"></span></label>
-                  <input type="text" class="form-control" id="phone number" placeholder="+ 421(0)9 xx xxx xxx">
+                  <input type="text" class="form-control" id="phone number" name="phoneNumber" placeholder="+ 421(0)9 xx xxx xxx">
                 </div>
 
                 <div class="col-md-12">
                   <label for="insurance company" class="form-label">Insurance Company</label>
-                  <select class="form-select" id="insurance" required>
+                  <select class="form-select" id="insurance" name="insuranceCompany" required>
                     <option value="">Please select your...</option>
                     <option>Dovera</option>
                     <option>Allianz</option>
