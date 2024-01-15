@@ -5,7 +5,7 @@ import java.util.Random;
 public class InsuranceDataGeneration {
     public int generateInsuranceNumber(String insuranceCompany) {
         if (insuranceCompany == null ){
-            insuranceCompany = "DOVERA";
+            insuranceCompany = "NOT DEFINED";
         }
         return switch (insuranceCompany) {
             case "DOVERA" -> 100;
