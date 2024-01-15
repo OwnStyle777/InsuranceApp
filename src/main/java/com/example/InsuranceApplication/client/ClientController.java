@@ -22,12 +22,9 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
     @Autowired
     SessionFactory sessionFactory ;
 
-
-    @PostMapping(value = "/login", consumes = {"application/json"}, produces = {"application/json"})
-    public ResponseEntity<?> loginUser ( @RequestBody LoginForm loginForm) {
-        String email = loginForm.getEmail();
-        String password = loginForm.getPassword();
-
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser ( @RequestParam String email,
+                                         @RequestParam String password) {
 
         ClientDAO dao = new ClientDAO(sessionFactory);
         System.out.println("email adress : " + email);
@@ -47,10 +44,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("This email address is not registered.");
         }
     }
-
-
-
-
+    
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(
             @RequestParam("firstName") String firstName,
