@@ -1,25 +1,30 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head><script src="color-modes.js"></script>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
+<html lang="en" data-bs-theme="auto" xmlns:th="http://www.w3.org/1999/xhtml"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
+  <!-- CSS štýly -->
+  <link th:href="@{/client.css}" rel="stylesheet">
+  <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link rel="stylesheet" href="clientCustomStyles.css">
+  <!-- JS skripty -->
+  <script th:src="@{/color-modes.js}"></script>
+  <script th:src="@{/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/sign-in.js}"></script>
 
-<link href="bootstrap.min.css" rel="stylesheet">
- 
-    <!-- Custom styles for this template -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="client.css" rel="stylesheet">
-  </head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+
+  <!-- Ostatné odkazy -->
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend+Deca&family=Noto+Sans:wght@500&family=Orbitron&family=Space+Grotesk&family=Teko&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
   <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -276,8 +281,5 @@
 
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
-
-<script src="bootstrap.bundle.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.2/dist/chart.umd.js" integrity="sha384-eI7PSr3L1XLISH8JdDII5YN/njoSsxfbrkCTnJrzXt+ENP5MOVBxD+l6sEG4zoLp" crossorigin="anonymous"></script><script src="dashboard.js"></script></body>
+</body>
 </html>
