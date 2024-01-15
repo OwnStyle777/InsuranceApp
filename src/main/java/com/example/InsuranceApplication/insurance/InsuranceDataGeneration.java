@@ -17,6 +17,7 @@ public class InsuranceDataGeneration {
             case "CSOB" -> 400;
             case "WUSTENROT" -> 450;
             case "METLIFE" -> 500;
+            case "GENERALI" -> 550;
             default -> 0; // Nedefinovaná poistovňa
         };
     }

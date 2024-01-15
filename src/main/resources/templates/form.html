@@ -90,7 +90,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <label for="firstName" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="firstName"name="firstName" placeholder="" value="" required style="width: 350px;">
+                    <input type="text" class="form-control" id="firstName"name="firstName" placeholder="With leading uppercase" required pattern="^[A-Z][A-Za-z\s\u0027\u002D]*"  value="" style="width: 350px;">
                     <div class="invalid-feedback">
                       Valid first name is required.
                     </div>
@@ -98,7 +98,7 @@
 
                   <div class="col-md-12">
                     <label for="lastName" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="lastName"name="lastName" placeholder="" value="" required style="width: 350px;">
+                    <input type="text" class="form-control" id="lastName"name="lastName" placeholder="With leading uppercase" required pattern="^[A-Z][A-Za-z\s\u0027\u002D]*" value="" style="width: 350px;">
                     <div class="invalid-feedback">
                       Valid last name is required.
                     </div>
@@ -108,23 +108,23 @@
                   <label for="email" class="form-label">Email <span class="text-body-secondary"></span></label>
                   <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                   <div class="invalid-feedback">
-                    Please enter a valid email address.
+                    Please enter a valid email address
                   </div>
                 </div>
-
                 <div class="col-12 ">
                   <label th:for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" th:id="password" name="password" placeholder="" required>
-                </div>
+                  <input type="password" class="form-control" th:id="password" name="password" placeholder="Please enter a valid password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])\S{10,}$">
+
                 <div class="invalid-feedback">
-                  Your password is required
+                  Enter the correct format of the password: at least 10 characters, must contain at least one uppercase, one lowercase, one digit, and one of the following special characters: @#$%^&+=!
+                </div>
                 </div>
 
-                <i class="fas fa-eye" th:id="eye" ></i> <!-- Toto je ikona oka -->
+                <i class="fas fa-eye" th:id="eye"></i> <!-- Toto je ikona oka -->
 
                 <div class="col-12">
                   <label for="birthDate" class="form-label">Birth date <span class="text-body-secondary"></span></label>
-                  <input type="text" class="form-control" id="birthDate" name="birthDate" placeholder="01.01.2000">
+                  <input type="text" class="form-control" id="birthDate" name="birthDate" placeholder="MM.DD.19YY">
                 </div>
                 <div class="col-12">
                   <label for="birthNumber" class="form-label">Birth number <span class="text-body-secondary"></span></label>
@@ -148,7 +148,7 @@
                     <option value="CSOB">CSOB</option>
                     <option value="WUSTENROT">WUSTENROT</option>
                     <option value="METLIFE">METLIFE</option>
-                    <option value="UNION">METLIFE</option>
+                    <option value="UNION">UNION</option>
 
                   </select>
                   <div class="invalid-feedback">
