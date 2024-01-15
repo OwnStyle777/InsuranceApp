@@ -1,5 +1,14 @@
 package com.example.InsuranceApplication;
 
+import jakarta.persistence.Entity;
+import jdk.jfr.DataAmount;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class RegistrationForm {
     private String firstName;
     private String lastName;
@@ -9,6 +18,20 @@ public class RegistrationForm {
     private String birthNumber;
     private String phoneNumber;
     private String insuranceCompany;
+
+    @Override
+    public String toString() {
+        return "RegistrationForm{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", birthDate=" + birthDate +
+                ", birthNumber='" + birthNumber + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", insuranceCompany='" + insuranceCompany + '\'' +
+                '}';
+    }
 
     public String getFirstName() {
         return firstName;
@@ -54,7 +77,7 @@ public class RegistrationForm {
         return birthNumber;
     }
 
-    public void setBirthNumber(String birthNumber) {
+    public void setBirthNumber (String birthNumber) {
         this.birthNumber = birthNumber;
     }
 

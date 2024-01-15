@@ -81,7 +81,7 @@
           <div class="col-md-5 col-lg-4 order-md-last">
             <div class="col-md-7 col-lg-8">
               <h4 class="mb-3">Registration data</h4>
-              <form  class="needs-validation" novalidate method="POST" action="/Insurance/register" enctype="application/x-www-form-urlencoded">
+              <form  class="needs-validation" id="form" novalidate method="POST" action="/Insurance/register" enctype="application/json">
 
                 <div class="row">
                   <div class="col-md-12">
@@ -119,38 +119,38 @@
                 <i class="fas fa-eye" id="eye" ></i> <!-- Toto je ikona oka -->
 
                 <div class="col-12">
-                  <label for="birth date" class="form-label">Birth date <span class="text-body-secondary"></span></label>
-                  <input type="text" class="form-control" id="birth date" name="birtDate" placeholder="01.01.2000">
+                  <label for="birthDate" class="form-label">Birth date <span class="text-body-secondary"></span></label>
+                  <input type="text" class="form-control" id="birthDate" name="birthDate" placeholder="01.01.2000">
                 </div>
                 <div class="col-12">
-                  <label for="birth number" class="form-label">Birth number <span class="text-body-secondary"></span></label>
-                  <input type="text" class="form-control" id="birth number" name="birthNumber" placeholder="Please enter valid birth number without slash">
+                  <label for="birthNumber" class="form-label">Birth number <span class="text-body-secondary"></span></label>
+                  <input type="text" class="form-control" id="birthNumber" name="birthNumber" placeholder="Please enter valid birth number without slash">
                 </div>
                 <div class="col-12">
-                  <label for="phone number" class="form-label">Phone number <span class="text-body-secondary"></span></label>
-                  <input type="text" class="form-control" id="phone number" name="phoneNumber" placeholder="+ 421(0)9 xx xxx xxx">
+                  <label for="phoneNumber" class="form-label">Phone number <span class="text-body-secondary"></span></label>
+                  <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="+ 421(0)9 xx xxx xxx">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="insurance company" class="form-label">Insurance Company</label>
-                  <select class="form-select" id="insurance" name="insuranceCompany" required>
+                  <label for="insurance" class="form-label">Insurance Company</label>
+                  <select class="form-select" id="insurance" name="insurance" required>
                     <option value="">Please select your...</option>
-                    <option>Dovera</option>
-                    <option>Allianz</option>
-                    <option>Generali</option>
-                    <option>Uniqua</option>
-                    <option>Kooperativa</option>
-                    <option>Komunalna</option>
-                    <option>CSOB</option>
-                    <option>Wustenrot</option>
-                    <option>Metlife</option>
+                    <option value="DOVERA">DOVERA</option>
+                    <option value="ALLIANZ">ALLIANZ</option>
+                    <option value="GENERALI">GENERALI</option>
+                    <option value="UNIQUA">UNIQUA</option>
+                    <option value="KOOPERATIVA">KOOPERATIVA</option>
+                    <option value="KOMUNALNA">KOMUNALNA</option>
+                    <option value="CSOB">CSOB</option>
+                    <option value="WUSTENROT">WUSTENROT</option>
+                    <option value="METLIFE">METLIFE</option>
                   </select>
                   <div class="invalid-feedback">
                     Please select a valid insurance company.
                   </div>
                 </div>
                 <div style="height: 20px;"></div>
-                <button class="w-100 btn btn-primary btn-lg" id="continue" type="submit">Continue </button>
+                <button class="w-100 btn btn-primary btn-lg" id="continue" type="submit"  onclick="sendData(this.form)">Continue </button>
               </form>
             </div>
       </main>
