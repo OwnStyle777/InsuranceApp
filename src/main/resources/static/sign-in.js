@@ -1,36 +1,27 @@
-function sendData (){
 
- const login = document.getElementById('login');
+        function sendData(form) {
 
-//  const loginInfo = {
-//        "email": login.querySelector('#email').value,
-//        "password": login.querySelector('#password').value,
-//     };
+                  // Clear the login cookie
+                     document.cookie = "login=";
 
-       fetch('/Insurance/login', {
-           method: 'POST',
-           headers: {
-               'Content-Type': 'application/json',
-               'Accept': 'application/json',
-               'Origin': 'http://localhost:8080'
-           },
-           body: JSON.stringify({
-                  email: login.querySelector('#email').value,
-                  password: login.querySelector('#password').value
-              })
-       })
-       .then(response => {
-           console.log('Response status code:', response.status);
-
-           if (!response.ok) {
-               throw new Error(`Registration failed with status: ${response.status}`);
-           }
-           console.log('Registration successful!');
-           window.location.href = "/Insurance/clientInfo";
-
-       })
-       .catch(error => {
-           console.error('Error during registration:', error.message);
-       });
-
-}
+             const formData = new FormData(login);
+                 // Send the loginData object to the Spring POST method
+                 fetch("/Insurance/login", {
+                     method: "POST",
+                     body: formData
+                 })
+                     .then(response => {
+                         if (response.status === 200) {
+                             // Registration was successful
+                             alert("Prihlásenie bolo úspešné!");
+                              window.location.href = "/Insurance/clientInfo";
+                         } else {
+                             // Registration failed
+                             alert("Prihlásenie bolo neúspešné!");
+                         }
+                     })
+                     .catch(error => {
+                         // An error occurred
+                         alert(error);
+                     });
+             }
