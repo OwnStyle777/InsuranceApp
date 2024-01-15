@@ -32,10 +32,8 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         if (dao.isEmailInDatabase(email)) {
             Client client = dao.getClientByEmail(email);
             if (client != null && isPasswordLengthOK(password)) {
-                RedirectView redirectView = new RedirectView();
-                redirectView.setUrl("/clientInfo");
 
-                return ResponseEntity.ok().header("Location", "/clientInfo").build();
+                return ResponseEntity.ok().body("Login was successful.");
             } else {
 
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Password must contain at least one special character, uppercase and lowercase and one digit.");
@@ -44,7 +42,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("This email address is not registered.");
         }
     }
-    
+
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(
             @RequestParam("firstName") String firstName,
