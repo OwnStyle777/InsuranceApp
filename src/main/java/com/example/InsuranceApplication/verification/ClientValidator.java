@@ -9,7 +9,9 @@ import java.util.Date;
 
 public interface ClientValidator extends PersonalDataValidation, InsuranceDataValidation, PasswordValidator, EmailValidator{
 
-    default boolean validateClient (Client client){
+    default  boolean validateClient(Client client){
+
+        System.out.println("Validating client: " + client.toString());
         Insurance insurance = client.getInsuranceInfo();
         PersonalData personalData = client.getPersonalData();
         LoginInfo loginInfo = client.getLoginInfo();
@@ -18,13 +20,13 @@ public interface ClientValidator extends PersonalDataValidation, InsuranceDataVa
     default boolean validatePersonalData (PersonalData personalData){
         String firstName = personalData.getFirstName();
         String secondName = personalData.getSecondName();
-        Date birthDate = personalData.getBirthDate();
+        String birthDate = personalData.getBirthDate();
         String number = personalData.getNumber();
 
-        return isDateValid(String.valueOf(birthDate)) && isNumberValid(number) && isNameValid(firstName) && isNameValid(secondName);
+        return isDateValid(birthDate) && isNumberValid(number) && isNameValid(firstName) && isNameValid(secondName);
     }
     default boolean validateInsuranceData (Insurance insurance){
-        int birthNumber = insurance.getBirthNumber();
+        String birthNumber = insurance.getBirthNumber();
         String insuranceCompany = insurance.getNameOfInsuranceCompany();
 
         return isBirthNumberValid(birthNumber) && isValidInsuranceCompany(insuranceCompany);

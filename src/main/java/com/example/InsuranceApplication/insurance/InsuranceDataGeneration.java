@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class InsuranceDataGeneration {
     public int generateInsuranceNumber(String insuranceCompany) {
+        if (insuranceCompany == null ){
+            insuranceCompany = "DOVERA";
+        }
         return switch (insuranceCompany) {
             case "DOVERA" -> 100;
             case "ALLIANZ" -> 150;

@@ -11,7 +11,7 @@ public class Insurance {
     private String identificationNumberOfInsured;
     private int insuranceNumber;
     private String nameOfInsuranceCompany;
-    private int birthNumber;
+    private String birthNumber;
 
 
     public String getIdentificationNumberOfInsured() {
@@ -38,11 +38,11 @@ public class Insurance {
         this.nameOfInsuranceCompany = nameOfInsuranceCompany;
     }
 
-    public int getBirthNumber() {
+    public String getBirthNumber() {
         return birthNumber;
     }
 
-    public void setBirthNumber(int birthNumber) {
+    public void setBirthNumber(String birthNumber) {
         this.birthNumber = birthNumber;
     }
 }

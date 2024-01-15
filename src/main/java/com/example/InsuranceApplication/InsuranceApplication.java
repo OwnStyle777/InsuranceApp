@@ -1,22 +1,22 @@
 package com.example.InsuranceApplication;
 
+import com.example.InsuranceApplication.forms.RegistrationForm;
 import com.example.InsuranceApplication.client.Client;
 import com.example.InsuranceApplication.client.ClientService;
+import com.example.InsuranceApplication.verification.ClientValidator;
+import com.example.InsuranceApplication.verification.PersonalDataValidation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
-import java.sql.PreparedStatement;
+import java.text.ParseException;
+
 
 @SpringBootApplication
-public class InsuranceApplication {
+public class InsuranceApplication  implements ClientValidator  {
 
-	public static void main(String[] args) {
 
-		ClientService clientService = new ClientService();
+	public  static void main(String[] args)  {
 
-//		Client peter = clientService.createClient();
-//		System.out.println(peter + "  here is created client");
 		SpringApplication.run(InsuranceApplication.class, args);
 	}
 

@@ -3,8 +3,8 @@ package com.example.InsuranceApplication.verification;
 import com.example.InsuranceApplication.insurance.InsuranceCompanies;
 
 public interface InsuranceDataValidation {
-    default boolean isBirthNumberValid(int birthNumber){
-        return String.valueOf(birthNumber).length() == 10;
+    default boolean isBirthNumberValid(String birthNumber){
+        return birthNumber.length() == 10;
     }
 
     default boolean isValidInsuranceCompany(String company) {

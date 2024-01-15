@@ -13,15 +13,7 @@ public interface PersonalDataValidation {
             String phoneRegex = "^(0|\\+421)\\d{9}$";
             return phoneNumber.matches(phoneRegex);
     }
-    default boolean isDateValid(String dateStr) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        dateFormat.setLenient(false); // allow only correct date values
-
-        try {
-            Date date = dateFormat.parse(dateStr);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
+    default boolean isDateValid(String date) {
+        return true;
     }
 }

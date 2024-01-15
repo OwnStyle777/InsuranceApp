@@ -20,26 +20,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 }
 
-//dependencies {
-//
-//	implementation 'org.springframework.boot:spring-boot-starter'
-//	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-//	implementation 'org.springframework.boot:spring-boot-starter-web'
-//
-//	implementation 'com.google.zxing:core:3.5.2'
-//	implementation 'com.google.zxing:javase:3.5.2'  //qr codes encoding library
-//
-//
-//}
+
 
 tasks.named('test') {
 	useJUnitPlatform()

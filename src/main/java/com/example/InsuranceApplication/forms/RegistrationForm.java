@@ -1,13 +1,4 @@
-package com.example.InsuranceApplication;
-
-import jakarta.persistence.Entity;
-import jdk.jfr.DataAmount;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
+package com.example.InsuranceApplication.forms;
 
 public class RegistrationForm {
     private String firstName;

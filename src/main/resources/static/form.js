@@ -1,83 +1,82 @@
 (() => {
-  'use strict'
+  'use strict';
 
-  const forms = document.querySelectorAll('.needs-validation')
+  function setupPasswordToggle() {
+    const togglePassword = document.getElementById('eye');
+    const passwordField = document.getElementById('password');
 
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
+    if (togglePassword && passwordField) {
+      togglePassword.addEventListener('click', function () {
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        this.textContent = type === 'password' ? ' Show' : ' Hide';
+      });
+    } else {
+      console.error('Elementy neboli nájdené.');
+    }
+  }
 
-      form.classList.add('was-validated')
-    }, false)
-  })
+  function setupContinueButton() {
+    const continueField = document.getElementById('continue');
 
-  const togglePassword = document.getElementById('eye');
-  const passwordField = document.getElementById('password');
+    // Event listener for button size change on mouse hover
+    continueField.addEventListener('mouseenter', () => {
+      continueField.style.transform = 'scale(1.1)';
+      continueField.style.transition = 'transform 0.3s ease';
+    });
 
-  togglePassword.addEventListener('click', function() {
-    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordField.setAttribute('type', type);
-    this.textContent = type === 'password' ? ' Show' : ' Hide';
+    continueField.addEventListener('mouseleave', () => {
+      continueField.style.transform = 'scale(1)';
+    });
+  }
+
+  function setupForms() {
+    const forms = document.querySelectorAll('.needs-validation');
+
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    setupPasswordToggle();
+    setupContinueButton();
+    setupForms();
   });
-
-  const continueField = document.getElementById('continue');
-
-  // Event listener for button size change on mouse hover
-  continueField.addEventListener('mouseenter', () => {
-    continueField.style.transform = 'scale(1.1)';
-    continueField.style.transition = 'transform 0.3s ease';
-  });
-
-  continueField.addEventListener('mouseleave', () => {
-    continueField.style.transform = 'scale(1)';
-  });
-
 
 })();
 
 
- function sendData() {
-    const form = document.getElementById('form');
-    const insuranceSelect = form.querySelector('#insurance');
-    const selectedInsurance = insuranceSelect.options[insuranceSelect.selectedIndex].value;
+function sendData(form) {
 
-    const data = {
-       "firstName": form.querySelector('#firstName').value,
-       "lastName": form.querySelector('#lastName').value,
-       "email": form.querySelector('#email').value,
-       "password": form.querySelector('#password').value,
-       "birthDate": form.querySelector('#birthDate').value, // ISO 8601 format
-       "birthNumber": form.querySelector('#birthNumber').value,
-       "phoneNumber": form.querySelector('#phoneNumber').value,
-       "insuranceCompany": selectedInsurance
-    };
-    console.log('Před pokusem o přístup k error');
-    console.log('Hodnota něco:', data); // Přidejte výpis hodnoty něco
+     // Clear the registration cookie
+        document.cookie = "registration=";
 
-  fetch('/Insurance/register', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Origin': 'http://localhost:8080'
-      },
-      body: JSON.stringify(data)
-  })
-  .then(response => {
-      console.log('Response status code:', response.status);
-
-      if (!response.ok) {
-          throw new Error(`Registration failed with status: ${response.status}`);
-      }
-      console.log('Registration successful!');
-      window.location.href = "/Insurance/login";
-      console.log('Přístup k error:', data.error || 'Vlastnost "error" neexistuje nebo je hodnota null/undefined.');
-      console.log('Po pokusu o přístup k error');
-  })
-  .catch(error => {
-      console.error('Error during registration:', error.message);
-  });
- }
+const formData = new FormData(form);
+    // Send the FormData object to the Spring POST method
+    fetch("/Insurance/register", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => {
+            if (response.status === 200) {
+                // Registration was successful
+                alert("Registrácia bola úspešná!");
+                 window.location.href = "/Insurance/login";
+            } else {
+                // Registration failed
+                alert("Registrácia bola neúspešná!");
+            }
+        })
+        .catch(error => {
+            // An error occurred
+            alert(error);
+        });
+}

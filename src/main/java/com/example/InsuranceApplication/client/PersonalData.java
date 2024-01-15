@@ -11,7 +11,7 @@ public class PersonalData {
     private Long id;
     private String firstName;
     private String secondName;
-    private Date birthDate;
+    private String birthDate;
     private String number;
 
 
@@ -31,11 +31,11 @@ public class PersonalData {
         this.secondName = secondName;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
