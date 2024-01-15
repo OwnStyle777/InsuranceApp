@@ -16,6 +16,16 @@ public class InsuranceApplication  implements ClientValidator  {
 
 
 	public  static void main(String[] args)  {
+		ClientValidator clientValidator  = new ClientValidator() {
+			@Override
+			public boolean isDateValid(String date) {
+				return ClientValidator.super.isDateValid(date);
+			}
+		};
+		String date = "01-01-2000";
+		System.out.println(clientValidator.isDateValid(date));
+
+
 
 		SpringApplication.run(InsuranceApplication.class, args);
 	}

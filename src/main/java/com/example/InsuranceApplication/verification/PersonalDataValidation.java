@@ -14,6 +14,7 @@ public interface PersonalDataValidation {
             return phoneNumber.matches(phoneRegex);
     }
     default boolean isDateValid(String date) {
-        return true;
+        String dateRegex = "^(0[1-9]|1[0-2])[.-](0[1-9]|1[0-9]|2[0-9]|3[01])[.-](19\\d{2}|20\\d{2})$";
+        return date.matches(dateRegex);
     }
 }
