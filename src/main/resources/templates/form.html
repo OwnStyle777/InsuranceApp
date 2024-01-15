@@ -1,19 +1,23 @@
-<!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head><script src="color-modes.js"></script>
 
+<!doctype html >
+<html lang="en" data-bs-theme="auto" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <!-- CSS štýly -->
+    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/form.css}" rel="stylesheet">
+    <link th:href="@{/customStyles.css}" rel="stylesheet">
+
+    <!-- JS skripty -->
+    <script th:src="@{/color-modes.js}"></script>
+    <script th:src="@{/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/form.js}"></script>
+
+    <!-- Ostatné odkazy -->
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="form.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link href="form.css" rel="stylesheet">
 
   </head>
   <body class="bg-body-tertiary">
@@ -72,7 +76,7 @@
     <div class="container">
       <main>
         <div class="py-5 text-center">
-          <img class="d-block mx-auto mb-4" src="favpng_logo-blue-removebg.png" alt="" width="200" height="170">
+          <img class="d-block mx-auto mb-4" th:src="@{/favpng_logo-blue-removebg.png}" alt="" width="200" height="170">
           <h2>Register form</h2>
           <p class="lead">Register to explore a variety of insurance options tailored to your needs. Our platform offers a seamless registration process, providing access to a range of insurance providers and plans.</p>
         </div>
@@ -109,14 +113,14 @@
                 </div>
 
                 <div class="col-12 ">
-                  <label for="password" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="password" name="password" placeholder="" required>
+                  <label th:for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" th:id="password" name="password" placeholder="" required>
                 </div>
                 <div class="invalid-feedback">
                   Your password is required
                 </div>
 
-                <i class="fas fa-eye" id="eye" ></i> <!-- Toto je ikona oka -->
+                <i class="fas fa-eye" th:id="eye" ></i> <!-- Toto je ikona oka -->
 
                 <div class="col-12">
                   <label for="birthDate" class="form-label">Birth date <span class="text-body-secondary"></span></label>
@@ -144,6 +148,8 @@
                     <option value="CSOB">CSOB</option>
                     <option value="WUSTENROT">WUSTENROT</option>
                     <option value="METLIFE">METLIFE</option>
+                    <option value="UNION">METLIFE</option>
+
                   </select>
                   <div class="invalid-feedback">
                     Please select a valid insurance company.
@@ -165,8 +171,6 @@
       <li class="list-inline-item"><a href="#">Support</a></li>
     </ul>
   </footer>
-</div>
-<script src="bootstrap.bundle.min.js"></script>
+</body>
 
-    <script src="form.js"></script></body>
 </html>
