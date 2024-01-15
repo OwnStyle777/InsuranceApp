@@ -4,7 +4,7 @@ public enum InsuranceCompanies {
     DOVERA,
     ALLIANZ,
     GENERALI,
-    UNIQA,
+    UNIQUA,
     UNION,
     KOOPERATIVA,
     KOMUNALNA,
