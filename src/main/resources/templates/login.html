@@ -1,21 +1,25 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
-  <head><script src="color-modes.js"></script>
+<html lang="en" data-bs-theme="auto" xmlns:th="http://www.w3.org/1999/xhtml"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS štýly -->
+  <link th:href="@{/sign-in.css}" rel="stylesheet">
+  <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{/customStyles.css}" rel="stylesheet">
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link href="customStyles.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend+Deca&family=Noto+Sans:wght@500&family=Orbitron&family=Space+Grotesk&family=Teko&display=swap" rel="stylesheet">
+  <!-- JS skripty -->
+  <script th:src="@{/color-modes.js}"></script>
+  <script th:src="@{/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/sign-in.js}"></script>
 
-    <!-- Custom styles for this template -->
-    <link href="sign-in.css" rel="stylesheet">
-  </head>
+  <!-- Ostatné odkazy -->
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend+Deca&family=Noto+Sans:wght@500&family=Orbitron&family=Space+Grotesk&family=Teko&display=swap" rel="stylesheet">
+</head>
   <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -70,8 +74,8 @@
 
     
 <main class="form-signin w-100 m-auto">
-  <form  id="login" novalidate method="POST" action="/Insurance/login"  >
-    <img class="mb-4" src="favpng_logo-blue-removebg.png" alt="" width="300" height="250">
+  <form  id="login" novalidate method="POST"  >
+    <img class="mb-4" th:src="@{/favpng_logo-blue-removebg.png}" alt="" width="300" height="250">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
@@ -94,7 +98,5 @@
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2024</p>
   </form>
 </main>
-<script src="bootstrap.bundle.min.js"></script>
-    <script src="sign-in.js"></script>
     </body>
 </html>
