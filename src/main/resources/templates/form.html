@@ -140,7 +140,7 @@
                 </div>
                 <div class="col-12">
                   <label for="phoneNumber" class="form-label">Phone number <span class="text-body-secondary"></span></label>
-                  <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="+ 421(0)9 xx xxx xxx">
+                  <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="+ 421(0)9 xx xxx xxx"  required pattern="^(0|\+421)\d{9}">
                 </div>
 
                 <div class="col-md-12">
@@ -169,6 +169,7 @@
             </div>
           </div>
         </div>
+        <p class="mt-3 mb-3 text-body-secondary"> You already have account ?  <a href="/Insurance/login">Log in.</a></p>
       </main>
     </div>
 
