@@ -13,6 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
 
@@ -75,5 +78,10 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");
     }
 }
+    @GetMapping("/check-email")
+    public boolean checkEmail(@RequestParam String email) {
+        ClientDAO dao = new ClientDAO(sessionFactory);
+        return dao.isEmailInDatabase(email);
+    }
 
 }
