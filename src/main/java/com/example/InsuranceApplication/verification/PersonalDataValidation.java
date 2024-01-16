@@ -6,7 +6,7 @@ import java.util.Date;
 
 public interface PersonalDataValidation {
     default boolean isNameValid (String name){
-        String nameRegex = "[A-Z][a-zA-z ']+";
+        String nameRegex = "^[A-ZÁÍÉÝŠČŽĆĐĹĽŤÚáíéýščžćđĺľťú][A-Za-zÁÍÉÝŠČŽĆĐĹĽŤÚáíéýščžćđĺľťú\\s'-]+";
         return name.matches(nameRegex) && name.length() >= 2;
     }
     default boolean isNumberValid (String phoneNumber){
