@@ -22,7 +22,7 @@ public interface ClientValidator extends PersonalDataValidation, InsuranceDataVa
         String secondName = personalData.getSecondName();
         String birthDate = personalData.getBirthDate();
         String number = personalData.getNumber();
-
+   
         return isDateValid(birthDate) && isNumberValid(number) && isNameValid(firstName) && isNameValid(secondName);
     }
     default boolean validateInsuranceData (Insurance insurance){

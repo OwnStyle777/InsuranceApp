@@ -16,7 +16,6 @@ public class InsuranceApplication  implements ClientValidator  {
 
 
 	public  static void main(String[] args)  {
-
 		SpringApplication.run(InsuranceApplication.class, args);
 	}
 

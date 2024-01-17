@@ -39,10 +39,10 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
                 return ResponseEntity.ok().body("Login was successful.");
             } else {
 
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Password must contain at least one special character, uppercase and lowercase and one digit.");
+                return ResponseEntity.badRequest().body("Password must contain at least one special character, uppercase and lowercase and one digit.");
             }
         } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("This email address is not registered.");
+            return ResponseEntity.badRequest().body("This email is not registered");
         }
     }
 
@@ -78,8 +78,11 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");
     }
 }
-    @GetMapping("/check-email")
+    @GetMapping("/checkEmail")
+    @ResponseBody
     public boolean checkEmail(@RequestParam String email) {
+        System.out.println(email);
+
         ClientDAO dao = new ClientDAO(sessionFactory);
         return dao.isEmailInDatabase(email);
     }
