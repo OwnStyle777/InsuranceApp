@@ -3,9 +3,12 @@ package com.example.InsuranceApplication.client;
 
 import com.example.InsuranceApplication.forms.LoginForm;
 import com.example.InsuranceApplication.forms.RegistrationForm;
+import com.example.InsuranceApplication.verification.AuthTokenGenerator;
 import com.example.InsuranceApplication.verification.ClientValidator;
 import com.example.InsuranceApplication.verification.EmailValidator;
 import com.example.InsuranceApplication.verification.PasswordValidator;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,8 +29,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
     SessionFactory sessionFactory ;
 
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser ( @RequestParam String email,
-                                         @RequestParam String password) {
+    public ResponseEntity<?> loginUser (@RequestParam String email, @RequestParam String password, HttpServletResponse response) {
 
         ClientDAO dao = new ClientDAO(sessionFactory);
         System.out.println("email adress : " + email);
@@ -35,6 +37,9 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         if (dao.isEmailInDatabase(email)) {
             Client client = dao.getClientByEmail(email);
             if (client != null && isPasswordLengthOK(password)) {
+                // Generate and set authentication token
+                String authToken = AuthTokenGenerator.generateAuthToken();
+                response.addCookie(new Cookie("authToken", authToken));
 
                 return ResponseEntity.ok().body("Login was successful.");
             } else {
