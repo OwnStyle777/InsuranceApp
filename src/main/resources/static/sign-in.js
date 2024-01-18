@@ -2,33 +2,7 @@
   'use strict';
 
 
-        function sendData(form) {
 
-                  // Clear the login cookie
-                     document.cookie = "login=";
-
-             const formData = new FormData(form);
-                 // Send the loginData object to the Spring POST method
-                 fetch("/Insurance/login", {
-                     method: "POST",
-                     body: formData
-                 })
-                     .then(response => {
-                         if (response.status === 200) {
-                             // Registration was successful
-                             alert("Prihlásenie bolo úspešné!");
-                              window.location.href = "/Insurance/clientInfo";
-                         } else {
-                             // Registration failed
-                             alert("Prihlásenie bolo neúspešné!");
-                         }
-                     })
-                     .catch(error => {
-                         // An error occurred
-                         alert(error);
-                     });
-             }
-//
 //             document.getElementById("rememberMe").addEventListener("change", function() {
 //                 // Získať povolenie od užívateľa na prístup k lokálnemu úložisku
 //                 if (this.checked) {
@@ -85,4 +59,33 @@
               });
 
             })();
+
+
+                function sendData(form) {
+
+                              // Clear the login cookie
+                                 document.cookie = "login=";
+
+                         const formData = new FormData(form);
+                             // Send the loginData object to the Spring POST method
+                             fetch("/Insurance/login", {
+                                 method: "POST",
+                                 body: formData
+                             })
+                                 .then(response => {
+                                     if (response.status === 200) {
+                                         // Login  was successful
+                                         alert("Prihlásenie bolo úspešné!");
+                                          window.location.href = "/Insurance/clientInfo";
+                                     } else {
+                                         // Login failed
+                                         alert("Prihlásenie bolo neúspešné!");
+                                     }
+                                 })
+                                 .catch(error => {
+                                     // An error occurred
+                                     alert(error);
+                                 });
+                         }
+            //
 
