@@ -3,6 +3,10 @@ package com.example.InsuranceApplication.client;
 import com.example.InsuranceApplication.forms.RegistrationForm;
 import com.example.InsuranceApplication.insurance.Insurance;
 import com.example.InsuranceApplication.insurance.InsuranceDataGeneration;
+import com.example.InsuranceApplication.verification.AuthTokenGenerator;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -60,4 +64,33 @@ public class ClientService {
        return insuranceInfo;
 
    }
+
+    public Client getClientFromToken(HttpServletRequest request, SessionFactory sessionFactory) {
+
+        // Get the auth token from the cookie
+        Cookie[] cookies = request.getCookies();
+        String authToken = null;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("authToken")) {
+                    authToken = cookie.getValue();
+                    break;
+                }
+            }
+        }
+
+        // If the token is not found, return null
+        if (authToken == null) {
+            return null;
+        }
+
+        // Decode the token
+
+        int userId = AuthTokenGenerator.getUserId(authToken);
+
+        // Get the client from the database
+        ClientDAO dao = new ClientDAO(sessionFactory);
+        return dao.getClientById((long) userId);
+    }
+
 }

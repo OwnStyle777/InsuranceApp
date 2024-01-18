@@ -38,7 +38,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             Client client = dao.getClientByEmail(email);
             if (client != null && isPasswordLengthOK(password)) {
                 // Generate and set authentication token
-                String authToken = AuthTokenGenerator.generateAuthToken();
+                String authToken = AuthTokenGenerator.generateAuthToken(client.getId().intValue());
                 response.addCookie(new Cookie("authToken", authToken));
 
                 return ResponseEntity.ok().body("Login was successful.");
