@@ -8,29 +8,29 @@
  * Sidebar
  */
 
-@media (min-width: 768px) {
-  .sidebar .offcanvas-lg {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 48px;
-  }
-  .navbar-search {
-    display: block;
-  }
+ #sidebarContainer {
+
+     width: 300px;
+      height: 500px;
+       border-top-right-radius: 10px;
+       border-bottom-right-radius: 10px;
+ }
+
+
+#sidebarContainer.collapsed {
+    width: 57px;
+    overflow: hidden;
+     border-top-right-radius: 10px;
+     border-bottom-right-radius: 10px;
 }
 
-.sidebar .nav-link {
-  font-size: .875rem;
-  font-weight: 500;
+
+#sidebarContainer.collapsed #sidebarNav .nav-link {
+    white-space: nowrap; /* zabráni zalamovaniu textu */
+    overflow: hidden; /* skryje nadbytočný text, ktorý by presahoval za ikony */
+    text-overflow: ellipsis; /* pridá "..." na koniec textu, ak sa skrýva */
 }
 
-.sidebar .nav-link.active {
-  color: #2470dc;
-}
-
-.sidebar-heading {
-  font-size: .75rem;
-}
 
 /*
  * Navbar
@@ -46,3 +46,11 @@
 .navbar .form-control {
   padding: .75rem 1rem;
 }
+
+
+  .profile-section {
+  display: none; }
+
+  .profile-section.active {
+  display: block; }
+
