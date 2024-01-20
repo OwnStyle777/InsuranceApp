@@ -1,49 +1,36 @@
-/* globals Chart:false */
 
 (() => {
-  'use strict'
+    'use strict';
 
-  // Graphs
-  const ctx = document.getElementById('myChart')
-  // eslint-disable-next-line no-unused-vars
-  const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-      ],
-      datasets: [{
-        data: [
-          15339,
-          21345,
-          18483,
-          24003,
-          23489,
-          24092,
-          12034
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }]
-    },
-    options: {
-      plugins: {
-        legend: {
-          display: false
-        },
-        tooltip: {
-          boxPadding: 3
-        }
-      }
-    }
-  })
-})()
+    //$(document).ready(function () {
+    //  $(".nav-link").click(function (e) {
+    //    e.preventDefault();
+    //
+    //    // Hide all content sections
+    //    $(".content-section").removeClass("active");
+    //
+    //    // Get the class of the clicked link's span
+    //    var sectionClass = $(this).find("span").attr("class");
+    //
+    //    // Display the corresponding section
+    //    $("." + sectionClass).addClass("active");
+    //  });
+
+
+   document.addEventListener('DOMContentLoaded', function () {
+       var sidebarToggleElement = document.querySelector('.sidebar-toggle-icon');
+       if (sidebarToggleElement) {
+           sidebarToggleElement.addEventListener('click', function () {
+               toggleSidebar();
+           });
+       }
+   });
+
+   function toggleSidebar() {
+       var sidebarElement = document.querySelector('#sidebarContainer');
+       if (sidebarElement) {
+           sidebarElement.classList.toggle('collapsed');
+       }
+   }
+})();
+
