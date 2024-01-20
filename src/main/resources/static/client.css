@@ -32,6 +32,9 @@
     text-overflow: ellipsis; /* pridá "..." na koniec textu, ak sa skrýva */
 }
 
+.sidebar-toggle-icon:hover {
+  transform: scale(1.1); /* Zväčšiť veľkosť o 10% po prejdení kurzorom */
+  }
 
 /*
  * Navbar
