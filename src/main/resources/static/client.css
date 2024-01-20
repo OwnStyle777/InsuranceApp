@@ -9,23 +9,24 @@
  */
 
  #sidebarContainer {
+  width: 57px;
+     overflow: hidden;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
 
-     width: 300px;
-      height: 500px;
-       border-top-right-radius: 10px;
-       border-bottom-right-radius: 10px;
+
  }
 
 
 #sidebarContainer.collapsed {
-    width: 57px;
-    overflow: hidden;
-     border-top-right-radius: 10px;
-     border-bottom-right-radius: 10px;
+   width: 300px;
+        height: 500px;
+         border-top-right-radius: 10px;
+         border-bottom-right-radius: 10px;
 }
 
 
-#sidebarContainer.collapsed #sidebarNav .nav-link {
+#sidebarContainer #sidebarNav .nav-link {
     white-space: nowrap; /* zabráni zalamovaniu textu */
     overflow: hidden; /* skryje nadbytočný text, ktorý by presahoval za ikony */
     text-overflow: ellipsis; /* pridá "..." na koniec textu, ak sa skrýva */
