@@ -36,6 +36,8 @@
   transform: scale(1.1); /* Zväčšiť veľkosť o 10% po prejdení kurzorom */
   }
 
+
+
 /*
  * Navbar
  */
@@ -57,4 +59,16 @@
 
   .profile-section.active {
   display: block; }
+
+  .content {
+      display: none;
+      max-width: 800px; /* Maximálna šírka obsahu, prispôsobte podľa potreby */
+      margin: 0 auto; /* Centrovanie obsahu na stred stránky */
+      padding: 20px; /* Ľubovoľné odsadenie od okrajov */
+  }
+
+  /* Pravidlo na zobrazenie aktívneho obsahu */
+  .content.active {
+      display: block;
+  }
 

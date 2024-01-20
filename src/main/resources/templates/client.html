@@ -137,6 +137,31 @@
     </div>
   </div>
 </header>
+    <div class="content home-content" id="homePage">
+      <h2>Home Content</h2>
+      <p>Tu môžete vložiť obsah pre domovskú stránku.</p>
+    </div>
+
+    <div class="content dashboard-content" id="dashboard">
+      <h2>Dashboard Content</h2>
+      <p>Tu môžete vložiť obsah pre dashboard.</p>
+    </div>
+    <div class="content orders-content" id="orders">
+      <h2>Orders</h2>
+      <p>Tu môžete vložiť obsah pre dashboard.</p>
+    </div>
+    <div class="content products-content" id="products">
+      <h2>Products</h2>
+      <p>Tu môžete vložiť obsah pre dashboard.</p>
+    </div>
+    <div class="content customers-content" id="customers">
+      <h2>Customers</h2>
+      <p>Tu môžete vložiť obsah pre dashboard.</p>
+    </div>
+    <div class="content settings-content"  id="settings">
+      <h2>Settings</h2>
+      <p>Tu môžete vložiť obsah pre dashboard.</p>
+    </div>
 
 
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar" id="sidebarContainer">
@@ -147,31 +172,31 @@
       <hr>
       <ul class="nav nav-pills flex-column mb-auto" id="sidebarNav">
         <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">
+          <a href="#" class="nav-link " aria-current="page" data-content="homePage">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
             Home
           </a>
         </li>
-        <li>
-          <a href="#" class="nav-link text-white">
+        <li class="nav-item">
+          <a href="#" class="nav-link " data-content="dashboard">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
             Dashboard
           </a>
         </li>
-        <li>
-          <a href="#" class="nav-link text-white">
+        <li class="nav-item">
+          <a href="#" class="nav-link " data-content="orders">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
             Orders
           </a>
         </li>
-        <li>
-          <a href="#" class="nav-link text-white">
+        <li class="nav-item">
+          <a href="#" class="nav-link " data-content="products">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
             Products
           </a>
         </li>
-        <li>
-          <a href="#" class="nav-link text-white">
+        <li class="nav-item">
+          <a href="#" class="nav-link " data-content="customers">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
             Customers
           </a>
@@ -192,6 +217,9 @@
         </ul>
       </div>
     </div>
+
+
+
 
 </body>
 </html>
