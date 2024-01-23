@@ -9,6 +9,7 @@
  */
 
  #sidebarContainer {
+ position: fixed;
   width: 57px;
      overflow: hidden;
       border-top-right-radius: 10px;
@@ -19,6 +20,7 @@
 
 
 #sidebarContainer.collapsed {
+position: fixed;
    width: 300px;
         height: 500px;
          border-top-right-radius: 10px;
