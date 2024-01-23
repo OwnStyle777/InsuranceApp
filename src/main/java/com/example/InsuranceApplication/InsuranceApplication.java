@@ -3,6 +3,7 @@ package com.example.InsuranceApplication;
 import com.example.InsuranceApplication.forms.RegistrationForm;
 import com.example.InsuranceApplication.client.Client;
 import com.example.InsuranceApplication.client.ClientService;
+import com.example.InsuranceApplication.verification.AuthTokenGenerator;
 import com.example.InsuranceApplication.verification.ClientValidator;
 import com.example.InsuranceApplication.verification.PersonalDataValidation;
 import org.springframework.boot.SpringApplication;

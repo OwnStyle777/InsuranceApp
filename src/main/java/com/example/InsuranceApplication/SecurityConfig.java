@@ -25,12 +25,14 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         //permit for pages below
+                        .requestMatchers("/users/**").permitAll()
                         .requestMatchers("/css/**", "/js/**").permitAll()
                         .requestMatchers("/login/**").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/register/**").permitAll()
                         .requestMatchers("/clientInfo/**").permitAll()
                         .requestMatchers("/hello/**")
+
 
                 )
                 .securityMatchers((matchers) -> matchers
