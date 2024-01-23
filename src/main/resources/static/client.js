@@ -82,6 +82,7 @@ console.log(authToken);
   if (response.status === 200) {
     const client = await response.json();
     console.log(client);
+    displayClientInfo(client);
     // ...
   } else if (response.status === 401) {
           // Autentifikačný token je neplatný, možno presmerovať na prihlasovaciu stránku
