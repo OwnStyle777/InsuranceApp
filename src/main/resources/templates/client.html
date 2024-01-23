@@ -103,6 +103,9 @@
   <symbol id="search" viewBox="0 0 16 16">
     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
   </symbol>
+  <symbol id="insurance" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 14.933a1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56"/>
+  </symbol>
 </svg>
 
 <header class="p-3 mb-3 border-bottom">
@@ -143,13 +146,13 @@
       <p>Tu môžete vložiť obsah pre domovskú stránku.</p>
     </div>
 
-    <div class="content dashboard-content" id="dashboard">
-      <h2>Dashboard Content</h2>
-      <p>Tu môžete vložiť obsah pre dashboard.</p>
+    <div class="content personalData-content" id="personalData">
+      <h2>Personal data Content</h2>
+      <p id="personalDataContent"> </p>
     </div>
-    <div class="content orders-content" id="orders">
-      <h2>Orders</h2>
-      <p>Tu môžete vložiť obsah pre dashboard.</p>
+    <div class="content insuranceData-content" id="insuranceData">
+      <h2>Insurance information</h2>
+      <p id="insuranceDataContent"> </p>
     </div>
     <div class="content products-content" id="products">
       <h2>Products</h2>
@@ -168,7 +171,7 @@
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark sidebar" id="sidebarContainer">
       <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none sidebar-toggle-icon">
         <img th:src="@{/favpng_logo-blue-removebg.png}" alt="User" width="40" height="32" class="rounded-circle">
-        <span class="fs-4">User</span>
+        <span class="fs-4" id="userFirstName">User</span>
       </a>
       <hr>
       <ul class="nav nav-pills flex-column mb-auto" id="sidebarNav">
@@ -179,15 +182,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link " data-content="dashboard">
-            <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-            Dashboard
+          <a href="#" class="nav-link " data-content="personalData">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+            Personal data
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link " data-content="orders">
-            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-            Orders
+          <a href="#" class="nav-link " data-content="insuranceData">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#insurance"/></svg>
+            Insurance information
           </a>
         </li>
         <li class="nav-item">
