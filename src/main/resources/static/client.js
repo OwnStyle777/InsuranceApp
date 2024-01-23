@@ -2,21 +2,6 @@
 (() => {
     'use strict';
 
-    //$(document).ready(function () {
-    //  $(".nav-link").click(function (e) {
-    //    e.preventDefault();
-    //
-    //    // Hide all content sections
-    //    $(".content-section").removeClass("active");
-    //
-    //    // Get the class of the clicked link's span
-    //    var sectionClass = $(this).find("span").attr("class");
-    //
-    //    // Display the corresponding section
-    //    $("." + sectionClass).addClass("active");
-    //  });
-
-
    document.addEventListener('DOMContentLoaded', function () {
        var sidebarToggleElement = document.querySelector('.sidebar-toggle-icon');
        if (sidebarToggleElement) {
@@ -24,6 +9,7 @@
                toggleSidebar();
            });
        }
+       getUserData();
    });
 
    function toggleSidebar() {
@@ -72,5 +58,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+async function getUserData() {
+  // Získanie tokenu z cookies
+  debugger;
+const cookies = document.cookie.split(";").reduce((acc, cookie) => {
+  const [key, value] = cookie.trim().split("=");
+  acc[key] = value;
+  return acc;
+}, {});
+
+const authToken = cookies["authToken"];
+console.log(authToken);
+
+  // Volanie metódy na backende na získanie používateľských údajov
+  const response = await fetch("/Insurance/users", {
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${authToken}`,
+    },
+  });
+
+  // Ak bola odpoveď úspešná, spracujeme používateľské údaje
+  if (response.status === 200) {
+    const client = await response.json();
+    console.log(client);
+    // ...
+  } else if (response.status === 401) {
+          // Autentifikačný token je neplatný, možno presmerovať na prihlasovaciu stránku
+          window.location.href = "/Insurance/login";
+        } else {
+          // Iný chybový stav
+          console.error(`Chyba pri získavaní údajov: ${response.status}`);
+        }
+}
+
 })();
 
