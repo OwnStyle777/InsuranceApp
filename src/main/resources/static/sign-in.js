@@ -2,22 +2,6 @@
   'use strict';
 
 
-
-//             document.getElementById("rememberMe").addEventListener("change", function() {
-//                 // Získať povolenie od užívateľa na prístup k lokálnemu úložisku
-//                 if (this.checked) {
-//                     var consent = confirm("Do you want to save login details?");
-//                     if (!consent) {
-//                         // Užívateľ nechce uložiť prihlasovacie údaje
-//                         this.checked = false;
-//                         return;
-//                     }
-//                 }
-//
-//                 // Ulož hodnotu do lokálneho úložiska pri zmene stavu checkboxu
-//                 localStorage.setItem("rememberMeChecked", this.checked);
-//             });
-
          async function checkEmailInDatabase(email) {
              try {
                  const response = await fetch(`/Insurance/checkEmail?email=${encodeURIComponent(email)}`);
@@ -58,34 +42,35 @@
                 setupForms();
               });
 
-            })();
+
+  })();
 
 
-                function sendData(form) {
+           function sendData(form) {
+               // Clear the login cookie
+               document.cookie = "login=";
 
-                              // Clear the login cookie
-                                 document.cookie = "login=";
+               const formData = new FormData(form);
+               // Send the loginData object to the Spring POST method
+               fetch("/Insurance/login", {
+                   method: "POST",
+                   body: formData
+               })
+               .then(response => {
+                   if (response.status === 200) {
+                       // Login was successful
+                       alert("Prihlásenie bolo úspešné!");
+                        window.location.href = "/Insurance/clientInfo";
 
-                         const formData = new FormData(form);
-                             // Send the loginData object to the Spring POST method
-                             fetch("/Insurance/login", {
-                                 method: "POST",
-                                 body: formData
-                             })
-                                 .then(response => {
-                                     if (response.status === 200) {
-                                         // Login  was successful
-                                         alert("Prihlásenie bolo úspešné!");
-                                          window.location.href = "/Insurance/clientInfo";
-                                     } else {
-                                         // Login failed
-                                         alert("Prihlásenie bolo neúspešné!");
-                                     }
-                                 })
-                                 .catch(error => {
-                                     // An error occurred
-                                     alert(error);
-                                 });
-                         }
-            //
+                   } else {
+                       // Login failed
+                       handleFailedLogin(response);
+                   }
+               })
+               .catch(error => {
+                   // An error occurred
+                   alert(error);
+               });
+           }
+
 
