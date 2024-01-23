@@ -86,11 +86,11 @@ public class ClientService {
 
         // Decode the token
 
-        int userId = AuthTokenGenerator.getUserId(authToken);
+        long userId = AuthTokenGenerator.getUserId(authToken);
 
         // Get the client from the database
         ClientDAO dao = new ClientDAO(sessionFactory);
-        return dao.getClientById((long) userId);
+        return dao.getClientById( userId);
     }
 
 }

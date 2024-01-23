@@ -28,13 +28,17 @@ public class HtmlViewController {
         return "form";
     }
     @GetMapping("/clientInfo")
-    public String showClientPage(HttpServletRequest request) {
-        Client client = clientService.getClientFromToken(request,sessionFactory);
+    public String showClientPage() {
         return "client";
     }
     @GetMapping ("/hello" )
     public ResponseEntity<String> hello() {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
     }
+
+//    @GetMapping ("/users" )
+//    public ResponseEntity<String> showUsersPage() {
+//        return ResponseEntity.ok("Hello, this is a test endpoint!");
+//    }
 
 }
