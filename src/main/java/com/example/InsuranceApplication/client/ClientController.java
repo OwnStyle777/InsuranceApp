@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -114,22 +115,31 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         RegistrationForm form = clientService.createForm(firstName, lastName, email, password, birthDate, birthNumber, phoneNumber, insurance);
 
         System.out.println(form.toString());
+        try (Session session = sessionFactory.openSession()) {
 
-        Client client = clientService.createClient(form);
+            ClientDAO dao = new ClientDAO(sessionFactory);
 
-        // Validate form data and perform any necessary processing
-    ClientDAO dao = new ClientDAO(sessionFactory);
-    if (validateClient(client)) {
-        if (dao.saveClient(client)) {
+            Client client = clientService.createClient(form);
 
-            return ResponseEntity.ok().body("Registration was successful!");
+            // Validate form data and perform any necessary processing
+            if (!dao.isEmailInDatabase(client.getLoginInfo().getEmail())) {
 
-        } else {
+
+                if (validateClient(client)) {
+                    dao.saveClient(client, session);
+                    return ResponseEntity.ok().body("Registration was successful!");
+                } else {
+                    return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");
+                }
+            } else {
+                return ResponseEntity.badRequest().body("This email is already registered.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to save the client.");
         }
-    } else {
-        return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");
-    }
+
 }
     @GetMapping("/checkEmail")
     @ResponseBody
