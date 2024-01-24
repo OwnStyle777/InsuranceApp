@@ -55,6 +55,8 @@
 
 
 function sendData(form) {
+// Disable the button to prevent multiple submissions
+    document.getElementById('continue').disabled = true;
 
      // Clear the registration cookie
         document.cookie = "registration=";
@@ -73,10 +75,13 @@ const formData = new FormData(form);
             } else {
                 // Registration failed
                 alert("Registrácia bola neúspešná!");
+                  document.getElementById('continue').disabled = false;
             }
         })
-        .catch(error => {
-            // An error occurred
-            alert(error);
-        });
+         .catch(error => {
+                // An error occurred
+                alert(error);
+                // Re-enable the button in case of error
+                document.getElementById('continue').disabled = false;
+            });
 }
