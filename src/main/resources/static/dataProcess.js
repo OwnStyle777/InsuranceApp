@@ -18,6 +18,7 @@ function displayClientInfo(client) {
 
 
 
-insuranceInformation.innerHTML =   "<br>" + "<b>ID of Insured:</b> " + "<br>" + client.insuranceInfo.identificationNumberOfInsured + "<br>" +"<br>" +
-                                  "<b>Insurance Company:</b> "+ "<br>" + client.insuranceInfo.nameOfInsuranceCompany + "<br>" +"<br>" +
+insuranceInformation.innerHTML =   "<br>" + "<b>ID of insured:</b> " + "<br>" + client.insuranceInfo.identificationNumberOfInsured + "<br>" +"<br>" +
+                                  "<b>Insurance company:</b> "+ "<br>" + client.insuranceInfo.nameOfInsuranceCompany + "<br>" +"<br>" +
+                                  "<b>ID of insurance company:</b> "+ "<br>" + client.insuranceInfo.insuranceNumber + "<br>" +"<br>" +
                                   "<b>Birth number:</b> "+ "<br>" + client.insuranceInfo.birthNumber;}
