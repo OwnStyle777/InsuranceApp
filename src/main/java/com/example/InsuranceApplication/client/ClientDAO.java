@@ -19,8 +19,8 @@ public class ClientDAO {
         this.sessionFactory = sessionFactory;
     }
 
-    public boolean saveClient(Client client) {
-        try (Session session = sessionFactory.openSession()) {
+    public boolean saveClient(Client client, Session session) {
+        try {
             session.beginTransaction();
             session.persist(client);
             session.getTransaction().commit();
