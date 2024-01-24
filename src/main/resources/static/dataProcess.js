@@ -9,7 +9,15 @@ function displayClientInfo(client) {
 
 
  userFirstName.textContent = "  " + client.personalData.firstName;
- personalData.textContent = client.personalData.firstName + " " + client.personalData.secondName;
+ personalData.innerHTML = "<br>" + "<b>Name:</b> " + "<br>" + client.personalData.firstName + "<br>" +"<br>" +
+                          "<b>Last Name: </b>: "+ "<br>" + client.personalData.secondName  + "<br>" +"<br>" +
+                          "<b>Email address: </b>: "+ "<br>" + client.loginInfo.email  + "<br>" +"<br>" +
+                          "<b>Birth date: </b>: "+ "<br>" + client.personalData.birthDate  + "<br>" +"<br>" +
+                          "<b>Phone number: </b>: "+ "<br>" + client.personalData.number;
+
+
+
+
 insuranceInformation.innerHTML =   "<br>" + "<b>ID of Insured:</b> " + "<br>" + client.insuranceInfo.identificationNumberOfInsured + "<br>" +"<br>" +
-                                  "<b>Insurance Company</b>: "+ "<br>" + client.insuranceInfo.nameOfInsuranceCompany + "<br>" +"<br>" +
+                                  "<b>Insurance Company:</b> "+ "<br>" + client.insuranceInfo.nameOfInsuranceCompany + "<br>" +"<br>" +
                                   "<b>Birth number:</b> "+ "<br>" + client.insuranceInfo.birthNumber;}
