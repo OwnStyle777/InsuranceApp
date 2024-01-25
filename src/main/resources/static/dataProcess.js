@@ -6,8 +6,12 @@ function displayClientInfo(client) {
   const personalData = document.getElementById('personalDataContent');
   const insuranceInformation = document.getElementById('insuranceDataContent');
 const welcomeUserName = document.getElementById('userName');
+const homePageContent = document.getElementById('homeDataContent')
 
- welcomeUserName.textContent = "Welcome, " + client.personalData.firstName + "!";
+ welcomeUserName.innerHTML = "Welcome, " + client.personalData.firstName + "!" ;
+
+
+
  userFirstName.textContent = "  " + client.personalData.firstName;
  personalData.innerHTML = "<br>" + "<b>Name:</b> " + "<br>" + client.personalData.firstName + "<br>" +"<br>" +
                           "<b>Last Name: </b>: "+ "<br>" + client.personalData.secondName  + "<br>" +"<br>" +
