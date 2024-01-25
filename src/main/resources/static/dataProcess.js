@@ -5,9 +5,9 @@ function displayClientInfo(client) {
   const userFirstName = document.getElementById('userFirstName');
   const personalData = document.getElementById('personalDataContent');
   const insuranceInformation = document.getElementById('insuranceDataContent');
-  // Vymazanie predchádzajúcich údajov (ak existujú)
+const welcomeUserName = document.getElementById('userName');
 
-
+ welcomeUserName.textContent = "Welcome, " + client.personalData.firstName + "!";
  userFirstName.textContent = "  " + client.personalData.firstName;
  personalData.innerHTML = "<br>" + "<b>Name:</b> " + "<br>" + client.personalData.firstName + "<br>" +"<br>" +
                           "<b>Last Name: </b>: "+ "<br>" + client.personalData.secondName  + "<br>" +"<br>" +

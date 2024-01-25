@@ -122,8 +122,10 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             Client client = clientService.createClient(form);
 
             // Validate form data and perform any necessary processing
+            System.out.println("User is not in database ?  :" + !dao.isEmailInDatabase(client.getLoginInfo().getEmail()));
             if (!dao.isEmailInDatabase(client.getLoginInfo().getEmail())) {
 
+                System.out.println("Validation of client: " + validateClient(client));
 
                 if (validateClient(client)) {
                     dao.saveClient(client, session);
