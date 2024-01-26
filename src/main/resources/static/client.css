@@ -4,6 +4,12 @@
   height: 1rem;
 }
 
+@media (prefers-color-scheme: dark) {
+    .homePageCover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+}
+
 .homePageCover{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
  border-top-right-radius: 10px;
