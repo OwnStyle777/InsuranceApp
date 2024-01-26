@@ -93,9 +93,14 @@ transform: scale(1.1); /* Zväčšiť veľkosť o 10% po prejdení kurzorom */
 }
 
 
-.btn-lg {
-  transform: scale(1.1); /* Zväčšiť tlačidlo o 10% */
-  transition: transform 0.3s ease; /* Plynulý prechod */
+
+#continue:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+#continue {
+  transition: transform 0.3s ease;
 }
 
 .custombtn{
