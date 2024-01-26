@@ -15,20 +15,20 @@
       console.error('Elementy neboli nájdené.');
     }
   }
-
-  function setupContinueButton() {
-    const continueField = document.getElementById('continue');
-
-    // Event listener for button size change on mouse hover
-    continueField.addEventListener('mouseenter', () => {
-      continueField.style.transform = 'scale(1.1)';
-      continueField.style.transition = 'transform 0.3s ease';
-    });
-
-    continueField.addEventListener('mouseleave', () => {
-      continueField.style.transform = 'scale(1)';
-    });
-  }
+//
+//  function setupContinueButton() {
+//    const continueField = document.getElementById('continue');
+//
+//    // Event listener for button size change on mouse hover
+//    continueField.addEventListener('mouseenter', () => {
+//      continueField.style.transform = 'scale(1.1)';
+//      continueField.style.transition = 'transform 0.3s ease';
+//    });
+//
+//    continueField.addEventListener('mouseleave', () => {
+//      continueField.style.transform = 'scale(1)';
+//    });
+//  }
 
   function setupForms() {
     const forms = document.querySelectorAll('.needs-validation');
@@ -47,7 +47,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     setupPasswordToggle();
-    setupContinueButton();
+//    setupContinueButton();
     setupForms();
   });
 
