@@ -102,7 +102,7 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">
-            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com"  >
+            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com"  pattern="^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})" required>
             <label for="email">Email address</label>
             <div class="invalid-feedback" id="email-feedback">Please enter a valid email address</div>
         </div>
