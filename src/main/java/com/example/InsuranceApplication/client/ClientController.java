@@ -37,7 +37,8 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         System.out.println("password : " + password);
         if (dao.isEmailInDatabase(email)) {
             Client client = dao.getClientByEmail(email);
-            if (client != null && isPasswordLengthOK(password)) {
+            String passwordInDB = client.getLoginInfo().getPassword();
+            if (password.equals(passwordInDB)) {
                 // Generate and set authentication token
                 String authToken = AuthTokenGenerator.generateAuthToken(client.getId());
                 response.addCookie(new Cookie("authToken", authToken));
@@ -45,11 +46,8 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
 
                     // Vytvoření ResponseEntity s odpovědí a stavovým kódem OK (200)
                     return new ResponseEntity<>( HttpStatus.OK);
-
-
             } else {
-
-                return ResponseEntity.badRequest().body("Password must contain at least one special character, uppercase and lowercase and one digit.");
+                return ResponseEntity.status(403).body(null);
             }
         } else {
             return ResponseEntity.badRequest().body("This email is not registered");

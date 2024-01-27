@@ -62,9 +62,10 @@
                        alert("Prihlásenie bolo úspešné!");
                         window.location.href = "/Insurance/clientInfo";
 
-                   } else {
-                       // Login failed
-                       alert("Nesprávne prihlasovacie údaje!");
+                   } else if (response.status === 400) {
+                   alert("Tento email nieje zaregistrovaný!");
+                   }else if (response.status === 403){
+                   alert ("Nesprávne heslo!");
                    }
                })
                .catch(error => {
