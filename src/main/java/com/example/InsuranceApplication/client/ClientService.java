@@ -4,13 +4,14 @@ import com.example.InsuranceApplication.forms.RegistrationForm;
 import com.example.InsuranceApplication.insurance.Insurance;
 import com.example.InsuranceApplication.insurance.InsuranceDataGeneration;
 import com.example.InsuranceApplication.verification.AuthTokenGenerator;
+import com.example.InsuranceApplication.verification.PasswordValidator;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientService {
+public class ClientService implements PasswordValidator {
 
     public  RegistrationForm createForm (String firstName, String lastName, String email, String password, String birthDate, String birthNumber,String phoneNumber, String insuranceCompany){
 
@@ -47,8 +48,9 @@ public class ClientService {
 
    public LoginInfo createLoginInfo(RegistrationForm registrationForm){
        LoginInfo loginInfo = new LoginInfo();
+       String hashedPassword = getHashedPassword(registrationForm.getPassword());
        loginInfo.setEmail(registrationForm.getEmail());
-       loginInfo.setPassword(registrationForm.getPassword());
+       loginInfo.setPassword(hashedPassword);
        return loginInfo;
    }
 
