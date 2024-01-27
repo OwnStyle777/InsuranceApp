@@ -38,7 +38,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         if (dao.isEmailInDatabase(email)) {
             Client client = dao.getClientByEmail(email);
             String passwordInDB = client.getLoginInfo().getPassword();
-            if (password.equals(passwordInDB)) {
+            if (isPasswordValid(password,passwordInDB)) {
                 // Generate and set authentication token
                 String authToken = AuthTokenGenerator.generateAuthToken(client.getId());
                 response.addCookie(new Cookie("authToken", authToken));
@@ -57,7 +57,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
     public ResponseEntity<?> getUserData(@RequestHeader("Authorization") String authToken) {
         System.out.println(authToken);
 
-        String pureToken = authToken.substring(7);
+        String pureToken = authToken.substring(7);   //without Bearer
         System.out.println(pureToken);
 
         if (AuthTokenGenerator.isValidToken(pureToken, sessionFactory)) {
@@ -119,9 +119,9 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             System.out.println("User is not in database ?  :" + !dao.isEmailInDatabase(client.getLoginInfo().getEmail()));
             if (!dao.isEmailInDatabase(client.getLoginInfo().getEmail())) {
 
-                System.out.println("Validation of client: " + validateClient(client));
+                System.out.println("Validation of client: " + validateClient(client, form));
 
-                if (validateClient(client)) {
+                if (validateClient(client, form)) {
                     dao.saveClient(client, session);
                     return ResponseEntity.ok().body("Registration was successful!");
                 } else {
