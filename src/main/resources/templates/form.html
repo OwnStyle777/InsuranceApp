@@ -141,14 +141,13 @@
               <input type="password" class="form-control" th:id="password" name="password"
                      placeholder="Please enter a valid password" required
                      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])\S{10,}$">
-
               <div class="invalid-feedback">
                 Enter the correct format of the password: at least 10 characters, must contain at least one uppercase,
                 one lowercase, one digit, and one of the following special characters: @#$%^&+=!
               </div>
+              <i class="fas fa-eye" id="eye"></i>
             </div>
 
-            <i class="fas fa-eye" th:id="eye"></i> <!-- Toto je ikona oka -->
 
             <div class="col-12">
               <label th:for="birthDate" class="form-label">Birth date<span class="text-body-secondary"></span> </label>
@@ -201,7 +200,7 @@
         </div>
       </div>
     </div>
-    <p class="mt-3 mb-3 text-body-secondary"> You already have account ? <a href="/Insurance/login">Log in.</a></p>
+    <p class="mt-3 mb-3 text-body-secondary"> You already have an account ? <a href="/Insurance/login">Log in.</a></p>
   </main>
 </div>
 
