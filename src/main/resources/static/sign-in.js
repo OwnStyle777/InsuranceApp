@@ -64,7 +64,7 @@
 
                    } else {
                        // Login failed
-                       handleFailedLogin(response);
+                       alert("Nesprávne prihlasovacie údaje!");
                    }
                })
                .catch(error => {
