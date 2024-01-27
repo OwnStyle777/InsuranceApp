@@ -93,15 +93,33 @@ transform: scale(1.1); /* Zväčšiť veľkosť o 10% po prejdení kurzorom */
 }
 
 #eye:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+   color: dodgerblue;
+   cursor: pointer;
 }
 
+#eye.hide::before {
+   content: '\f070'; /* Unicode pre "fa-eye-slash" ikonu z Font Awesome */
+  font-size: 1.0em;
+}
 
 
 #continue:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
+  --bd-violet-bg: rgb(0, 89, 255); /* Zmena na rovnakú farbu v RGB formáte */
+    --bd-violet-rgb: 0, 89, 255;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-violet-bg);
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: rgb(2, 30, 82);
+    --bs-btn-hover-border-color: rgb(0, 89, 255);
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: rgb(0, 89, 255);
+    --bs-btn-active-border-color: rgb(0, 89, 255);
 }
 
 #continue {
