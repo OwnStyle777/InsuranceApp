@@ -35,3 +35,14 @@ body {
   font-family:'Lexend Deca', sans-serif;
 
 }
+#eye:hover {
+   color: dodgerblue;
+   cursor: pointer;
+}
+#eye{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
