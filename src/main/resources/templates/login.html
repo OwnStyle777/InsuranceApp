@@ -106,20 +106,20 @@
             <label for="email">Email address</label>
             <div class="invalid-feedback" id="email-feedback">Please enter a valid email address</div>
         </div>
-
         <div class="form-floating">
             <input type="password" name="password" class="form-control" id="password" placeholder="Password" required
                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])\S{10,}">
-            <label for="password">Password</label>
-            <div class="invalid-feedback" id="password-feedback">Please enter a valid password</div>
+            <label for="password">Password </label>
+            <div class="invalid-feedback" id="password-feedback">Please enter a valid password </div>
+            <i class="fas fa-eye" id="eye"></i>
         </div>
-
         <div class="form-check text-start my-3">
             <input class="form-check-input customCheckbox" type="checkbox" value="remember-me" id="rememberMe">
             <label class="form-check-label" for="rememberMe">
                 Remember me
             </label>
         </div>
+        <br>
         <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg" id="signIn" type="submit" onclick="sendData(this.form)">Sign in
         </button>
         <p class="mt-3 mb-3 text-body-secondary"> You are new? <a href="/Insurance/register"><i
