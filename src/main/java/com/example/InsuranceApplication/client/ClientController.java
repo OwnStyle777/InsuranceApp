@@ -1,7 +1,6 @@
 package com.example.InsuranceApplication.client;
 
 
-import com.example.InsuranceApplication.forms.LoginForm;
 import com.example.InsuranceApplication.forms.RegistrationForm;
 import com.example.InsuranceApplication.verification.AuthTokenGenerator;
 import com.example.InsuranceApplication.verification.ClientValidator;
@@ -19,10 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
