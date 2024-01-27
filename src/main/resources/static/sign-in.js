@@ -1,6 +1,25 @@
 (() => {
   'use strict';
 
+ function setupPasswordToggle() {
+   const togglePassword = document.getElementById('eye');
+   const passwordField = document.getElementById('password');
+
+   if (togglePassword && passwordField) {
+     togglePassword.addEventListener('click', function () {
+       const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+       passwordField.setAttribute('type', type);
+
+       if (type === 'password') {
+         this.classList.remove('hide');
+       } else {
+         this.classList.add('hide');
+       }
+     });
+   } else {
+     console.error('Elementy neboli nájdené.');
+   }
+ }
 
          async function checkEmailInDatabase(email) {
              try {
@@ -38,8 +57,11 @@
                 });
               }
 
+
+
               document.addEventListener('DOMContentLoaded', function () {
                 setupForms();
+                setupPasswordToggle();
               });
 
 

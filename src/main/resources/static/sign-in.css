@@ -45,4 +45,8 @@ body {
     right: 5%;
     transform: translateY(-50%);
 }
+#eye.hide::before {
+   content: '\f070'; /* Unicode pre "fa-eye-slash" ikonu z Font Awesome */
+  font-size: 1.0em;
+}
 
