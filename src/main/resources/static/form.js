@@ -21,34 +21,34 @@ function setupPasswordToggle() {
    }
  }
  function setupForms() {
-   const forms = document.querySelectorAll('.needs-validation');
+    const forms = document.querySelectorAll('.needs-validation');
 
-   Array.from(forms).forEach(form => {
-     let interacted = false; // Premenná na sledovanie interakcie s formulárom
+    Array.from(forms).forEach(form => {
+      let interacted = false; // Premenná na sledovanie interakcie s formulárom
 
-     form.addEventListener('submit', event => {
-       if (!interacted || !form.checkValidity()) {
-         event.preventDefault();
-         event.stopPropagation();
+      form.addEventListener('submit', event => {
+        if (!interacted || !form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
 
-         // Pridá triedu was-validated iba ak užívateľ aspoň raz interagoval s formulárom
-         if (interacted) {
-           form.classList.add('was-validated');
-         }
-       }
-     }, false);
+          // Pridá triedu was-validated iba ak užívateľ aspoň raz interagoval s formulárom
+          if (interacted) {
+            form.classList.add('was-validated');
+          }
+        }
+      }, false);
 
-     // Event listener pre prvé pokusy interakcie s formulárom
-     form.addEventListener('input', () => {
-       interacted = true; // Užívateľ interagoval s formulárom
+      // Event listener pre prvé pokusy interakcie s formulárom
+      form.addEventListener('input', () => {
+        interacted = true; // Užívateľ interagoval s formulárom
 
-       // Pridá triedu was-validated k jednotlivým elementom po interakcii
-       if (!form.checkValidity()) {
-         form.classList.add('was-validated');
-       }
-     });
-   });
- }
+        // Pridá triedu was-validated k jednotlivým elementom po interakcii
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+        }
+      });
+    });
+  }
   document.addEventListener('DOMContentLoaded', function () {
     setupPasswordToggle();
     setupForms();

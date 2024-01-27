@@ -129,6 +129,13 @@ transform: scale(1.1); /* Zväčšiť veľkosť o 10% po prejdení kurzorom */
 .custombtn{
   height: 28px;
 }
+#gdprLabel {
+  width: 350px;
+}
+#insurance{
+  width: 350px;
+}
+
 
 
 
