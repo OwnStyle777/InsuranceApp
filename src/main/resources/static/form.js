@@ -71,7 +71,11 @@ function sendData(form) {
         // Registration was successful
         alert("Registrácia bola úspešná!");
         window.location.href = "/Insurance/login";
-      } else {
+      }else if(response.status === 400){
+        alert("Tento email je už registrovaný!");
+      } else if(response.status === 403){
+      alert("Prosím vyplň všetky potrebné informácie pre dokončenie registrácie.")}
+      else {
         // Registration failed
         alert("Registrácia bola neúspešná!");
         document.getElementById('continue').disabled = false;

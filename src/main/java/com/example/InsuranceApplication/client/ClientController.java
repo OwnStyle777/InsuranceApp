@@ -127,7 +127,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
                     dao.saveClient(client, session);
                     return ResponseEntity.ok().body("Registration was successful!");
                 } else {
-                    return ResponseEntity.badRequest().body("Please provide all necessary information to complete registration");
+                    return ResponseEntity.status(403).body("Please provide all necessary information to complete registration");
                 }
             } else {
                 return ResponseEntity.badRequest().body("This email is already registered.");
@@ -137,7 +137,6 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to save the client.");
         }
-
 }
     @GetMapping("/checkEmail")
     @ResponseBody
