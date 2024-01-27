@@ -175,7 +175,7 @@
             <div class="col-md-12">
               <label for="insurance" class="form-label">Insurance Company</label>
               <select class="form-select" id="insurance" name="insurance" required>
-                <option value="">Please select your...</option>
+                <option value="">Please select your insurance company</option>
                 <option value="DOVERA">DOVERA</option>
                 <option value="ALLIANZ">ALLIANZ</option>
                 <option value="GENERALI">GENERALI</option>
@@ -192,6 +192,15 @@
                 Please select a valid insurance company.
               </div>
             </div>
+            <div class="form-check text-start my-3 ">
+              <input class="form-check-input customCheckbox" type="checkbox" value="remember-me" id="gdpr" required>
+              <label class="form-check-label" for="gdpr" id="gdprLabel">
+                I agree to the processing of my personal data.
+              </label>
+              <div class="invalid-feedback">
+                Please agree processing of your personal data.
+              </div>
+            </div>
             <div style="height: 20px;"></div>
             <button class="w-100 btn btn-primary btn-lg" id="continue" type="submit" onclick="sendData(this.form)">
               Continue
@@ -203,7 +212,6 @@
     <p class="mt-3 mb-3 text-body-secondary"> You already have an account ? <a href="/Insurance/login">Log in.</a></p>
   </main>
 </div>
-
 
 <footer class="my-5 pt-5 text-body-secondary text-center text-small">
   <p class="mb-1">&copy; 2024 Company Name</p>
