@@ -15,8 +15,15 @@
    function toggleSidebar() {
        var sidebarElement = document.querySelector('#sidebarContainer');
        var sidebarContent = document.querySelectorAll('.content')
+       var dropdownIcon = document.getElementById('dropdownUser1');
+
        if (sidebarElement) {
            sidebarElement.classList.toggle('collapsed');
+            if (sidebarElement.classList.contains('collapsed')) {
+                      dropdownIcon.classList.remove('disabled');
+                  } else {
+                       dropdownIcon.classList.add('disabled');
+                  }
             sidebarContent.forEach(function (contentElement) {
                 contentElement.classList.toggle('collapsed');
               });
