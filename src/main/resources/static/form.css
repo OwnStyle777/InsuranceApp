@@ -123,6 +123,7 @@ transform: scale(1.1); /* Zväčšiť veľkosť o 10% po prejdení kurzorom */
 }
 
 #continue {
+font-family:'Lexend Deca', sans-serif;
   transition: transform 0.3s ease;
 }
 
