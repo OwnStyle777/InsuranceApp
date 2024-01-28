@@ -10,6 +10,11 @@
            });
        }
        getUserData();
+       // Automaticky zobraz domovský obsah po načítaní stránky
+               var homeContent = document.getElementById('homePage');
+               if (homeContent) {
+                   homeContent.style.display = 'block';
+               }
    });
 
    function toggleSidebar() {
