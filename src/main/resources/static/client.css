@@ -12,10 +12,7 @@
 
 .homePageCover{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
- border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-       border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
+
 
 
 }
@@ -88,6 +85,13 @@
         .customHr {
           border-top: 1px solid dodgerblue !important; /* Farba hrany pre light režim */
         }
+        #userFirstName {
+         color: black !important;
+                      }
+            #strongItem{
+        color: black !important;
+       }
+
     }
 
     /* Pre dark mode */
@@ -97,6 +101,13 @@
       #sidebarContainer {
                  background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end)) !important;
                }
+                /* Farba textu pre linky v bočnom paneli v dark móde */
+                  #userFirstName {
+                         color: white !important;
+                                      }
+                            #strongItem{
+                        color: white !important;
+                       }
     }
     html, body {
       height: 100%;
@@ -138,6 +149,17 @@
   .content.active {
       display: block;
   }
+
+  .homePageCover{
+
+  position: fixed;
+
+     top: 238px;
+     left:51px;
+     height:400px;
+     width:1485px;
+
+}
 }
 
 
