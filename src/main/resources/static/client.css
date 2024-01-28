@@ -34,7 +34,6 @@
   height: 500px;
      overflow: hidden;
       border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
 
 
  }
@@ -45,7 +44,7 @@
    width: 300px;
         height: 500px;
          border-top-right-radius: 10px;
-         border-bottom-right-radius: 10px;
+     
 }
 
 
@@ -97,6 +96,9 @@
    [data-bs-theme="light"] {
       --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre light mode */
       --bg-body-color-end: #ffffff; /* Koncová farba pozadia pre light mode */
+       #sidebarContainer {
+          background-color: white !important;
+        }
 
     }
 
