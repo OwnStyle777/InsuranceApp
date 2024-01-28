@@ -83,8 +83,6 @@
   .h3 {
     font-family:'Lexend Deca', sans-serif;
 
-    /* Nahraďte "Nový Typ Písma" za požadovaný typ písma */
-    /* Prípadné ďalšie vlastnosti typu písma (napr. veľkosť, farba atď.) */
   }
 
   [data-bs-theme="light"] {
@@ -101,7 +99,6 @@
   /* Aplikovanie gradientu na body */
   body {
     background-image: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end));
-    /* Prípadné ďalšie vlastnosti pre body */
   }
  
 

@@ -27,9 +27,9 @@
 
  #sidebarContainer {
  position: fixed;
-  top: 50;
-   left: 0;
-   bottom: 0;
+
+   left: 0px;
+   bottom: 0px;
   width: 57px;
   height: 500px;
      overflow: hidden;
@@ -56,7 +56,7 @@
 }
 
 .sidebar-toggle-icon:hover {
-  transform: scale(1.1); /* Zväčšiť veľkosť o 10% po prejdení kurzorom */
+     cursor: pointer;
   }
 
 
@@ -94,4 +94,26 @@
   .content.active {
       display: block;
   }
+   [data-bs-theme="light"] {
+      --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre light mode */
+      --bg-body-color-end: #ffffff; /* Koncová farba pozadia pre light mode */
+
+    }
+
+    /* Pre dark mode */
+    [data-bs-theme="dark"] {
+      --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre dark mode */
+      --bg-body-color-end: #000000; /* Koncová farba pozadia pre dark mode */
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+
+    /* Aplikovanie gradientu na body */
+    body {
+      background-image: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end));
+    }
+
 
