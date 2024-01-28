@@ -44,7 +44,7 @@
    width: 300px;
         height: 500px;
          border-top-right-radius: 10px;
-     
+
 }
 
 
@@ -76,23 +76,6 @@
 }
 
 
-  .profile-section {
-  display: none; }
-
-  .profile-section.active {
-  display: block; }
-
-  .content {
-      display: none;
-      max-width: 800px; /* Maximálna šírka obsahu, prispôsobte podľa potreby */
-      margin: 0 auto; /* Centrovanie obsahu na stred stránky */
-      padding: 20px; /* Ľubovoľné odsadenie od okrajov */
-  }
-
-  /* Pravidlo na zobrazenie aktívneho obsahu */
-  .content.active {
-      display: block;
-  }
    [data-bs-theme="light"] {
       --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre light mode */
       --bg-body-color-end: #ffffff; /* Koncová farba pozadia pre light mode */
@@ -117,5 +100,38 @@
     body {
       background-image: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end));
     }
+
+
+
+.content {
+ display: none;
+      max-width: 800px; /* Maximálna šírka obsahu, prispôsobte podľa potreby */
+      margin: 0 auto; /* Centrovanie obsahu na stred stránky */
+      padding: 20px; /* Ľubovoľné odsadenie od okrajov */
+  position: absolute;
+  left: 70px;
+
+  display: none; /* Skryť všetky sekcie obsahu na začiatku */
+
+  }
+  .content.collapsed {
+
+    left: 320px;
+
+  }
+
+  .profile-section {
+  display: none; }
+
+  .profile-section.active {
+  display: block; }
+
+  /* Pravidlo na zobrazenie aktívneho obsahu */
+  .content.active {
+      display: block;
+  }
+}
+
+
 
 
