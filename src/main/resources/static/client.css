@@ -38,7 +38,6 @@
 
  }
 
-
 #sidebarContainer.collapsed {
 
    width: 300px;
@@ -46,6 +45,10 @@
          border-top-right-radius: 10px;
 
 }
+.disabled {
+        pointer-events: none; /* Nezobrazovať interakcie v zneaktívnenom stave */
+        opacity: 0.5; /* Nastaviť opacitu pre zneaktívnený vzhľad */
+      }
 
 
 #sidebarContainer #sidebarNav .nav-link {
@@ -79,9 +82,9 @@
    [data-bs-theme="light"] {
       --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre light mode */
       --bg-body-color-end: #ffffff; /* Koncová farba pozadia pre light mode */
-       #sidebarContainer {
-          background-color: white !important;
-        }
+        #sidebarContainer {
+           background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end)) !important;
+         }
         .customHr {
           border-top: 1px solid dodgerblue !important; /* Farba hrany pre light režim */
         }
@@ -91,6 +94,9 @@
     [data-bs-theme="dark"] {
       --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre dark mode */
       --bg-body-color-end: #000000; /* Koncová farba pozadia pre dark mode */
+      #sidebarContainer {
+                 background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end)) !important;
+               }
     }
     html, body {
       height: 100%;
