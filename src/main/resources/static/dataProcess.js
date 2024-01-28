@@ -8,11 +8,11 @@ function displayClientInfo(client) {
 const welcomeUserName = document.getElementById('userName');
 const homePageContent = document.getElementById('homeDataContent')
 
- welcomeUserName.innerHTML = "Welcome, " + client.personalData.firstName + "!" ;
+ welcomeUserName.innerHTML = "Welcome, " +  client.personalData.firstName+ "!" ;
 
 
 
- userFirstName.textContent = "  " + client.personalData.firstName;
+ userFirstName.innerHTML= "  <b>" + client.personalData.firstName + "</b>";
  personalData.innerHTML = "<br>" + "<b>Name:</b> " + "<br>" + client.personalData.firstName + "<br>" +"<br>" +
                           "<b>Last Name: </b>: "+ "<br>" + client.personalData.secondName  + "<br>" +"<br>" +
                           "<b>Email address: </b>: "+ "<br>" + client.loginInfo.email  + "<br>" +"<br>" +
