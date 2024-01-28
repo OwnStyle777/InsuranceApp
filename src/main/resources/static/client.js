@@ -14,8 +14,12 @@
 
    function toggleSidebar() {
        var sidebarElement = document.querySelector('#sidebarContainer');
+       var sidebarContent = document.querySelectorAll('.content')
        if (sidebarElement) {
            sidebarElement.classList.toggle('collapsed');
+            sidebarContent.forEach(function (contentElement) {
+                contentElement.classList.toggle('collapsed');
+              });
        }
    }
 
