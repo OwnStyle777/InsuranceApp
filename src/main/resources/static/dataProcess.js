@@ -12,12 +12,12 @@ const homePageContent = document.getElementById('homeDataContent')
 
 
 
- userFirstName.innerHTML= "  <b>" + client.personalData.firstName + "</b>";
+ userFirstName.innerHTML= "  " + client.personalData.firstName ;
  personalData.innerHTML = "<br>" + "<b>Name:</b> " + "<br>" + client.personalData.firstName + "<br>" +"<br>" +
-                          "<b>Last Name: </b>: "+ "<br>" + client.personalData.secondName  + "<br>" +"<br>" +
-                          "<b>Email address: </b>: "+ "<br>" + client.loginInfo.email  + "<br>" +"<br>" +
-                          "<b>Birth date: </b>: "+ "<br>" + client.personalData.birthDate  + "<br>" +"<br>" +
-                          "<b>Phone number: </b>: "+ "<br>" + client.personalData.number;
+                          "<b>Last Name: </b> "+ "<br>" + client.personalData.secondName  + "<br>" +"<br>" +
+                          "<b>Email address: </b> "+ "<br>" + client.loginInfo.email  + "<br>" +"<br>" +
+                          "<b>Birth date: </b> "+ "<br>" + client.personalData.birthDate  + "<br>" +"<br>" +
+                          "<b>Phone number: </b>"+ "<br>" + client.personalData.number;
 
 
 
