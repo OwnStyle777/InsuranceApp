@@ -144,7 +144,7 @@
 
     <div class="content home-content" id="homePage">
       <h2 id="userName"></h2>
-      <p id="homeDataContent"><br><img th:src="@{/pexels-mikael-blomkvist-6476574.jpg}"  width="1050" height="490" class="homePageCover"></p>
+      <p id="homeDataContent"><img th:src="@{/pexels-mikael-blomkvist-6476574.jpg}"  class="homePageCover"></p>
     </div>
 
     <div class="content personalData-content" id="personalData">
@@ -170,7 +170,7 @@
 
 
 
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white  sidebar" id="sidebarContainer">
+    <div class="d-flex flex-column flex-shrink-0 p-3  sidebar" id="sidebarContainer">
       <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none sidebar-toggle-icon">
         <img th:src="@{/favpng_logo-blue-removebg.png}" alt="User" width="40" height="32" class="rounded-circle">
         <span class="fs-4" id="userFirstName">User</span>
@@ -180,31 +180,31 @@
         <li class="nav-item">
           <a href="#" class="nav-link " aria-current="page" data-content="homePage">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-            Home
+            <span class="text">Home</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link " data-content="personalData">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-            Personal data
+            <span class="text">Personal data</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link " data-content="insuranceData">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#insurance"/></svg>
-            Insurance information
+            <span class="text">Insurance information</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link " data-content="products">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-            Products
+            <span class="text">Products</span>
           </a>
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link " data-content="customers">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-            Customers
+            <span class="text">Customers</span>
           </a>
         </li>
       </ul>
@@ -212,7 +212,7 @@
       <div class="dropdown">
         <a href="#" class="d-block link-body-emphasis d-flex align-items-center text-white text-decoration-none dropdown-toggle disabled" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" >
           <img th:src="@{/favpng_logo-blue-removebg.png}" alt="" width="32" height="32" class="rounded-circle me-2">
-          <strong>Menu</strong>
+          <strong id="strongItem">Menu</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
           <li><a class="dropdown-item" href="#">New project...</a></li>
