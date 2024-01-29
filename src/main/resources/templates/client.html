@@ -157,30 +157,29 @@
     </div>
     <div class="content products-content" id="products">
       <h2>Products</h2>
-      <p> <form class="needs-validation" id="form" novalidate method="POST">
+      <p id="productsPar"> <form class="needs-validation" id="form" novalidate >
       <div class="form-floating">
-        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com"  pattern="^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})" required>
-        <label for="email">Age of car</label>
-        <div class="invalid-feedback" id="email-feedback">Please enter a valid email address</div>
+        <input type="ageOfCar" name="ageOfCar" class="form-control" id="ageOfCar" placeholder=""  pattern="" required>
+        <label for="ageOfCar">Age of car</label>
+        <div class="invalid-feedback" id="ageOfCar-feedback">Please enter a valid email address</div>
       </div>
       <div class="form-floating">
-        <input type="power" name="power" class="form-control" id="power" placeholder="name@example.com"  pattern="^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})" required>
+        <input type="power" name="power" class="form-control" id="power" placeholder=""  pattern="" required>
         <label for="power">Power of car</label>
         <div class="invalid-feedback" id="power-feedback">Please enter a valid email address</div>
       </div>
       <div class="form-floating">
-        <input type="yearsOfDriving" name="yearsOfDriving" class="form-control" id="yearsOfDriving" placeholder="yearsOfDriving" required
-               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])\S{10,}">
+        <input type="yearsOfDriving" name="yearsOfDriving" class="form-control" id="yearsOfDriving" placeholder="yearsOfDriving" required pattern="">
         <label for="yearsOfDriving">Years of driving </label>
         <div class="invalid-feedback" id="yearsOfDriving-feedback">Please enter a valid password </div>
       </div>
       <div class="form-floating">
-        <input type="kilometres" name="kilometres" class="form-control" id="kilometres" placeholder="Password" required
-               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])\S{10,}">
+        <input type="kilometres" name="kilometres" class="form-control" id="kilometres" placeholder="" required
+               pattern="">
         <label for="kilometres">Kilometres </label>
         <div class="invalid-feedback" id="kilometres-feedback">Please enter a valid password </div>
       </div>
-      <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg" id="signIn" type="submit" onclick="calculatePZP()">Calculate
+      <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg" id="calculate" type="submit" onclick="calculatePZP()">Calculate
       </button>
 
     </form></p>
