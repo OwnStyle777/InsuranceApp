@@ -26,3 +26,20 @@ insuranceInformation.innerHTML =   "<br>" + "<b>ID of insured:</b> " + "<br>" + 
                                   "<b>Insurance company:</b> "+ "<br>" + client.insuranceInfo.nameOfInsuranceCompany + "<br>" +"<br>" +
                                   "<b>ID of insurance company:</b> "+ "<br>" + client.insuranceInfo.insuranceNumber + "<br>" +"<br>" +
                                   "<b>Birth number:</b> "+ "<br>" + client.insuranceInfo.birthNumber;}
+
+function calculatePZP(yearsOfDriving, ageOfCar, powerOfCar, km){
+const startingPrice = 30;
+const km = km * 0.0001;
+const yearsOfDriving = yearsOfDriving * 0.5 ;
+const ageOfCar = ageOfCar * 2 ;
+const powerOfCar = powerOfCar  * 0.5 ;
+const minimumPrice = startingPrice + powerOfCar;
+
+const result = startingPrice + ageOfCar + powerOfCar + km  - ageOfInsured;
+if(result < minimumPrice){
+    return minimumPrice;
+}
+return result;
+}
+}
+
