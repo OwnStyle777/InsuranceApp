@@ -43,7 +43,7 @@ const result = startingPrice + ageOfCar + powerOfCar + km  - yearsOfDriving;
   if (result < minimumPrice) {
     resultElement.innerHTML = "<h5>Average liability insurance : " +"<b>" +  minimumPrice + "</b>€</h5>";
   } else {
-    resultElement.innerHTML= "<h5>Average liability insurance : " +"<b>" +  result +"</b>€</h5>";
+    resultElement.innerHTML= "<h5>Average liability insurance : git s" +"<b>" +  result +"</b>€</h5>";
   }
 }
 
