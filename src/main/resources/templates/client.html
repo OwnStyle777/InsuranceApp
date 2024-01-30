@@ -18,6 +18,7 @@
   <script th:src="@{/client.js}"></script>
   <script th:src="@{/dataProcess.js}"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script th:src="@{/priceIndicator.js}"></script>
 
 
   <!-- Ostatné odkazy -->
@@ -181,8 +182,8 @@
       </div>
       <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg" id="calculate" type="submit" onclick="calculatePZP()">Calculate
       </button>
-
     </form></p>
+      <div id="priceIndicator"></div>
     </div>
     <div class="content customers-content" id="customers">
       <h2>Customers</h2>
