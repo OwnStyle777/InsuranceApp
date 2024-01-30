@@ -1,7 +1,6 @@
 function updatePriceIndicator(price) {
   const priceIndicator = document.getElementById('priceIndicator');
 
-  // Převedeme cenu na procentuální hodnotu mezi 0 a 100
   let percentage = 100;
   if(price < 500){
   percentage = price / 5 }
@@ -12,7 +11,7 @@ function updatePriceIndicator(price) {
   const colors = getColorForPercentage(percentage);
   priceIndicator.style.background = `linear-gradient(to bottom, ${colors.start} 0%, ${colors.end} 100%)`;
   priceIndicator.innerHTML = "<b>" + colors.level + "</b>";
-     // Upravíme styl textu
+     //style of text
 
        priceIndicator.style.textAlign = 'center';
         priceIndicator.style.lineHeight = '265px';
