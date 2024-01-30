@@ -172,13 +172,40 @@
   border-radius: 150px 150px 150px 150px;
   position:fixed;
   top: 200px;
-  left:500px;
+  left:600px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 
 
   background: linear-gradient(to bottom, grey 0%, black 100%);
   transition: background 0.5s ease;
 }
+#formPZP{
+width: 350px;
+}
+
+#ageOfCar{
+ border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#power{
+ border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+   border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+#yearsOfDriving{
+ border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+   border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+#kilometres{
+   border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+
+
 
 
 
