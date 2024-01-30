@@ -27,6 +27,7 @@ insuranceInformation.innerHTML =   "<br>" + "<b>ID of insured:</b> " + "<br>" + 
                                   "<b>ID of insurance company:</b> "+ "<br>" + client.insuranceInfo.insuranceNumber + "<br>" +"<br>" +
                                   "<b>Birth number:</b> "+ "<br>" + client.insuranceInfo.birthNumber;}
 
+
 function calculatePZP(){
 event.preventDefault();
 
@@ -40,11 +41,12 @@ event.preventDefault();
 const resultElement = document.getElementById("productsPar");
 
 const result = startingPrice + ageOfCar + powerOfCar + km  - yearsOfDriving;
-  if (result < minimumPrice) {
-    resultElement.innerHTML = "<h5>Average liability insurance : " +"<b>" +  minimumPrice + "</b>€</h5>";
-  } else {
-    resultElement.innerHTML= "<h5>Average liability insurance : git s" +"<b>" +  result +"</b>€</h5>";
-  }
+
+calculatedPrice = result < minimumPrice ? minimumPrice : result;
+updatePriceIndicator(calculatedPrice);
+resultElement.innerHTML = "<h5>Average liability insurance : " + "<b>" + Math.round(calculatedPrice *100)/100 + "</b>€</h5>";
 }
+
+
 
 
