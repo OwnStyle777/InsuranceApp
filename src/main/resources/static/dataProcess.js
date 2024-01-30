@@ -38,13 +38,13 @@ event.preventDefault();
   const powerOfCar = parseFloat(document.getElementById("power").value) * 0.5;
   const minimumPrice = startingPrice + powerOfCar;
 
-const resultElement = document.getElementById("productsPar");
+const resultElement = document.getElementById("averageLiability");
 
 const result = startingPrice + ageOfCar + powerOfCar + km  - yearsOfDriving;
-
+const existingText ="Average liability insurance : ";
 calculatedPrice = result < minimumPrice ? minimumPrice : result;
 updatePriceIndicator(calculatedPrice);
-resultElement.innerHTML = "<h5>Average liability insurance : " + "<b>" + Math.round(calculatedPrice *100)/100 + "</b>€</h5>";
+resultElement.innerHTML = existingText + "<b>" + Math.round(calculatedPrice *100)/100 + "</b>€";
 }
 
 
