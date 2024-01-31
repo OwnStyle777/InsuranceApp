@@ -210,9 +210,14 @@ width: 350px;
 position:fixed;
 right: 250px;
 top: 200px;
+height: 350px;
 
-
-
+}
+.insuranceBg{
+position:fixed;
+right: 250px;
+top: 200px;
+height: 300px;
 }
 
 
