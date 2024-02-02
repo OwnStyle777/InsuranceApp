@@ -6,8 +6,6 @@ function updatePriceIndicator(price) {
   percentage = price / 5 }
 
 
-
-  // Změníme barvu polokruhu podle procentuální hodnoty
   const colors = getColorForPercentage(percentage);
   priceIndicator.style.background = `linear-gradient(to bottom, ${colors.start} 0%, ${colors.end} 100%)`;
   priceIndicator.innerHTML = "<b>" + colors.level + "</b>";
@@ -21,8 +19,7 @@ function updatePriceIndicator(price) {
 
 }
 function getColorForPercentage(percentage) {
-  // Zde můžete implementovat logiku pro změnu barev podle vašich požadavků
-  // Například, pokud chcete, aby bylo zelené na začátku, oranžové v polovině a červené na konci:
+
   const normalizedPercentage = Math.round(percentage);
    switch (true) {
       case normalizedPercentage < 14:

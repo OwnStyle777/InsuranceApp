@@ -35,20 +35,18 @@
        }
    }
 
-// Počkáme, až se načte celý dokument
+// Počkáme, až se načíta celý dokument
 document.addEventListener('DOMContentLoaded', function () {
-  // Získáme referenci na navigační menu ve sidebaru
+  // Získanie referencie na navigačné menu ve sidebaru
   var sidebarNav = document.getElementById('sidebarNav');
 
-  // Přidáme posluchač události pro kliknutí na navigační odkazy
+
   sidebarNav.addEventListener('click', function (event) {
-    // Zabráníme výchozí akci kliknutí (např. skoku na odkaz)
     event.preventDefault();
 
-    // Získáme odkaz, na který bylo kliknuto
+
     var clickedItem = event.target.closest('.nav-link');
 
-    // Pokud byl kliknutý nějaký odkaz
     if (clickedItem) {
 
       var allNavLinks = sidebarNav.getElementsByClassName('nav-link');

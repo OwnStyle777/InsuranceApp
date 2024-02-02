@@ -56,7 +56,6 @@ function setupPasswordToggle() {
 
 })();
 
-// Tvoja existujúca funkcia sendData
 function sendData(form) {
   // Disable the button to prevent multiple submissions
   document.getElementById('continue').disabled = true;
@@ -86,9 +85,8 @@ function sendData(form) {
       }
     })
     .catch(error => {
-      // An error occurred
       alert(error);
-      // Re-enable the button in case of error
+
       document.getElementById('continue').disabled = false;
     });
 }
