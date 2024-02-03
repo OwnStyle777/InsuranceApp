@@ -211,7 +211,8 @@ position:fixed;
 filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
 right: 250px;
 top: 200px;
-height: 350px;
+height: 400px;
+opacity: 0.7;
 
 }
 
@@ -219,8 +220,9 @@ height: 350px;
 position:fixed;
 filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
 right: 250px;
-top: 200px;
+top: 250px;
 height: 300px;
+opacity: 0.7;
 }
 
 
