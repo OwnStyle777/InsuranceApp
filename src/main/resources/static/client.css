@@ -104,6 +104,7 @@
     /* Aplikovanie gradientu na body */
     body {
       background-image: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end));
+      font-family: 'Montserrat', sans-serif;
     }
 
 
