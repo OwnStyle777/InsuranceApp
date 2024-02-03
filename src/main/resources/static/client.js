@@ -39,38 +39,43 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Získanie referencie na navigačné menu ve sidebaru
   var sidebarNav = document.getElementById('sidebarNav');
+  var navBar = document.getElementById('navbar');
 
+function handleNavClick(event) {
+  event.preventDefault();
 
-  sidebarNav.addEventListener('click', function (event) {
-    event.preventDefault();
+  var clickedItem = event.target.closest('.nav-link');
 
+  if (clickedItem) {
+    var allNavLinks = document.querySelectorAll('.nav-link');
+    if (!clickedItem.classList.contains('active')) {
+      for (var i = 0; i < allNavLinks.length; i++) {
+        allNavLinks[i].classList.remove('active');
+      }
 
-    var clickedItem = event.target.closest('.nav-link');
+      clickedItem.classList.add('active');
 
-    if (clickedItem) {
+      var contentId = clickedItem.getAttribute('data-content');
+      var selectedContent = document.getElementById(contentId);
 
-      var allNavLinks = sidebarNav.getElementsByClassName('nav-link');
-      if (!clickedItem.classList.contains('active')) {
-             for (var i = 0; i < allNavLinks.length; i++) {
-               allNavLinks[i].classList.remove('active');
-             }
+      var allContents = document.getElementsByClassName('content');
+      for (var k = 0; k < allContents.length; k++) {
+        allContents[k].style.display = 'none';
+      }
 
-             clickedItem.classList.add('active');
-
-             var contentId = clickedItem.getAttribute('data-content');
-             var selectedContent = document.getElementById(contentId);
-
-             var allContents = document.getElementsByClassName('content');
-             for (var k = 0; k < allContents.length; k++) {
-               allContents[k].style.display = 'none';
-             }
-
-             if (selectedContent) {
-               selectedContent.style.display = 'block';
-             }
-           }
+      if (selectedContent) {
+        selectedContent.style.display = 'block';
+      }
     }
-  });
+  }
+}
+
+// Pridanie event listenera pre navigačný panel
+sidebarNav.addEventListener('click', handleNavClick);
+
+// Pridanie event listenera pre navigačný panel v navbar
+navBar.addEventListener('click', handleNavClick);
+
 });
 async function getUserData() {
   // Získanie tokenu z cookies
