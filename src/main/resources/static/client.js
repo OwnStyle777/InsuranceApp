@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // Získanie referencie na navigačné menu ve sidebaru
   var sidebarNav = document.getElementById('sidebarNav');
   var navBar = document.getElementById('navbar');
+  var dropdownMenu = document.getElementById('dropdownMenu');
+  var dropdown = document.getElementById('dropdown1');
 
 function handleNavClick(event) {
   event.preventDefault();
@@ -72,9 +74,10 @@ function handleNavClick(event) {
 
 // Pridanie event listenera pre navigačný panel
 sidebarNav.addEventListener('click', handleNavClick);
-
 // Pridanie event listenera pre navigačný panel v navbar
 navBar.addEventListener('click', handleNavClick);
+dropdownMenu.addEventListener('click', handleNavClick);
+dropdown.addEventListener('click', handleNavClick);
 
 });
 async function getUserData() {
