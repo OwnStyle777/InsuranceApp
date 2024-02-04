@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -27,8 +28,8 @@ public class HtmlViewController {
     public String showRegisterPage() {
         return "form";
     }
-    @GetMapping("/clientInfo")
-    public String showClientPage() {
+    @GetMapping("/clientInfo/{userId}")
+    public String showClientPage(@PathVariable Long userId) {
         return "client";
     }
     @GetMapping ("/hello" )
