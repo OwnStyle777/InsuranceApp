@@ -232,7 +232,9 @@ opacity: 0.7;
  left:45%;
  }
 
-
+.nav-link.dropdown-item {
+  padding-left: 10px; /* Prípadne nastavte vhodnú hodnotu medzeru */
+}
 
 
 
