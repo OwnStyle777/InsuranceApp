@@ -115,6 +115,19 @@ console.log(authToken);
         }
 }
 
+function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+// Funkcia pre odhlásenie
+function logout() {
+    // Vymazanie autentifikačného cookie
+    deleteCookie('authToken');
+
+    // Presmerovanie na prihlasovaciu stránku
+    window.location.href = '/Insurance/login';
+}
+
 
 })();
 
