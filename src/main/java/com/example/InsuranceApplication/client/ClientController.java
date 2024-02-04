@@ -48,7 +48,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
 
                 //put id of user in response map and
                 Map<String, Object> responseMap = new HashMap<>();
-                
+
                 responseMap.put("userId", client.getId());
                 System.out.println(authToken);
 
