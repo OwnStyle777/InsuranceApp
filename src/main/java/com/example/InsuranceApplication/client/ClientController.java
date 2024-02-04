@@ -19,6 +19,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
@@ -42,10 +45,14 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
                 // Generate and set authentication token
                 String authToken = AuthTokenGenerator.generateAuthToken(client.getId());
                 response.addCookie(new Cookie("authToken", authToken));
+
+                //put id of user in response map and
+                Map<String, Object> responseMap = new HashMap<>();
+                
+                responseMap.put("userId", client.getId());
                 System.out.println(authToken);
 
-                    // Vytvoření ResponseEntity s odpovědí a stavovým kódem OK (200)
-                    return new ResponseEntity<>( HttpStatus.OK);
+                    return new ResponseEntity<>( responseMap, HttpStatus.OK);
             } else {
                 return ResponseEntity.status(403).body(null);
             }
