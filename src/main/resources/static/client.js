@@ -105,7 +105,7 @@ console.log(authToken);
     const client = await response.json();
     console.log(client);
     displayClientInfo(client);
-    // ...
+
   } else if (response.status === 401) {
           // Autentifikačný token je neplatný, možno presmerovať na prihlasovaciu stránku
           window.location.href = "/Insurance/login";

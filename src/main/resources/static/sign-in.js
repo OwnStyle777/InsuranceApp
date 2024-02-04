@@ -78,12 +78,11 @@
                    method: "POST",
                    body: formData
                })
-               .then(response => {
-                   if (response.status === 200) {
-                       // Login was successful
+               .then(response => response.json())
+               .then(data => {
+                   if (data.userId) {
                        alert("Prihlásenie bolo úspešné!");
-                        window.location.href = "/Insurance/clientInfo";
-
+                       window.location.href = "/Insurance/clientInfo/" + data.userId;
                    } else if (response.status === 400) {
                    alert("Tento email nieje zaregistrovaný!");
                    }else if (response.status === 403){
