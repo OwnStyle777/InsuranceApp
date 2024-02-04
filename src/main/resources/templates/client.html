@@ -155,13 +155,13 @@
            aria-expanded="false">
           <img th:src="@{/user.png}" alt="mdo" width="32" height="32" class="rounded-circle">
         </a>
-        <ul class="dropdown-menu text-small">
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Profile</a></li>
+        <ul class="dropdown-menu text-small" id="dropdown1">
+          <li><a class="nav-link dropdown-item " data-content="settings"href="#">Settings</a></li>
+          <li><a class="nav-link dropdown-item " data-content="personalData" href="#">Profile</a></li>
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
+          <li><a class="nav-link dropdown-item" href="#">Sign out</a></li>
         </ul>
       </div>
     </div>
@@ -282,13 +282,13 @@
       <img th:src="@{/user.png}" alt="" width="32" height="32" class="rounded-circle me-2">
       <strong id="strongItem">Menu</strong>
     </a>
-    <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
-      <li><a class="dropdown-item" href="#">Settings</a></li>
-      <li><a class="dropdown-item" href="#">Profile</a></li>
+    <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1" id="dropdownMenu">
+      <li><a class="nav-link dropdown-item" data-content="personalData" href="#">Settings</a></li>
+      <li><a class="nav-link dropdown-item" data-content="settings" href="#">Profile</a></li>
       <li>
         <hr class="dropdown-divider">
       </li>
-      <li><a class="dropdown-item" href="#">Sign out</a></li>
+      <li><a class="nav-link dropdown-item" href="#">Sign out</a></li>
     </ul>
   </div>
 </div>
