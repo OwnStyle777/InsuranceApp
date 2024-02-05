@@ -32,7 +32,7 @@ body {
     --bs-btn-hover-border-color: rgb(0, 89, 255);
   background-color: rgb(0, 89, 255); /* Zmena farby pozadia */
   color: white; /* Zmena farby textu */
-  font-family:'Lexend Deca', sans-serif;
+ font-family: 'Montserrat', sans-serif;
 
 }
 #eye:hover {
