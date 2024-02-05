@@ -18,6 +18,8 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend+Deca&family=Montserrat:wght@300&family=Noto+Sans:wght@500&family=Orbitron&family=Space+Grotesk&family=Teko&display=swap" rel="stylesheet">
+
 
 </head>
 <body class="bg-body-tertiary">
@@ -95,7 +97,7 @@
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" th:src="@{/favpng_logo-blue-removebg.png}" alt="" width="200"
                  height="170">
-            <h2>Register form</h2>
+            <h2><b>Register form</b></h2>
             <p class="lead">Register to explore a variety of insurance options tailored to your needs. Our platform
                 offers a
                 seamless registration process, providing access to a range of insurance providers and plans.</p>
@@ -104,11 +106,11 @@
         <div class="row g-5">
             <div class="col-md-5 col-lg-4 order-md-last">
                 <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">Registration data</h4>
+                    <h5 class="mb-3"><b>Registration data</b></h5>
                     <form class="needs-validation" id="form" novalidate method="POST">
 
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-12">
                                 <label for="firstName" class="form-label">First name</label>
                                 <input type="text" class="form-control" id="firstName" name="firstName"
                                        placeholder="With leading uppercase" required
@@ -119,7 +121,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-12">
                                 <label for="lastName" class="form-label">Last name</label>
                                 <input type="text" class="form-control" id="lastName" name="lastName"
                                        placeholder="With leading uppercase" required
