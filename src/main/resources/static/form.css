@@ -131,10 +131,13 @@ font-family:'Lexend Deca', sans-serif;
   height: 28px;
 }
 #gdprLabel {
-  width: 350px;
+  width: 360px;
 }
 #insurance{
   width: 350px;
+}
+body{
+font-family: 'Montserrat', sans-serif;
 }
 
 
