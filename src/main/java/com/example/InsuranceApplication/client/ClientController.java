@@ -74,7 +74,6 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             Client client = dao.getClientById( userId);
             // Retrieve the user data from the database
 
-
             // If the user data is found, return it to the frontend
             if (client != null) {
                 ObjectMapper objectMapper = new ObjectMapper();

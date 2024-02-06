@@ -119,19 +119,38 @@ console.log(authToken);
 }
 
 
-   function deleteCookie(name) {
-       document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-   }
+
+function deleteAllCookies() {
+(function () {
+    var cookies = document.cookie.split("; ");
+    for (var c = 0; c < cookies.length; c++) {
+        var d = window.location.hostname.split(".");
+        while (d.length > 0) {
+            var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+            var p = location.pathname.split('/');
+            document.cookie = cookieBase + '/';
+            while (p.length > 0) {
+                document.cookie = cookieBase + p.join('/');
+                p.pop();
+            };
+            d.shift();
+        }
+    }
+})();
+}
 
    // Funkcia pre odhlásenie
    function logout() {
        // Vymazanie autentifikačného cookie
           console.log("Starting logout function");
-       deleteCookie('authToken');
+            console.log(document.cookie);
+       deleteAllCookies();
 
        // Presmerovanie na prihlasovaciu stránku
-       window.location.href = '/Insurance/login';
+
           console.log("logout function");
+            console.log(document.cookie);
+            window.location.href = "/Insurance/login";
    }
 
 
@@ -140,8 +159,6 @@ document.addEventListener('click', function(event) {
         logout();
     }
 });
-
-
 
 
 })();
