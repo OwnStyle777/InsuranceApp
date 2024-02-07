@@ -233,8 +233,19 @@ opacity: 0.7;
  }
 
 .nav-link.dropdown-item {
-  padding-left: 10px; /* Prípadne nastavte vhodnú hodnotu medzeru */
+  padding-left: 10px;
 }
+
+.custom-label{
+  width: 150px !important;
+  text-align: right !important;
+  padding-right: 10px !important;
+}
+#rowForm{
+  width: 500px !important;
+
+}
+
 
 
 
