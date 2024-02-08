@@ -5,22 +5,28 @@ function displayClientInfo(client) {
   const userFirstName = document.getElementById('userFirstName');
   const personalData = document.getElementById('personalDataContent');
   const insuranceInformation = document.getElementById('insuranceDataContent');
-const welcomeUserName = document.getElementById('userName');
-const homePageContent = document.getElementById('homeDataContent')
+  const welcomeUserName = document.getElementById('userName');
+  const homePageContent = document.getElementById('homeDataContent');
 
  welcomeUserName.innerHTML = "Greetings, " +  client.personalData.firstName+ "!";
-
-
-
-
-
  userFirstName.innerHTML= "  " + client.personalData.firstName ;
-personalData.innerHTML = "<br>" +
+ personalData.innerHTML = "<br>" +
   "<b>Name:</b> " + "<br>" + client.personalData.firstName + "<br>" + "<br>" +
   "<b>Last Name: </b> " + "<br>" + client.personalData.secondName + "<br>" + "<br>" +
   "<b>Email address: </b> " + "<br>" + client.loginInfo.email + "<br>" + "<br>" +
   "<b>Birth date: </b> " + "<br>" + client.personalData.birthDate + "<br>" + "<br>" +
   "<b>Phone number: </b>" + "<br>" + client.personalData.number;
+
+  //settings
+  const nameSet = document.getElementById('nameSet');
+  const emailSet = document.getElementById('emailSet');
+  const numberSet = document.getElementById('numberSet');
+  const insuranceSet = document.getElementById('insuranceSet');
+
+  nameSet.value = client.personalData.firstName;
+  emailSet.value = client.loginInfo.email;
+  numberSet.value = client.personalData.number;
+  insuranceSet.value = client.insuranceInfo.nameOfInsuranceCompany;
 
 
 
