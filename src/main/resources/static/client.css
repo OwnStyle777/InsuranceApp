@@ -241,6 +241,17 @@ opacity: 0.7;
     width: 350px;
 }
 
+.bi-pencil-square:hover {
+   color: dodgerblue;
+   cursor: pointer;
+}
+.bi-pencil-square{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
 
 
 
