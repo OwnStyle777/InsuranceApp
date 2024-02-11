@@ -36,6 +36,8 @@ Additionally, a visual representation in the form of a color-coded circle provid
 To enhance user experience and accessibility, the application offers support for both light and dark color modes. 
 Users have the flexibility to customize their preferred color scheme based on their preferences and viewing conditions.
 
+![colorModes](https://github.com/OwnStyle777/insuranceApp/assets/134046638/3b0cbdb4-4107-481d-842c-de3780eccb6a)
+
 <h3>Security Measures</h3>
 Ensuring the security of user data is a top priority. 
 Passwords are securely hashed before being stored in the database, to prevent the risk of unauthorized access and ensuring data integrity and confidentiality.
