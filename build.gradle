@@ -30,7 +30,10 @@ dependencies {
 }
 
 
-
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+bootJar{
+	archiveFileName = 'insuranceApp.jar'
 }
