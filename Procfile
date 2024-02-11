@@ -1,1 +1,1 @@
-web: java -jar build/libs/insuranceApp.jar
+web: java -jar -D java.runtime.version=19 build/libs/insuranceApp.jar
