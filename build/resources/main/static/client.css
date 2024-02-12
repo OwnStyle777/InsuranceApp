@@ -1,0 +1,261 @@
+.bi {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+}
+
+/*
+ * Sidebar
+ */
+
+ #sidebarContainer {
+ position: fixed;
+
+   left: 0px;
+   bottom: 0px;
+  width: 57px;
+  height: 500px;
+     overflow: hidden;
+      border-top-right-radius: 10px;
+
+
+ }
+
+#sidebarContainer.collapsed {
+
+   width: 300px;
+        height: 500px;
+         border-top-right-radius: 10px;
+
+}
+.disabled {
+        pointer-events: none; /* Nezobrazovať interakcie v zneaktívnenom stave */
+        opacity: 0.5; /* Nastaviť opacitu pre zneaktívnený vzhľad */
+      }
+
+
+#sidebarContainer #sidebarNav .nav-link {
+    white-space: nowrap; /* zabráni zalamovaniu textu */
+    overflow: hidden; /* skryje nadbytočný text, ktorý by presahoval za ikony */
+    text-overflow: ellipsis; /* pridá "..." na koniec textu, ak sa skrýva */
+}
+
+.sidebar-toggle-icon:hover {
+     cursor: pointer;
+  }
+
+
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+}
+
+
+   [data-bs-theme="light"] {
+      --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre light mode */
+      --bg-body-color-end: #ffffff; /* Koncová farba pozadia pre light mode */
+        #sidebarContainer {
+           background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end)) !important;
+         }
+        .customHr {
+          border-top: 1px solid dodgerblue !important; /* Farba hrany pre light režim */
+        }
+        #userFirstName {
+         color: black !important;
+                      }
+            #strongItem{
+        color: black !important;
+       }
+
+    }
+
+    /* Pre dark mode */
+    [data-bs-theme="dark"] {
+      --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre dark mode */
+      --bg-body-color-end: #000000; /* Koncová farba pozadia pre dark mode */
+      #sidebarContainer {
+                 background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end)) !important;
+               }
+                /* Farba textu pre linky v bočnom paneli v dark móde */
+                  #userFirstName {
+                         color: white !important;
+                                      }
+                            #strongItem{
+                        color: white !important;
+                       }
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+
+    /* Aplikovanie gradientu na body */
+    body {
+      background-image: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end));
+      font-family: 'Montserrat', sans-serif;
+    }
+
+
+
+.content {
+ display: none;
+      max-width: 800px; /* Maximálna šírka obsahu, prispôsobte podľa potreby */
+      margin: 0 auto; /* Centrovanie obsahu na stred stránky */
+      padding: 20px; /* Ľubovoľné odsadenie od okrajov */
+  position: absolute;
+  left: 70px;
+
+  display: none; /* Skryť všetky sekcie obsahu na začiatku */
+
+  }
+  .content.collapsed {
+
+    left: 320px;
+
+  }
+
+  .profile-section {
+  display: none; }
+
+  .profile-section.active {
+  display: block; }
+
+  /* Pravidlo na zobrazenie aktívneho obsahu */
+  .content.active {
+      display: block;
+  }
+
+  .homePageCover{
+
+  position: fixed;
+
+     top: 238px;
+     left:51px;
+     height:400px;
+     width:1485px;
+
+}
+@media (prefers-color-scheme: dark) {
+    .homePageCover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.homePageCover{
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+
+}
+@media (prefers-color-scheme: dark) {
+    #sidebarContainer{
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    }
+}
+
+#sidebarContainer{
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+#priceIndicator {
+  width: 280px;
+  height: 280px;
+  border-radius: 140px 140px 140px 140px;
+  position:fixed;
+  top: 238px;
+  left:600px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+
+
+  background: linear-gradient(to bottom, grey 0%, black 100%);
+  transition: background 0.5s ease;
+}
+#formPZP{
+width: 350px;
+}
+
+#ageOfCar{
+ border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#power{
+ border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+   border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+#yearsOfDriving{
+ border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+   border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+#kilometres{
+   border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.customMargin {
+  margin-bottom: 18px;
+}
+.profileBg{
+position:fixed;
+filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+right: 250px;
+top: 200px;
+height: 400px;
+opacity: 0.7;
+
+}
+
+.insuranceBg{
+position:fixed;
+filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+right: 250px;
+top: 250px;
+height: 300px;
+opacity: 0.7;
+}
+
+#footer{
+  position: fixed;
+  bottom: 10px;
+ left:45%;
+ }
+
+.nav-link.dropdown-item {
+  padding-left: 10px;
+}
+
+
+#formSettings {
+    width: 350px;
+}
+
+.bi-pencil-square:hover {
+   color: dodgerblue;
+   cursor: pointer;
+}
+.bi-pencil-square{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
