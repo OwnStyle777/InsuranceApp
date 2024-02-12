@@ -30,5 +30,5 @@ tasks.named('test') {
 bootJar{
 	archiveFileName = 'insuranceApp.jar'
 }
-java.sourceCompatibility = JavaVersion.VERSION_19
+java.sourceCompatibility = JavaVersion.VERSION_21
 
