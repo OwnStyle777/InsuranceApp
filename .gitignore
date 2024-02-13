@@ -40,5 +40,5 @@ out/
 # .gitignore
 
 # Vylúčiť všetky súbory s príponou .properties
-*.properties
-!system.properties
+#*.properties
+#!system.properties
