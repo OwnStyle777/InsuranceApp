@@ -8,6 +8,7 @@ import com.example.InsuranceApplication.verification.ClientValidator;
 import com.example.InsuranceApplication.verification.PersonalDataValidation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
 
 import java.text.ParseException;
 
