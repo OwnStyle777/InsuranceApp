@@ -21,6 +21,15 @@ public class DatabaseConnection {
     @Value("${DATABASE_PASSWORD}")
     private String dbPassword ;
 
+//    @Value("${spring.datasource.url}")
+//    private String dbUrl ;
+//
+//    @Value("${spring.datasource.username}")
+//    private String dbUsername;
+//
+//    @Value("${spring.datasource.password}")
+//    private String dbPassword ;
+
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
