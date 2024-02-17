@@ -228,34 +228,37 @@
 </div>
 <div class="content settings-content" id="settings">
   <h2 class="customMargin1 ">Settings</h2>
-  <form class="needs-validation" id="formSettings" novalidate>
+  <form class="needs-validation " id="formSettings" novalidate>
     <img th:src="@{/settings.png}" class="settingsBg">
   <div class="form-floating">
-    <input type="nameSet" name="nameSet" class="form-control" id="nameSet" placeholder="" pattern="" required>
+    <input type="nameSet" name="nameSet" class="form-control" id="nameSet" placeholder="" pattern="" required disabled>
     <label for="nameSet">Name</label>
-    <i class="bi bi-pencil-square"></i>
+    <i class="bi bi-pencil-square iconPencil"></i>
     <div class="invalid-feedback" id="nameSet-feedback">Please enter a valid name</div>
   </div>
   <div class="form-floating">
-    <input type="emailSet" name="emailSet" class="form-control" id="emailSet" placeholder="" pattern="" required>
+    <input type="emailSet" name="emailSet" class="form-control" id="emailSet" placeholder="" pattern="" required disabled>
     <label for="emailSet">Email</label>
-    <i class="bi bi-pencil-square"></i>
+    <i class="bi bi-pencil-square iconPencil"></i>
     <div class="invalid-feedback" id="emailSet-feedback">Please enter a valid email address</div>
   </div>
   <div class="form-floating">
     <input type="numberSet" name="numberSet" class="form-control" id="numberSet"
-           placeholder="numberSet" required pattern="">
+           placeholder="numberSet" required pattern="" disabled>
     <label for="numberSet">Phone number</label>
-    <i class="bi bi-pencil-square"></i>
+    <i class="bi bi-pencil-square iconPencil"></i>
     <div class="invalid-feedback" id="numberSet-feedback">Please enter a valid phone number</div>
   </div>
   <div class="form-floating">
     <input type="insuranceSet" name="insuranceSet" class="form-control" id="insuranceSet" placeholder="" required
-           pattern="">
+           pattern="" disabled>
     <label for="insuranceSet">Insurance company </label>
-    <i class="bi bi-pencil-square" ></i>
+    <i class="bi bi-pencil-square iconPencil" ></i>
     <div class="invalid-feedback" id="insuranceSet-feedback">Please enter a valid password</div>
   </div>
+    <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg" id="update" type="submit" onclick=>
+      <b>Update</b>
+    </button>
   </form>
 </div>
 

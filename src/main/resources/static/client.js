@@ -160,6 +160,18 @@ document.addEventListener('click', function(event) {
     }
 });
 
+document.addEventListener('click', function(event) {
+    var clickedEdit = event.target.closest('.iconPencil');
+    if (clickedEdit) {
+        var inputField =  clickedEdit.closest('.form-floating').querySelector('input');
+        var isDisabled = inputField.disabled;
 
+        if (isDisabled) {
+           inputField.disabled = false;
+            inputField.focus();
+
+        }
+    }
+});
 })();
 
