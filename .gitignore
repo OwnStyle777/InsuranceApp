@@ -1,8 +1,9 @@
 HELP.md
 .gradle
 
-**/build/
-!**/libs/insuranceApp.jar
+/build/
+# Vyňatie z ignorovania insuranceApp.jar
+!libs/insuranceApp.jar
 
 ### STS ###
 .apt_generated
