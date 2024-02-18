@@ -2,6 +2,8 @@ package com.example.InsuranceApplication.client;
 
 
 import com.example.InsuranceApplication.forms.RegistrationForm;
+import com.example.InsuranceApplication.forms.UpdateForm;
+import com.example.InsuranceApplication.insurance.Insurance;
 import com.example.InsuranceApplication.verification.AuthTokenGenerator;
 import com.example.InsuranceApplication.verification.ClientValidator;
 import com.example.InsuranceApplication.verification.EmailValidator;
@@ -168,6 +170,49 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
 
         // Odpoveď na požiadavku s potvrdením odhlásenia
         return ResponseEntity.ok().build();
+    }
+
+
+    @PutMapping ("/clientInfo/{id}")
+    public ResponseEntity<?> updateData(
+            @PathVariable Long id,
+            @RequestParam("firstName") String firstName,
+            @RequestParam("email") String email,
+            @RequestParam("phoneNumber") String phoneNumber,
+            @RequestParam("insurance") String insurance) {
+
+        // Create a user object based on the extracted data
+       UpdateForm updateForm = clientService.createUpdateForm(firstName, email, phoneNumber, insurance);
+
+        System.out.println(updateForm.toString());
+        try (Session session = sessionFactory.openSession()) {
+
+            ClientDAO dao = new ClientDAO(sessionFactory);
+
+            // Validate form data and perform any necessary process) {
+                if (validateUpdatedData(updateForm)){
+                    Client client = dao.getClientById(id);
+                    LoginInfo loginInfo = client.getLoginInfo();
+                    loginInfo.setEmail(email);
+                    PersonalData personalData = client.getPersonalData();
+                    personalData.setFirstName(firstName);
+                    personalData.setNumber(phoneNumber);
+                    Insurance insuranceInfo = client.getInsuranceInfo();
+                    insuranceInfo.setNameOfInsuranceCompany(insurance);
+                    client.setPersonalData(personalData);
+                    client.setInsuranceInfo(insuranceInfo);
+                    client.setLoginInfo(loginInfo);
+                    dao.updateClient(client);
+                    return ResponseEntity.ok().body("Registration was successful!");}
+                 else {
+                    return ResponseEntity.status(403).body("Please provide all necessary information to complete registration");
+                }
+            }
+
+         catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to udpate the client.");
+        }
     }
 
 }
