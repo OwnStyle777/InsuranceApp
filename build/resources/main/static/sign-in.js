@@ -83,16 +83,19 @@
                    if (data.userId) {
                        alert("Prihlásenie bolo úspešné!");
                        window.location.href = "/Insurance/clientInfo/" + data.userId;
-                   } else if (response.status === 400) {
-                   alert("Tento email nieje zaregistrovaný!");
-                   }else if (response.status === 403){
-                   alert ("Nesprávne heslo!");
+                   } else if (data.status === 'forbidden') {
+                       alert ("Nesprávne heslo!");
+
+                   }else if (data.status === 'badRequest'){
+                    alert("Tento email nieje zaregistrovaný!");
+
                    }
                })
                .catch(error => {
                    // An error occurred
                    alert(error);
                });
+                event.preventDefault();
            }
 
 

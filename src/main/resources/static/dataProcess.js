@@ -8,7 +8,7 @@ function displayClientInfo(client) {
   const welcomeUserName = document.getElementById('userName');
   const homePageContent = document.getElementById('homeDataContent');
 
- welcomeUserName.innerHTML = "Greetings, " +  client.personalData.firstName+ "!";
+ welcomeUserName.innerHTML = "Greetings, " + "<b>" + client.personalData.firstName + "</b> !";
  userFirstName.innerHTML= "  " + client.personalData.firstName ;
  personalData.innerHTML = "<br>" +
   "<b>Name:</b> " + "<br>" + client.personalData.firstName + "<br>" + "<br>" +

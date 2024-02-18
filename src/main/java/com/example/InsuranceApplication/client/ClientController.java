@@ -33,10 +33,10 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
     SessionFactory sessionFactory ;
 
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser (@RequestParam String email, @RequestParam String password, HttpServletResponse response) throws JsonProcessingException {
+    public ResponseEntity<Map<String, Object>> loginUser (@RequestParam String email, @RequestParam String password, HttpServletResponse response) throws JsonProcessingException {
 
         ClientDAO dao = new ClientDAO(sessionFactory);
-        System.out.println("email adress : " + email);
+        System.out.println("email address : " + email);
         System.out.println("password : " + password);
         if (dao.isEmailInDatabase(email)) {
             Client client = dao.getClientByEmail(email);
@@ -50,14 +50,19 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
                 Map<String, Object> responseMap = new HashMap<>();
 
                 responseMap.put("userId", client.getId());
+
                 System.out.println(authToken);
 
-                    return new ResponseEntity<>( responseMap, HttpStatus.OK);
+                return ResponseEntity.ok(responseMap);
             } else {
-                return ResponseEntity.status(403).body(null);
+                Map<String, Object> responseMap = new HashMap<>();
+                responseMap.put("status", "forbidden");
+                return ResponseEntity.ok(responseMap);
             }
         } else {
-            return ResponseEntity.badRequest().body("This email is not registered");
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("status", "badRequest");
+            return ResponseEntity.ok(responseMap);
         }
     }
     @GetMapping("/users")
@@ -149,6 +154,20 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
 
         ClientDAO dao = new ClientDAO(sessionFactory);
         return dao.isEmailInDatabase(email);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser(@RequestParam Map<String, Object> requestData, HttpServletResponse response) {
+        // Ak je potrebné, získať informácie o odhlásení z požiadavky
+
+        // Zrušiť platnosť autentifikačného tokenu na strane klienta (napr. zmazanie cookies)
+        Cookie cookie = new Cookie("authToken", null);
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
+        // Odpoveď na požiadavku s potvrdením odhlásenia
+        return ResponseEntity.ok().build();
     }
 
 }
