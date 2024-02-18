@@ -1,7 +1,11 @@
 HELP.md
 .gradle
 
-/build/
+/build/resources
+/build/classes
+/build/reports
+/build/tmp
+/build/generated
 
 ### STS ###
 .apt_generated
