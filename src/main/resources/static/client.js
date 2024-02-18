@@ -185,14 +185,33 @@ document.addEventListener('click', function(event) {
     }
 });
 
+
+})();
+
+function getUserIdFromUrl() {
+  // Získanie aktuálnej URL adresy
+  var url = window.location.href;
+
+  // Regulárny výraz na extrakciu ID z URL adresy
+  var userIdRegex = /\/(\d+)\?/;
+  var match = url.match(userIdRegex);
+
+  // Ak sa našlo zhodujúce sa číslo, vrátiť ho ako userId, inak vrátiť null
+  if (match && match.length > 1) {
+    return match[1];
+  } else {
+    return null;
+  }
+}
 function updateData(form) {
   // Disable the button to prevent multiple submissions
-  document.getElementById('update').disabled = true;
 
+   var userId = getUserIdFromUrl();
+    var url = "/Insurance/clientInfo/" + userId;
 
   const formData = new FormData(form);
   // Send the FormData object to the Spring POST method
-  fetch("/Insurance/clientInfo", {
+  fetch(url, {
     method: "PUT",
     body: formData
   })
@@ -200,20 +219,17 @@ function updateData(form) {
       if (response.status === 200) {
         // Registration was successful
         alert("Údaje boli úspešne aktualizované!");
-        window.location.href = "/Insurance/login";
-      }else if(response.status === 400){
+      }else if(response.status === 403){
      alert("Vyplnené údaje nie su v správnom formáte")
       }else {
         // Registration failed
         alert("Aktualizácia údajov bola neúspešná!");
-        document.getElementById('continue').disabled = false;
+
       }
     })
     .catch(error => {
       alert(error);
-
-      document.getElementById('update').disabled = false;
     });
+    event.preventDefault();
 }
-})();
 
