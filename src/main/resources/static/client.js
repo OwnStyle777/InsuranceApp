@@ -193,7 +193,7 @@ function getUserIdFromUrl() {
   var url = window.location.href;
 
   // Regulárny výraz na extrakciu ID z URL adresy
-  var userIdRegex = /\/(\d+)\?/;
+ var userIdRegex = /\/clientInfo\/(\d+)[^\d]?/;
   var match = url.match(userIdRegex);
 
   // Ak sa našlo zhodujúce sa číslo, vrátiť ho ako userId, inak vrátiť null
