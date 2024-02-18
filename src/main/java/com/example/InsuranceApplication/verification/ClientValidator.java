@@ -4,6 +4,7 @@ import com.example.InsuranceApplication.client.Client;
 import com.example.InsuranceApplication.client.LoginInfo;
 import com.example.InsuranceApplication.client.PersonalData;
 import com.example.InsuranceApplication.forms.RegistrationForm;
+import com.example.InsuranceApplication.forms.UpdateForm;
 import com.example.InsuranceApplication.insurance.Insurance;
 
 import java.util.Date;
@@ -37,5 +38,14 @@ public interface ClientValidator extends PersonalDataValidation, InsuranceDataVa
         String password = form.getPassword();
 
         return validatePassword(password) && isEmailValid(email);
+    }
+
+    default boolean validateUpdatedData(UpdateForm updatedForm){
+        String firstName = updatedForm.getFirstName();
+        String email = updatedForm.getEmail();
+        String number = updatedForm.getPhoneNumber();
+        String insuranceCompany = updatedForm.getInsuranceCompany();
+
+        return isEmailValid(email) && isNameValid(firstName) && isNumberValid(number) && isValidInsuranceCompany(insuranceCompany);
     }
 }
