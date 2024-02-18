@@ -95,7 +95,6 @@ public class ClientService implements PasswordValidator {
         ClientDAO dao = new ClientDAO(sessionFactory);
         return dao.getClientById( userId);
     }
-
     public UpdateForm createUpdateForm (String name, String email, String phoneNumber, String insuranceCompany){
         UpdateForm updateForm = new UpdateForm();
         updateForm.setFirstName(name);
@@ -104,6 +103,21 @@ public class ClientService implements PasswordValidator {
         updateForm.setInsuranceCompany(insuranceCompany);
 
         return updateForm;
+    }
+
+    public void setPersonalData(String firstName, String phoneNumber, PersonalData personalData){
+        personalData.setFirstName(firstName);
+        personalData.setNumber(phoneNumber);
+    }
+    public void updateClientData(String firstName, String phoneNumber,  String email, String insuranceCompany, Client client){
+
+        PersonalData personalData = client.getPersonalData();
+        LoginInfo loginInfo = client.getLoginInfo();
+        Insurance insurance = client.getInsuranceInfo();
+        setPersonalData(firstName,phoneNumber, personalData);
+        loginInfo.setEmail(email);
+        insurance.setNameOfInsuranceCompany(insuranceCompany);
+
     }
 
 }
