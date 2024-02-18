@@ -1,6 +1,7 @@
 package com.example.InsuranceApplication.client;
 
 import com.example.InsuranceApplication.forms.RegistrationForm;
+import com.example.InsuranceApplication.forms.UpdateForm;
 import com.example.InsuranceApplication.insurance.Insurance;
 import com.example.InsuranceApplication.insurance.InsuranceDataGeneration;
 import com.example.InsuranceApplication.verification.AuthTokenGenerator;
@@ -93,6 +94,16 @@ public class ClientService implements PasswordValidator {
         // Get the client from the database
         ClientDAO dao = new ClientDAO(sessionFactory);
         return dao.getClientById( userId);
+    }
+
+    public UpdateForm createUpdateForm (String name, String email, String phoneNumber, String insuranceCompany){
+        UpdateForm updateForm = new UpdateForm();
+        updateForm.setFirstName(name);
+        updateForm.setEmail(email);
+        updateForm.setPhoneNumber(phoneNumber);
+        updateForm.setInsuranceCompany(insuranceCompany);
+
+        return updateForm;
     }
 
 }
