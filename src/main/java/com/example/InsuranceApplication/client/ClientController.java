@@ -173,39 +173,30 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
     }
 
 
-    @PutMapping ("/clientInfo/{id}")
+    @PutMapping ("/clientInfo/{userId}")
     public ResponseEntity<?> updateData(
-            @PathVariable Long id,
-            @RequestParam("firstName") String firstName,
-            @RequestParam("email") String email,
-            @RequestParam("phoneNumber") String phoneNumber,
-            @RequestParam("insurance") String insurance) {
+            @PathVariable Long userId,
+            @RequestParam("nameSet") String firstName,
+            @RequestParam("emailSet") String email,
+            @RequestParam("numberSet") String phoneNumber,
+            @RequestParam("insuranceSet") String insurance) {
 
         // Create a user object based on the extracted data
        UpdateForm updateForm = clientService.createUpdateForm(firstName, email, phoneNumber, insurance);
+        System.out.println( updateForm.toString());
 
-        System.out.println(updateForm.toString());
         try (Session session = sessionFactory.openSession()) {
 
             ClientDAO dao = new ClientDAO(sessionFactory);
 
             // Validate form data and perform any necessary process) {
                 if (validateUpdatedData(updateForm)){
-                    Client client = dao.getClientById(id);
-                    LoginInfo loginInfo = client.getLoginInfo();
-                    loginInfo.setEmail(email);
-                    PersonalData personalData = client.getPersonalData();
-                    personalData.setFirstName(firstName);
-                    personalData.setNumber(phoneNumber);
-                    Insurance insuranceInfo = client.getInsuranceInfo();
-                    insuranceInfo.setNameOfInsuranceCompany(insurance);
-                    client.setPersonalData(personalData);
-                    client.setInsuranceInfo(insuranceInfo);
-                    client.setLoginInfo(loginInfo);
+                    Client client = dao.getClientById(userId);
+                    clientService.updateClientData(firstName,phoneNumber,email,insurance, client);
                     dao.updateClient(client);
-                    return ResponseEntity.ok().body("Registration was successful!");}
-                 else {
-                    return ResponseEntity.status(403).body("Please provide all necessary information to complete registration");
+                    return ResponseEntity.ok().body("Registration was successful!");
+                } else {
+                    return ResponseEntity.status(403).body("Please provide all necessary information to complete update your data");
                 }
             }
 
