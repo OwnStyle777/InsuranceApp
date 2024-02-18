@@ -184,5 +184,36 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+function updateData(form) {
+  // Disable the button to prevent multiple submissions
+  document.getElementById('update').disabled = true;
+
+
+  const formData = new FormData(form);
+  // Send the FormData object to the Spring POST method
+  fetch("/Insurance/clientInfo", {
+    method: "PUT",
+    body: formData
+  })
+    .then(response => {
+      if (response.status === 200) {
+        // Registration was successful
+        alert("Údaje boli úspešne aktualizované!");
+        window.location.href = "/Insurance/login";
+      }else if(response.status === 400){
+     alert("Vyplnené údaje nie su v správnom formáte")
+      }else {
+        // Registration failed
+        alert("Aktualizácia údajov bola neúspešná!");
+        document.getElementById('continue').disabled = false;
+      }
+    })
+    .catch(error => {
+      alert(error);
+
+      document.getElementById('update').disabled = false;
+    });
+}
 })();
 
