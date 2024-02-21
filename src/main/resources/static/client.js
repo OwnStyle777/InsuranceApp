@@ -121,7 +121,7 @@ console.log(authToken);
 
 
 function deleteAllCookies() {
- // Vymazanie cookies
+    // Vymazanie cookies
     var cookies = document.cookie.split("; ");
     for (var c = 0; c < cookies.length; c++) {
         var d = window.location.hostname.split(".");
@@ -137,6 +137,10 @@ function deleteAllCookies() {
         }
     }
 
+// Vymazanie sessionId z localStorage
+
+    // Vymazanie sessionId
+    sessionStorage.clear();
     // Vyčistenie cache
     if ('caches' in window) {
         caches.keys().then(function(names) {
@@ -149,20 +153,22 @@ function deleteAllCookies() {
 
    // Funkcia pre odhlásenie
    function logout() {
-       fetch('/logout', {
-             method: 'POST',
-             headers: {
-                 'Content-Type': 'application/json'
-             },
-             body: JSON.stringify({ /* akékoľvek ďalšie informácie potrebné pre odhlásenie na serveri */ })
-         }).then(response => {
-             // Po úspešnom odhlásení presmerujte na prihlasovaciu stránku
-             deleteAllCookies();
-             window.location.href = "/Insurance/login";
-         }).catch(error => {
-             console.error('Chyba pri odhlasovaní:', error);
-         });
-   }
+       fetch('/Insurance/logout', {
+           method: 'POST',
+           headers: {
+               'Content-Type': 'application/json'
+           },
+           body: JSON.stringify({ /* akékoľvek ďalšie informácie potrebné pre odhlásenie na serveri */ })
+       }).then(response => {
+        deleteAllCookies();
+         window.location.href = "/Insurance/login";
+
+       }).catch(error => {
+           console.error('Chyba pri odhlasovaní:', error);
+       });
+
+
+       }
 
 
 document.addEventListener('click', function(event) {
@@ -232,4 +238,6 @@ function updateData(form) {
     });
     event.preventDefault();
 }
+
+
 

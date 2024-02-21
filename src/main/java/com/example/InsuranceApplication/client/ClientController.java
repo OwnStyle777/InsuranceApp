@@ -11,7 +11,9 @@ import com.example.InsuranceApplication.verification.PasswordValidator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -158,21 +160,6 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         return dao.isEmailInDatabase(email);
     }
 
-    @PostMapping("/logout")
-    public ResponseEntity<?> logoutUser(@RequestParam Map<String, Object> requestData, HttpServletResponse response) {
-        // Ak je potrebné, získať informácie o odhlásení z požiadavky
-
-        // Zrušiť platnosť autentifikačného tokenu na strane klienta (napr. zmazanie cookies)
-        Cookie cookie = new Cookie("authToken", null);
-        cookie.setMaxAge(0);
-        cookie.setPath("/");
-        response.addCookie(cookie);
-
-        // Odpoveď na požiadavku s potvrdením odhlásenia
-        return ResponseEntity.ok().build();
-    }
-
-
     @PutMapping ("/clientInfo/{userId}")
     public ResponseEntity<?> updateData(
             @PathVariable Long userId,
@@ -206,4 +193,21 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         }
     }
 
+    @PostMapping("/logout")
+    public void logout(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession httpSession= request.getSession(false);
+        if (httpSession != null) {
+            httpSession.invalidate();
+        }
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("JSESSIONID")) {
+                    cookie.setMaxAge(0);
+                    cookie.setPath("/");
+                    response.addCookie(cookie);
+                }
+            }
+        }
+    }
 }

@@ -37,9 +37,4 @@ public class HtmlViewController {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
     }
 
-//    @GetMapping ("/users" )
-//    public ResponseEntity<String> showUsersPage() {
-//        return ResponseEntity.ok("Hello, this is a test endpoint!");
-//    }
-
 }
