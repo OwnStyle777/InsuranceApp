@@ -161,7 +161,7 @@ function preventBack() {
 setTimeout(preventBack, 0);
 window.onunload = function () { null };
 
-   // Funkcia pre odhlásenie
+   // Function for logout
    function logout() {
        fetch('/Insurance/logout', {
            method: 'POST',
@@ -172,7 +172,7 @@ window.onunload = function () { null };
        }).then(response => {
         deleteAllCookies();
          window.location.href = "/Insurance/login";
-
+          alert("Logout was successful");
         preventBack();
 
        }).catch(error => {
@@ -222,10 +222,14 @@ function getUserIdFromUrl() {
   }
 }
 function updateData(form) {
-  // Disable the button to prevent multiple submissions
-
    var userId = getUserIdFromUrl();
     var url = "/Insurance/clientInfo/" + userId;
+
+      // Enable all input fields before submitting the form
+      var inputFields = form.querySelectorAll('input, textarea, select');
+      inputFields.forEach(function(input) {
+        input.disabled = false;
+      });
 
   const formData = new FormData(form);
   // Send the FormData object to the Spring POST method
