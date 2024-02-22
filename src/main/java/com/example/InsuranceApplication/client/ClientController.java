@@ -34,10 +34,10 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
     @Autowired
     ClientService clientService;
     @Autowired
-    SessionFactory sessionFactory ;
+    SessionFactory sessionFactory;
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String, Object>> loginUser (@RequestParam String email, @RequestParam String password, HttpServletResponse response) throws JsonProcessingException {
+    public ResponseEntity<Map<String, Object>> loginUser(@RequestParam String email, @RequestParam String password, HttpServletResponse response) throws JsonProcessingException {
 
         ClientDAO dao = new ClientDAO(sessionFactory);
         System.out.println("email address : " + email);
@@ -45,7 +45,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         if (dao.isEmailInDatabase(email)) {
             Client client = dao.getClientByEmail(email);
             String passwordInDB = client.getLoginInfo().getPassword();
-            if (isPasswordValid(password,passwordInDB)) {
+            if (isPasswordValid(password, passwordInDB)) {
                 // Generate and set authentication token
                 String authToken = AuthTokenGenerator.generateAuthToken(client.getId());
                 response.addCookie(new Cookie("authToken", authToken));
@@ -69,6 +69,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             return ResponseEntity.ok(responseMap);
         }
     }
+
     @GetMapping("/users")
     public ResponseEntity<?> getUserData(@RequestHeader("Authorization") String authToken) {
         System.out.println(authToken);
@@ -80,7 +81,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             // Validate the authentication token
             long userId = AuthTokenGenerator.getUserId(pureToken);
             ClientDAO dao = new ClientDAO(sessionFactory);
-            Client client = dao.getClientById( userId);
+            Client client = dao.getClientById(userId);
             // Retrieve the user data from the database
 
             // If the user data is found, return it to the frontend
@@ -150,7 +151,8 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to save the client.");
         }
-}
+    }
+
     @GetMapping("/checkEmail")
     @ResponseBody
     public boolean checkEmail(@RequestParam String email) {
@@ -160,7 +162,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         return dao.isEmailInDatabase(email);
     }
 
-    @PutMapping ("/clientInfo/{userId}")
+    @PutMapping("/clientInfo/{userId}")
     public ResponseEntity<?> updateData(
             @PathVariable Long userId,
             @RequestParam("nameSet") String firstName,
@@ -169,25 +171,23 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             @RequestParam("insuranceSet") String insurance) {
 
         // Create a user object based on the extracted data
-       UpdateForm updateForm = clientService.createUpdateForm(firstName, email, phoneNumber, insurance);
-        System.out.println( updateForm.toString());
+        UpdateForm updateForm = clientService.createUpdateForm(firstName, email, phoneNumber, insurance);
+        System.out.println(updateForm.toString());
 
         try (Session session = sessionFactory.openSession()) {
 
             ClientDAO dao = new ClientDAO(sessionFactory);
 
             // Validate form data and perform any necessary process) {
-                if (validateUpdatedData(updateForm)){
-                    Client client = dao.getClientById(userId);
-                    clientService.updateClientData(firstName,phoneNumber,email,insurance, client);
-                    dao.updateClient(client);
-                    return ResponseEntity.ok().body("Registration was successful!");
-                } else {
-                    return ResponseEntity.status(403).body("Please provide all necessary information to complete update your data");
-                }
+            if (validateUpdatedData(updateForm)) {
+                Client client = dao.getClientById(userId);
+                clientService.updateClientData(firstName, phoneNumber, email, insurance, client);
+                dao.updateClient(client);
+                return ResponseEntity.ok().body("Registration was successful!");
+            } else {
+                return ResponseEntity.status(403).body("Please provide all necessary information to complete update your data");
             }
-
-         catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to udpate the client.");
         }
@@ -195,7 +195,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
 
     @PostMapping("/logout")
     public void logout(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession httpSession= request.getSession(false);
+        HttpSession httpSession = request.getSession(false);
         if (httpSession != null) {
             httpSession.invalidate();
         }

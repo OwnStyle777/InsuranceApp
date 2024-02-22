@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 @CrossOrigin(origins = "http://localhost:8080")
 public class HtmlViewController {
     @Autowired
-    ClientService clientService ;
+    ClientService clientService;
     @Autowired
     SessionFactory sessionFactory;
 
@@ -28,11 +28,13 @@ public class HtmlViewController {
     public String showRegisterPage() {
         return "form";
     }
+
     @GetMapping("/clientInfo/{userId}")
     public String showClientPage(@PathVariable Long userId) {
         return "client";
     }
-    @GetMapping ("/hello" )
+
+    @GetMapping("/hello")
     public ResponseEntity<String> hello() {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
     }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClientService implements PasswordValidator {
 
-    public  RegistrationForm createForm (String firstName, String lastName, String email, String password, String birthDate, String birthNumber,String phoneNumber, String insuranceCompany){
+    public RegistrationForm createForm(String firstName, String lastName, String email, String password, String birthDate, String birthNumber, String phoneNumber, String insuranceCompany) {
 
         RegistrationForm form = new RegistrationForm();
         form.setFirstName(firstName);
@@ -27,46 +27,47 @@ public class ClientService implements PasswordValidator {
         form.setInsuranceCompany(insuranceCompany);
         return form;
     }
-   public Client createClient (RegistrationForm registrationForm){
-       Client client = new Client();
-       client.setPersonalData(createPersonalData(registrationForm));
-       client.setLoginInfo(createLoginInfo(registrationForm));
-       client.setInsuranceInfo(createInsuranceInfo(registrationForm));
 
-       return client;
+    public Client createClient(RegistrationForm registrationForm) {
+        Client client = new Client();
+        client.setPersonalData(createPersonalData(registrationForm));
+        client.setLoginInfo(createLoginInfo(registrationForm));
+        client.setInsuranceInfo(createInsuranceInfo(registrationForm));
 
-   }
+        return client;
 
-   public PersonalData createPersonalData(RegistrationForm registrationForm){
+    }
 
-       PersonalData personalData = new PersonalData();
-       personalData.setFirstName(registrationForm.getFirstName());
-       personalData.setSecondName(registrationForm.getLastName());
-       personalData.setBirthDate(registrationForm.getBirthDate());
-       personalData.setNumber(registrationForm.getPhoneNumber());
-       return personalData;
-   }
+    public PersonalData createPersonalData(RegistrationForm registrationForm) {
 
-   public LoginInfo createLoginInfo(RegistrationForm registrationForm){
-       LoginInfo loginInfo = new LoginInfo();
-       String hashedPassword = getHashedPassword(registrationForm.getPassword());
-       loginInfo.setEmail(registrationForm.getEmail());
-       loginInfo.setPassword(hashedPassword);
-       return loginInfo;
-   }
+        PersonalData personalData = new PersonalData();
+        personalData.setFirstName(registrationForm.getFirstName());
+        personalData.setSecondName(registrationForm.getLastName());
+        personalData.setBirthDate(registrationForm.getBirthDate());
+        personalData.setNumber(registrationForm.getPhoneNumber());
+        return personalData;
+    }
 
-   public Insurance createInsuranceInfo(RegistrationForm registrationForm){
-       Insurance insuranceInfo = new Insurance();
-       InsuranceDataGeneration dataGeneration  = new InsuranceDataGeneration();
+    public LoginInfo createLoginInfo(RegistrationForm registrationForm) {
+        LoginInfo loginInfo = new LoginInfo();
+        String hashedPassword = getHashedPassword(registrationForm.getPassword());
+        loginInfo.setEmail(registrationForm.getEmail());
+        loginInfo.setPassword(hashedPassword);
+        return loginInfo;
+    }
 
-       insuranceInfo.setIdentificationNumberOfInsured(dataGeneration.generateIdentificationNumber());
-       insuranceInfo.setInsuranceNumber(dataGeneration.generateInsuranceNumber(registrationForm.getInsuranceCompany()));
-       insuranceInfo.setNameOfInsuranceCompany(registrationForm.getInsuranceCompany());
-       insuranceInfo.setBirthNumber(registrationForm.getBirthNumber());
+    public Insurance createInsuranceInfo(RegistrationForm registrationForm) {
+        Insurance insuranceInfo = new Insurance();
+        InsuranceDataGeneration dataGeneration = new InsuranceDataGeneration();
 
-       return insuranceInfo;
+        insuranceInfo.setIdentificationNumberOfInsured(dataGeneration.generateIdentificationNumber());
+        insuranceInfo.setInsuranceNumber(dataGeneration.generateInsuranceNumber(registrationForm.getInsuranceCompany()));
+        insuranceInfo.setNameOfInsuranceCompany(registrationForm.getInsuranceCompany());
+        insuranceInfo.setBirthNumber(registrationForm.getBirthNumber());
 
-   }
+        return insuranceInfo;
+
+    }
 
     public Client getClientFromToken(HttpServletRequest request, SessionFactory sessionFactory) {
 
@@ -93,9 +94,10 @@ public class ClientService implements PasswordValidator {
 
         // Get the client from the database
         ClientDAO dao = new ClientDAO(sessionFactory);
-        return dao.getClientById( userId);
+        return dao.getClientById(userId);
     }
-    public UpdateForm createUpdateForm (String name, String email, String phoneNumber, String insuranceCompany){
+
+    public UpdateForm createUpdateForm(String name, String email, String phoneNumber, String insuranceCompany) {
         UpdateForm updateForm = new UpdateForm();
         updateForm.setFirstName(name);
         updateForm.setEmail(email);
@@ -105,16 +107,17 @@ public class ClientService implements PasswordValidator {
         return updateForm;
     }
 
-    public void setPersonalData(String firstName, String phoneNumber, PersonalData personalData){
+    public void setPersonalData(String firstName, String phoneNumber, PersonalData personalData) {
         personalData.setFirstName(firstName);
         personalData.setNumber(phoneNumber);
     }
-    public void updateClientData(String firstName, String phoneNumber,  String email, String insuranceCompany, Client client){
+
+    public void updateClientData(String firstName, String phoneNumber, String email, String insuranceCompany, Client client) {
 
         PersonalData personalData = client.getPersonalData();
         LoginInfo loginInfo = client.getLoginInfo();
         Insurance insurance = client.getInsuranceInfo();
-        setPersonalData(firstName,phoneNumber, personalData);
+        setPersonalData(firstName, phoneNumber, personalData);
         loginInfo.setEmail(email);
         insurance.setNameOfInsuranceCompany(insuranceCompany);
 

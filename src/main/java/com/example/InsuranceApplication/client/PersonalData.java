@@ -3,8 +3,9 @@ package com.example.InsuranceApplication.client;
 import jakarta.persistence.*;
 
 import java.util.Date;
+
 @Entity
-@Table (name = "personal_data")
+@Table(name = "personal_data")
 public class PersonalData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

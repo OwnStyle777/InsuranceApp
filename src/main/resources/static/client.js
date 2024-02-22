@@ -10,7 +10,7 @@
            });
        }
        getUserData();
-       // Automaticky zobraz domovský obsah po načítaní stránky
+       // automatic display of home content,when website is loaded
                var homeContent = document.getElementById('homePage');
                if (homeContent) {
                    homeContent.style.display = 'block';
@@ -38,9 +38,9 @@
 
 
 
-// Počkáme, až se načíta celý dokument
+// wait for the document is loaded
 document.addEventListener('DOMContentLoaded', function () {
-  // Získanie referencie na navigačné menu ve sidebaru
+
   var sidebarNav = document.getElementById('sidebarNav');
   var navBar = document.getElementById('navbar');
   var dropdownMenu = document.getElementById('dropdownMenu');
@@ -75,16 +75,16 @@ function handleNavClick(event) {
   }
 }
 
-// Pridanie event listenera pre navigačný panel
+// add event listener for sidebar
 sidebarNav.addEventListener('click', handleNavClick);
-// Pridanie event listenera pre navigačný panel v navbar
+// add event listener for navbar
 navBar.addEventListener('click', handleNavClick);
 dropdownMenu.addEventListener('click', handleNavClick);
 dropdown.addEventListener('click', handleNavClick);
 
 });
 async function getUserData() {
-  // Získanie tokenu z cookies
+  // get token from cookies
   debugger;
 const cookies = document.cookie.split(";").reduce((acc, cookie) => {
   const [key, value] = cookie.trim().split("=");
@@ -95,7 +95,7 @@ const cookies = document.cookie.split(";").reduce((acc, cookie) => {
 const authToken = cookies["authToken"];
 console.log(authToken);
 
-  // Volanie metódy na backende na získanie používateľských údajov
+
   const response = await fetch("/Insurance/users", {
     method: "GET",
     headers: {
@@ -103,25 +103,24 @@ console.log(authToken);
     },
   });
 
-  // Ak bola odpoveď úspešná, spracujeme používateľské údaje
   if (response.status === 200) {
     const client = await response.json();
     console.log(client);
     displayClientInfo(client);
 
   } else if (response.status === 401) {
-          // Autentifikačný token je neplatný, možno presmerovať na prihlasovaciu stránku
+          // auth token is invalid
           window.location.href = "/Insurance/login";
         } else {
-          // Iný chybový stav
-          console.error(`Chyba pri získavaní údajov: ${response.status}`);
+
+          console.error(`error getting data: ${response.status}`);
         }
 }
 
 
 
 function deleteAllCookies() {
-    // Vymazanie cookies
+    //delete of cookies
     console.log(cookies);
     var cookies = document.cookie.split("; ");
     for (var c = 0; c < cookies.length; c++) {
@@ -141,11 +140,9 @@ function deleteAllCookies() {
         console.log(cookies);
     }
 
-// Vymazanie sessionId z localStorage
-
     // Vymazanie sessionId
     sessionStorage.clear();
-    // Vyčistenie cache
+    // delete cache
     if ('caches' in window) {
         caches.keys().then(function(names) {
             names.forEach(function(name) {
@@ -168,7 +165,7 @@ window.onunload = function () { null };
            headers: {
                'Content-Type': 'application/json'
            },
-           body: JSON.stringify({ /* akékoľvek ďalšie informácie potrebné pre odhlásenie na serveri */ })
+           body: JSON.stringify({ /* another info */ })
        }).then(response => {
         deleteAllCookies();
          window.location.href = "/Insurance/login";
@@ -176,7 +173,7 @@ window.onunload = function () { null };
         preventBack();
 
        }).catch(error => {
-           console.error('Chyba pri odhlasovaní:', error);
+           console.error('Error when logging out:', error);
        });
 
 
@@ -207,14 +204,14 @@ document.addEventListener('click', function(event) {
 })();
 
 function getUserIdFromUrl() {
-  // Získanie aktuálnej URL adresy
+  // get actual url
   var url = window.location.href;
 
-  // Regulárny výraz na extrakciu ID z URL adresy
+  // regex for extraction id from url
  var userIdRegex = /\/clientInfo\/(\d+)[^\d]?/;
   var match = url.match(userIdRegex);
 
-  // Ak sa našlo zhodujúce sa číslo, vrátiť ho ako userId, inak vrátiť null
+  //if matching number was not found, return it as userId, otherwise return null
   if (match && match.length > 1) {
     return match[1];
   } else {
@@ -240,12 +237,12 @@ function updateData(form) {
     .then(response => {
       if (response.status === 200) {
         // Registration was successful
-        alert("Údaje boli úspešne aktualizované!");
+        alert("Data has been successfully updated!");
       }else if(response.status === 403){
-     alert("Vyplnené údaje nie su v správnom formáte")
+     alert("The entered data is not in the correct format")
       }else {
         // Registration failed
-        alert("Aktualizácia údajov bola neúspešná!");
+        alert("Failed to update data!");
 
       }
     })

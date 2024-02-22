@@ -47,10 +47,11 @@ public class SecurityConfig {
 
         return http.build();
     }
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080")); // povolené zdroje
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080")); // allowed resources
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowCredentials(true);
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
@@ -60,7 +61,6 @@ public class SecurityConfig {
 
         return source;
     }
-
 
 
 }

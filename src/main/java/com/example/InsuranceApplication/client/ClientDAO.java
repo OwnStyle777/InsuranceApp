@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ClientDAO {
 
-    private  final SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Autowired
     public ClientDAO(SessionFactory sessionFactory) {
@@ -35,7 +35,7 @@ public class ClientDAO {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
-            // Nájdenie existujúceho klienta podľa ID
+            // find existing client
             Client existingClient = session.get(Client.class, updatedClient.getId());
 
             if (existingClient != null) {
@@ -59,7 +59,7 @@ public class ClientDAO {
         }
     }
 
-    public  Client getClientById(Long id) {
+    public Client getClientById(Long id) {
         try (Session session = sessionFactory.openSession()) {
             return session.get(Client.class, id);
         } catch (Exception e) {

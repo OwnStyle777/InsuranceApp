@@ -68,7 +68,7 @@ public class RegistrationForm {
         return birthNumber;
     }
 
-    public void setBirthNumber (String birthNumber) {
+    public void setBirthNumber(String birthNumber) {
         this.birthNumber = birthNumber;
     }
 

@@ -81,13 +81,13 @@
                .then(response => response.json())
                .then(data => {
                    if (data.userId) {
-                       alert("Prihlásenie bolo úspešné!");
+                       alert("Login was successful!");
                        window.location.href = "/Insurance/clientInfo/" + data.userId;
                    } else if (data.status === 'forbidden') {
-                       alert ("Nesprávne heslo!");
+                       alert ("Invalid Password!");
 
                    }else if (data.status === 'badRequest'){
-                    alert("Tento email nieje zaregistrovaný!");
+                    alert("This email is not registered!");
 
                    }
                })

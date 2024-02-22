@@ -4,10 +4,10 @@ import com.example.InsuranceApplication.insurance.Insurance;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "clients")
+@Table(name = "clients")
 public class Client {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "personal_data_id", referencedColumnName = "id")
