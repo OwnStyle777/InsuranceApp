@@ -155,6 +155,12 @@ function deleteAllCookies() {
     }
 }
 
+function preventBack() {
+    window.history.forward();
+}
+setTimeout(preventBack, 0);
+window.onunload = function () { null };
+
    // Funkcia pre odhlásenie
    function logout() {
        fetch('/Insurance/logout', {
@@ -166,6 +172,8 @@ function deleteAllCookies() {
        }).then(response => {
         deleteAllCookies();
          window.location.href = "/Insurance/login";
+
+        preventBack();
 
        }).catch(error => {
            console.error('Chyba pri odhlasovaní:', error);
