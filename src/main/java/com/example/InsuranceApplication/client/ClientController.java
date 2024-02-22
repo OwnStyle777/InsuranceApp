@@ -202,7 +202,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("JSESSIONID")) {
+                if (cookie.getName().equals("JSESSIONID") || cookie.getName().equals("authToken")) {
                     cookie.setMaxAge(0);
                     cookie.setPath("/");
                     response.addCookie(cookie);
