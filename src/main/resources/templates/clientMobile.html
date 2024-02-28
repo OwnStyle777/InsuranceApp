@@ -4,32 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--    &lt;!&ndash; CSS styles&ndash;&gt;-->
-<!--    <link href="/static/bootstrap.min.css" rel="stylesheet">-->
-<!--    <link href="/static/clientCustomStyles.css" rel="stylesheet">-->
-<!--    <link href="/static/clientMobile.css" rel="stylesheet">-->
-
-<!--    &lt;!&ndash; JS scripts &ndash;&gt;-->
-<!--    <script src="/static/color-modes.js"></script>-->
-<!--    <script src="/static/bootstrap.bundle.min.js"></script>-->
-<!--    <script src="/static/client.js"></script>-->
-<!--    <script src="/static/dataProcess.js"></script>-->
-<!--    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
-<!--    <script src="/static/priceIndicator.js"></script>-->
-
     <!-- CSS styles-->
-    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">
-    <link th:href="@{/clientMobile.css}" rel="stylesheet">
-
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/clientCustomStyles.css" rel="stylesheet">
+    <link href="/static/clientMobile.css" rel="stylesheet">
 
     <!-- JS scripts -->
-    <script th:src="@{/color-modes.js}"></script>
-    <script th:src="@{/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/client.js}"></script>
-    <script th:src="@{/dataProcess.js}"></script>
+    <script src="/static/color-modes.js"></script>
+    <script src="/static/bootstrap.bundle.min.js"></script>
+    <script src="/static/client.js"></script>
+    <script src="/static/dataProcess.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script th:src="@{/priceIndicator.js}"></script>
+    <script src="/static/priceIndicator.js"></script>
+
+<!--    &lt;!&ndash; CSS styles&ndash;&gt;-->
+<!--    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/clientMobile.css}" rel="stylesheet">-->
+
+
+<!--    &lt;!&ndash; JS scripts &ndash;&gt;-->
+<!--    <script th:src="@{/color-modes.js}"></script>-->
+<!--    <script th:src="@{/bootstrap.bundle.min.js}"></script>-->
+<!--    <script th:src="@{/client.js}"></script>-->
+<!--    <script th:src="@{/dataProcess.js}"></script>-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
+<!--    <script th:src="@{/priceIndicator.js}"></script>-->
 
 
 
@@ -217,6 +217,7 @@
     <h2>Insurance information</h2>
     <p id="insuranceDataContent"></p>
 </div>
+
 <div class="content products-content" id="products">
     <h2 class="mb-5">Products </h2>
     <p id="productsPar">
@@ -252,7 +253,16 @@
     </form>
     </p>
     <div id="priceIndicator"></div>
+<!--    <footer class="text-center text-small" id="footer">-->
+<!--        <p class="mb-1">&copy; 2024 Company Name</p>-->
+<!--        <ul class="list-inline">-->
+<!--            <li class="list-inline-item"><a href="#">Privacy</a></li>-->
+<!--            <li class="list-inline-item"><a href="#">Terms</a></li>-->
+<!--            <li class="list-inline-item"><a href="#">Support</a></li>-->
+<!--        </ul>-->
+<!--    </footer>-->
 </div>
+
 <div class="content customers-content" id="advantages">
     <h2>Advantages</h2>
     <p></p>
@@ -300,6 +310,7 @@
     </form>
 
 </div>
+
 
 
 <div class="d-flex flex-column flex-shrink-0 p-3  sidebar " id="sidebarContainer">
@@ -360,13 +371,5 @@
             <li><a class="dropdown-item signOut" type="submit" href="#">Sign out</a></li>
         </ul>
 </div>
-<footer class="text-center text-small" id="footer">
-    <p class="mb-1">&copy; 2024 Company Name</p>
-    <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacy</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-</footer>
 </body>
 </html>
