@@ -18,6 +18,7 @@
   transform: scale(1.1); /* Zväčšiť veľkosť o 10% po prejdení kurzorom */
   }
 
+
   .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -85,21 +86,6 @@
 
   }
 
-  [data-bs-theme="light"] {
-    --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre light mode */
-    --bg-body-color-end: #ffffff; /* Koncová farba pozadia pre light mode */
-  }
-  
-  /* Pre dark mode */
-  [data-bs-theme="dark"] {
-    --bg-body-color-start: #0f60ca; /* Začiatočná farba pozadia pre dark mode */
-    --bg-body-color-end: #000000; /* Koncová farba pozadia pre dark mode */
-  }
-  
-  /* Aplikovanie gradientu na body */
-  body {
-    background-image: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end));
-  }
  
 
 

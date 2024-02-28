@@ -4,43 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--    &lt;!&ndash; CSS styles&ndash;&gt;-->
-<!--    <link href="/static/bootstrap.min.css" rel="stylesheet">-->
-<!--    <link href="/static/clientCustomStyles.css" rel="stylesheet">-->
-<!--    <link href="/static/clientMobile.css" rel="stylesheet">-->
-
-<!--    &lt;!&ndash; JS scripts &ndash;&gt;-->
-<!--    <script src="/static/color-modes.js"></script>-->
-<!--    <script src="/static/bootstrap.bundle.min.js"></script>-->
-<!--    <script src="/static/client.js"></script>-->
-<!--    <script src="/static/dataProcess.js"></script>-->
-<!--    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
-<!--    <script src="/static/priceIndicator.js"></script>-->
-
     <!-- CSS styles-->
-    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">
-    <link th:href="@{/clientMobile.css}" rel="stylesheet">
-
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/clientCustomStyles.css" rel="stylesheet">
+    <link href="/static/clientMobile.css" rel="stylesheet">
 
     <!-- JS scripts -->
-    <script th:src="@{/color-modes.js}"></script>
-    <script th:src="@{/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/client.js}"></script>
-    <script th:src="@{/dataProcess.js}"></script>
+    <script src="/static/color-modes.js"></script>
+    <script src="/static/bootstrap.bundle.min.js"></script>
+    <script src="/static/client.js"></script>
+    <script src="/static/dataProcess.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script th:src="@{/priceIndicator.js}"></script>
+    <script src="/static/priceIndicator.js"></script>
+
+<!--    &lt;!&ndash; CSS styles&ndash;&gt;-->
+<!--    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/clientMobile.css}" rel="stylesheet">-->
 
 
-
-    <!-- Other links -->
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend+Deca&family=Montserrat:wght@300&family=Noto+Sans:wght@500&family=Orbitron&family=Space+Grotesk&family=Teko&display=swap"
-          rel="stylesheet">
-
+<!--    &lt;!&ndash; JS scripts &ndash;&gt;-->
+<!--    <script th:src="@{/color-modes.js}"></script>-->
+<!--    <script th:src="@{/bootstrap.bundle.min.js}"></script>-->
+<!--    <script th:src="@{/client.js}"></script>-->
+<!--    <script th:src="@{/dataProcess.js}"></script>-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
+<!--    <script th:src="@{/priceIndicator.js}"></script>-->
 
     <!-- Other links -->
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
@@ -171,10 +160,9 @@
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" id="navbar">
                 <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="homePage">Overview</a></li>
-                <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="personalData">Personal data</a>
+                <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="personalData">Profile</a>
                 </li>
-                <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="insuranceData">Insurance
-                    information</a></li>
+                <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="insuranceData">Insurance</a></li>
                 <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="products">Products</a></li>
             </ul>
             <div class="dropdown text-end">
@@ -213,7 +201,7 @@
     <p id="insuranceDataContent"></p>
 </div>
 
-<div class="content products-content" id="products">
+<div class="content products-content" id="products" >
     <h2 class="mb-5">Products </h2>
     <p id="productsPar">
     <h5 class="customMargin" id="averageLiability">Average liability insurance : </h5>
@@ -311,7 +299,6 @@
 <div class="d-flex flex-column flex-shrink-0 p-3  sidebar " id="sidebarContainer">
     <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none sidebar-toggle-icon">
         <img th:src="@{/favpng_logo-blue-removebg.png}" alt="User" width="40" height="32" class="rounded-circle">
-        <span class="fs-4" id="userFirstName">User</span>
     </a>
     <hr class="customHr">
     <ul class="nav nav-pills flex-column mb-auto" id="sidebarNav">
@@ -320,7 +307,6 @@
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#home"/>
                 </svg>
-                <span class="text">Home</span>
             </a>
         </li>
         <li class="nav-item">
@@ -328,7 +314,6 @@
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#people-circle"/>
                 </svg>
-                <span class="text">Personal data</span>
             </a>
         </li>
         <li class="nav-item">
@@ -336,7 +321,6 @@
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#insurance"/>
                 </svg>
-                <span class="text">Insurance information</span>
             </a>
         </li>
         <li class="nav-item">
@@ -344,7 +328,6 @@
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#grid"/>
                 </svg>
-                <span class="text">Products</span>
             </a>
         </li>
         <li class="nav-item">
@@ -352,7 +335,6 @@
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#people-circle"/>
                 </svg>
-                <span class="text">Advantages</span>
             </a>
         </li>
     </ul>
