@@ -252,5 +252,9 @@ function updateData(form) {
     event.preventDefault();
 }
 
+function saveProfilePicture(){
+var inputPicture = document.getElementById("imageInput");
+}
+
 
 

@@ -82,7 +82,11 @@
                .then(data => {
                    if (data.userId) {
                        alert("Login was successful!");
-                       window.location.href = "/Insurance/clientInfo/" + data.userId;
+                        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                        if(isMobile){
+                        window.location.href = "/Insurance/mobileClient/" + data.userId;
+                        }else{
+                       window.location.href = "/Insurance/clientInfo/" + data.userId;}
                    } else if (data.status === 'forbidden') {
                        alert ("Invalid Password!");
 

@@ -14,11 +14,11 @@ import java.text.ParseException;
 
 
 @SpringBootApplication
-public class InsuranceApplication implements ClientValidator {
+public class InsuranceApplication  implements ClientValidator  {
 
-    public static void main(String[] args) {
-        SpringApplication.run(InsuranceApplication.class, args);
+	public  static void main(String[] args)  {
+		SpringApplication.run(InsuranceApplication.class, args);
 
-    }
+	}
 
 }
