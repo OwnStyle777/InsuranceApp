@@ -39,4 +39,9 @@ public class HtmlViewController {
         return ResponseEntity.ok("Hello, this is a test endpoint!");
     }
 
+    @GetMapping("/mobileClient/{userId}")
+    public String showClientMobilePage(@PathVariable Long userId) {
+        return "clientMobile";
+    }
+
 }
