@@ -4,32 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--    &lt;!&ndash; CSS styles&ndash;&gt;-->
-<!--    <link href="/static/bootstrap.min.css" rel="stylesheet">-->
-<!--    <link href="/static/clientCustomStyles.css" rel="stylesheet">-->
-<!--    <link href="/static/clientMobile.css" rel="stylesheet">-->
-
-<!--    &lt;!&ndash; JS scripts &ndash;&gt;-->
-<!--    <script src="/static/color-modes.js"></script>-->
-<!--    <script src="/static/bootstrap.bundle.min.js"></script>-->
-<!--    <script src="/static/client.js"></script>-->
-<!--    <script src="/static/dataProcess.js"></script>-->
-<!--    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
-<!--    <script src="/static/priceIndicator.js"></script>-->
-
     <!-- CSS styles-->
-    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">
-    <link th:href="@{/clientMobile.css}" rel="stylesheet">
-
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/clientCustomStyles.css" rel="stylesheet">
+    <link href="/static/clientMobile.css" rel="stylesheet">
 
     <!-- JS scripts -->
-    <script th:src="@{/color-modes.js}"></script>
-    <script th:src="@{/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/client.js}"></script>
-    <script th:src="@{/dataProcess.js}"></script>
+    <script src="/static/color-modes.js"></script>
+    <script src="/static/bootstrap.bundle.min.js"></script>
+    <script src="/static/client.js"></script>
+    <script src="/static/dataProcess.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script th:src="@{/priceIndicator.js}"></script>
+    <script src="/static/priceIndicator.js"></script>
+
+<!--    &lt;!&ndash; CSS styles&ndash;&gt;-->
+<!--    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/clientMobile.css}" rel="stylesheet">-->
+
+
+<!--    &lt;!&ndash; JS scripts &ndash;&gt;-->
+<!--    <script th:src="@{/color-modes.js}"></script>-->
+<!--    <script th:src="@{/bootstrap.bundle.min.js}"></script>-->
+<!--    <script th:src="@{/client.js}"></script>-->
+<!--    <script th:src="@{/dataProcess.js}"></script>-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
+<!--    <script th:src="@{/priceIndicator.js}"></script>-->
 
     <!-- Other links -->
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
@@ -158,13 +158,14 @@
                 </svg>
             </a>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" id="navbar">
+            <ul class="nav  col-lg-auto mb-2 justify-content-center mb-md-0" id="navbar">
                 <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="homePage">Overview</a></li>
                 <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="personalData">Profile</a>
                 </li>
                 <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="insuranceData">Insurance</a></li>
                 <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="products">Products</a></li>
             </ul>
+
             <div class="dropdown text-end">
                 <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                    data-bs-toggle="dropdown"
