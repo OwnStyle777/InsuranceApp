@@ -49,14 +49,6 @@
 .navbar .form-control {
   padding: .75rem 1rem;
 }
-/* applicate gradient to body */
-html, body {
-  background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end));
-  height: 100%;
-  margin: 0;
-  overflow-y: auto;
-  font-family: 'Montserrat', sans-serif;
-}
 
 
 
@@ -84,16 +76,7 @@ html, body {
       display: block;
   }
 
-@media (prefers-color-scheme: dark) {
-    .homePageCover {
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-}
 
-.homePageCover{
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-
-}
 @media (prefers-color-scheme: dark) {
     #sidebarContainer{
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
@@ -175,6 +158,13 @@ width: 250px;
 width: 250px;
 }
 
+    /* applicate gradient to body */
+    html, body {
+      background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end));
+      overflow-y: auto;
+      font-family: 'Montserrat', sans-serif;
+      height: 100%;
+    }
 
 
 
