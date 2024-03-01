@@ -207,7 +207,8 @@ function getUserIdFromUrl() {
   var url = window.location.href;
 
   // regex for extraction id from url
- var userIdRegex = /\/clientInfo\/(\d+)[^\d]?/;
+ var userIdRegex = /\/(?:mobileClient|clientInfo)\/(\d+)[^\d]?/;
+
   var match = url.match(userIdRegex);
 
   //if matching number was not found, return it as userId, otherwise return null
