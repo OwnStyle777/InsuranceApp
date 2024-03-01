@@ -176,7 +176,6 @@ window.onunload = function () { null };
            console.error('Error when logging out:', error);
        });
 
-
        }
 
 
@@ -220,8 +219,17 @@ function getUserIdFromUrl() {
 }
 function updateData(form) {
    var userId = getUserIdFromUrl();
-    var url = "/Insurance/clientInfo/" + userId;
+  var url;
 
+    // control ,if user is on mobile device
+    var isMobileDevice = /Mobi|Android/i.test(navigator.userAgent);
+
+    //set the correct url
+    if (isMobileDevice) {
+        url = "/Insurance/mobileClient/" + userId;
+    } else {
+        url = "/Insurance/clientInfo/" + userId;
+    }
       // Enable all input fields before submitting the form
       var inputFields = form.querySelectorAll('input, textarea, select');
       inputFields.forEach(function(input) {
