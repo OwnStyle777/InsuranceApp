@@ -329,7 +329,7 @@ function resizeAndCompressImage(file, maxWidth, maxHeight, quality) {
 
     return blob;
 }
-}
+
 
 
 
