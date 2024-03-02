@@ -19,7 +19,6 @@ public class Client {
     @JoinColumn(name = "insurance_info_id", referencedColumnName = "id")
     private Insurance insuranceInfo;
 
-
     public Long getId() {
         return id;
     }

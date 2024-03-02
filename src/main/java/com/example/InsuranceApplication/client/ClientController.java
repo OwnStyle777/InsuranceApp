@@ -3,7 +3,6 @@ package com.example.InsuranceApplication.client;
 
 import com.example.InsuranceApplication.forms.RegistrationForm;
 import com.example.InsuranceApplication.forms.UpdateForm;
-import com.example.InsuranceApplication.insurance.Insurance;
 import com.example.InsuranceApplication.verification.AuthTokenGenerator;
 import com.example.InsuranceApplication.verification.ClientValidator;
 import com.example.InsuranceApplication.verification.EmailValidator;
@@ -22,7 +21,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -209,6 +210,30 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
                     response.addCookie(cookie);
                 }
             }
+        }
+    }
+
+    @PostMapping("/changeImage")
+    public ResponseEntity<?> changeImage(
+            @PathVariable Long userId,
+            @RequestParam ("image") MultipartFile resizedImage){
+
+        if (!resizedImage.isEmpty()) {
+            try (Session session = sessionFactory.openSession()){
+                // Save the file to the server or process it
+                byte[] bytes = resizedImage.getBytes();
+                // create object with image and id
+                ClientDAO clientDAO = new ClientDAO(sessionFactory);
+                ClientProfilePicture profilePictures = clientService.createClientImage(userId,bytes);
+                // save image to db
+                clientDAO.saveClientImage(profilePictures,session);
+                return ResponseEntity.ok().body("File uploaded successfully.");
+            } catch (IOException e) {
+                e.printStackTrace();
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload file.");
+            }
+        } else {
+            return ResponseEntity.badRequest().body("No file uploaded.");
         }
     }
 }
