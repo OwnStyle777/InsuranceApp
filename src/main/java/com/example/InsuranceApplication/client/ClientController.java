@@ -162,8 +162,9 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         return dao.isEmailInDatabase(email);
     }
 
-    @PutMapping("/clientInfo/{userId}")
+    @PutMapping("/{clientType}/{userId}")
     public ResponseEntity<?> updateData(
+            @PathVariable String clientType,
             @PathVariable Long userId,
             @RequestParam("nameSet") String firstName,
             @RequestParam("emailSet") String email,
