@@ -5,32 +5,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS styles-->
-    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">
-    <link th:href="@{/client.css}" rel="stylesheet">
-
-
-    <!-- JS scripts -->
-    <script th:src="@{/color-modes.js}"></script>
-    <script th:src="@{/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/client.js}"></script>
-    <script th:src="@{/dataProcess.js}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script th:src="@{/priceIndicator.js}"></script>
-
 <!--    &lt;!&ndash; CSS styles&ndash;&gt;-->
-<!--    <link href="/static/bootstrap.min.css" rel="stylesheet">-->
-<!--    <link href="/static/clientCustomStyles.css" rel="stylesheet">-->
-<!--    <link href="/static/client.css" rel="stylesheet">-->
+<!--    <link th:href="@{/bootstrap.min.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/clientCustomStyles.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/client.css}" rel="stylesheet">-->
+
 
 <!--    &lt;!&ndash; JS scripts &ndash;&gt;-->
-<!--    <script src="/static/color-modes.js"></script>-->
-<!--    <script src="/static/bootstrap.bundle.min.js"></script>-->
-<!--    <script src="/static/client.js"></script>-->
-<!--    <script src="/static/dataProcess.js"></script>-->
+<!--    <script th:src="@{/color-modes.js}"></script>-->
+<!--    <script th:src="@{/bootstrap.bundle.min.js}"></script>-->
+<!--    <script th:src="@{/client.js}"></script>-->
+<!--    <script th:src="@{/dataProcess.js}"></script>-->
 <!--    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>-->
-<!--    <script src="/static/priceIndicator.js"></script>-->
+<!--    <script th:src="@{/priceIndicator.js}"></script>-->
+
+    <!-- CSS styles-->
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/clientCustomStyles.css" rel="stylesheet">
+    <link href="/static/client.css" rel="stylesheet">
+
+    <!-- JS scripts -->
+    <script src="/static/color-modes.js"></script>
+    <script src="/static/bootstrap.bundle.min.js"></script>
+    <script src="/static/client.js"></script>
+    <script src="/static/dataProcess.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/static/priceIndicator.js"></script>
 
     <!-- Other links -->
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
@@ -48,9 +48,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend+Deca&family=Montserrat:wght@300&family=Noto+Sans:wght@500&family=Orbitron&family=Space+Grotesk&family=Teko&display=swap"
           rel="stylesheet">
-
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
@@ -157,6 +156,9 @@
                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
         </svg>
     </symbol>
+<symbol  id="circle-change" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
+</symbol>
 </svg>
 
 <header class="p-3 mb-3 border-bottom">
@@ -259,9 +261,15 @@
 </div>
 <div class="content settings-content" id="settings">
     <h2 class="customMargin1 ">Settings</h2>
-    <label for="imageInput" class="form-label d-inline-block">Import your profile picture</label>
+    <label for="imageInput" class="form-label d-inline-block me-2">Import your profile picture</label>
     <div class="d-flex" id="importImageDiv">
-        <input type="file" class="form-control" style="width: 350px; height: 38px;"  id="imageInput" accept="image/*">
+        <input type="file" class="form-control me-2" style="width: 350px; height: 38px;"  id="imageInput" accept="image/*">
+        <button class="btn btn-primary" style="width: 40px; height: 38px;" id="updateImage" type="submit"
+                onclick="saveProfilePicture()">
+            <b> <svg class="bi">
+                <use xlink:href="#circle-change"/>
+            </svg></b>
+        </button>
     </div>
     <form class="needs-validation " id="formSettings" novalidate>
         <img th:src="@{/settings.png}" class="settingsBg">
