@@ -265,7 +265,70 @@ function updateData(form) {
 }
 
 function saveProfilePicture(){
-var inputPicture = document.getElementById("imageInput");
+    var inputPicture = document.getElementById("imageInput");
+    var image = input.files[0];
+    var resizedImage = resizeAndCompressImage(image, 32, 32, 0.7);
+    var formData = new FormData();
+    var userId = getUserIdFromUrl;
+    formData.append('image', resizedImage);
+     fetch('/Insurance/changeImage', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(data => {
+            console.log(data);
+            // process data from server
+        })
+        .catch(error => {
+            console.error('There was a problem with your fetch operation:', error);
+        });
+}
+
+function resizeAndCompressImage(file, maxWidth, maxHeight, quality) {
+    var img = new Image();
+    img.src = URL.createObjectURL(file);
+
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+
+    var width = img.width;
+    var height = img.height;
+
+    if (width > height) {
+        if (width > maxWidth) {
+            height *= maxWidth / width;
+            width = maxWidth;
+        }
+    } else {
+        if (height > maxHeight) {
+            width *= maxHeight / height;
+            height = maxHeight;
+        }
+    }
+
+    canvas.width = width;
+    canvas.height = height;
+    ctx.drawImage(img, 0, 0, width, height);
+
+    var compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+
+    // Convert data URL to Blob
+    var byteString = atob(compressedDataUrl.split(',')[1]);
+    var ab = new ArrayBuffer(byteString.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < byteString.length; i++) {
+        ia[i] = byteString.charCodeAt(i);
+    }
+    var blob = new Blob([ab], { type: 'image/jpeg' });
+
+    return blob;
+}
 }
 
 
