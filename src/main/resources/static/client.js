@@ -266,7 +266,7 @@ function updateData(form) {
 
 function saveProfilePicture(){
     var inputPicture = document.getElementById("imageInput");
-    var image = input.files[0];
+    var image = inputPicture.files[0];
     var resizedImage = resizeAndCompressImage(image, 32, 32, 0.7);
     var formData = new FormData();
     var userId = getUserIdFromUrl;
