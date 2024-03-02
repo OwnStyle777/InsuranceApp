@@ -30,6 +30,26 @@ public class ClientDAO {
             return false;
         }
     }
+    public boolean saveClientImage(ClientProfilePicture clientProfilePicture, Session session) {
+        try {
+            session.beginTransaction();
+            session.persist(clientProfilePicture);
+            session.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public ClientProfilePicture getClientPictureById(Long id) {
+        try (Session session = sessionFactory.openSession()) {
+            return session.get(ClientProfilePicture.class, id);
+        } catch (Exception e) {
+            // handle exception
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public void updateClient(Client updatedClient) {
         try (Session session = sessionFactory.openSession()) {
