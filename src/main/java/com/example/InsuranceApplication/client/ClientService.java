@@ -123,4 +123,12 @@ public class ClientService implements PasswordValidator {
 
     }
 
+    public ClientProfilePicture createClientImage(long Id, byte[]imageData){
+        ClientProfilePicture clientProfilePicture = new ClientProfilePicture();
+        clientProfilePicture.setId(Id);
+        clientProfilePicture.setImageData(imageData);
+        return clientProfilePicture;
+
+    }
+
 }
