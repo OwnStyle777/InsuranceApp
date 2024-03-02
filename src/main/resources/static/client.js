@@ -220,7 +220,8 @@ function getUserIdFromUrl() {
 }
 function updateData(form) {
    var userId = getUserIdFromUrl();
-  var url;
+   var clientType;
+   var url;
 
     // control ,if user is on mobile device
     var isMobileDevice = /Mobi|Android/i.test(navigator.userAgent);
@@ -228,8 +229,10 @@ function updateData(form) {
     //set the correct url
     if (isMobileDevice) {
         url = "/Insurance/mobileClient/" + userId;
+        clientType = "mobileClient";
     } else {
         url = "/Insurance/clientInfo/" + userId;
+        clientType = "clientInfo";
     }
       // Enable all input fields before submitting the form
       var inputFields = form.querySelectorAll('input, textarea, select');
