@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
+import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -41,11 +43,35 @@ public class ClientDAO {
             return false;
         }
     }
-    public ClientProfilePicture getClientPictureById(Long id) {
+
+    public void updateClientImage(ClientProfilePicture updatedClientPicture) {
         try (Session session = sessionFactory.openSession()) {
-            return session.get(ClientProfilePicture.class, id);
+            session.beginTransaction();
+                // find existing client
+                ClientProfilePicture existingClientPicture = getClientPictureById(updatedClientPicture.getImageId());
+            System.out.println("EXISTING IMAGE " + existingClientPicture);
+            System.out.println("UPDATED IMAGE" + updatedClientPicture);
+                if (existingClientPicture != null) {
+                    // Update existing profile picture with new data
+                 existingClientPicture = updatedClientPicture;
+                    // Merge is not necessary here since the object is already managed
+                    session.merge(existingClientPicture);
+                }
+            session.getTransaction().commit();
+
         } catch (Exception e) {
-            // handle exception
+            e.printStackTrace();
+        }
+        }
+
+    public ClientProfilePicture getClientPictureById(Long imageId) {
+        try (Session session = sessionFactory.openSession()) {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<ClientProfilePicture> criteriaQuery = builder.createQuery(ClientProfilePicture.class);
+            Root<ClientProfilePicture> root = criteriaQuery.from(ClientProfilePicture.class);
+            criteriaQuery.select(root).where(builder.equal(root.get("imageId"), imageId));
+            return session.createQuery(criteriaQuery).uniqueResult();
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
