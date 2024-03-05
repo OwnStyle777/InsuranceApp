@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -180,7 +181,7 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
 
             ClientDAO dao = new ClientDAO(sessionFactory);
 
-            // Validate form data and perform any necessary process) {
+            // Validate form data and perform any necessary process
             if (validateUpdatedData(updateForm)) {
                 Client client = dao.getClientById(userId);
                 clientService.updateClientData(firstName, phoneNumber, email, insurance, client);
@@ -213,20 +214,33 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
         }
     }
 
-    @PostMapping("/changeImage")
+
+    @PutMapping("/changeImage/{userId}")
     public ResponseEntity<?> changeImage(
             @PathVariable Long userId,
-            @RequestParam ("image") MultipartFile resizedImage){
+            @RequestParam("image") MultipartFile resizedImage) {
 
         if (!resizedImage.isEmpty()) {
-            try (Session session = sessionFactory.openSession()){
+            try (Session session = sessionFactory.openSession()) {
                 // Save the file to the server or process it
                 byte[] bytes = resizedImage.getBytes();
+                System.out.println("Updated bytes array"  + Arrays.toString(bytes));
                 // create object with image and id
                 ClientDAO clientDAO = new ClientDAO(sessionFactory);
-                ClientProfilePicture profilePictures = clientService.createClientImage(userId,bytes);
-                // save image to db
-                clientDAO.saveClientImage(profilePictures,session);
+                System.out.println("this is user ID AAA " + userId);
+                ClientProfilePicture existingProfilePicture = clientDAO.getClientPictureById(userId);
+                System.out.println(existingProfilePicture + "sdjdjjd existuje tento objetct AAAAAA");
+
+                if (existingProfilePicture != null) {
+                    System.out.println("exist fjsfjflfdjffskfk JAKDKDKD");
+                    clientService.updateClientProfilePicture(existingProfilePicture, bytes);
+                    clientDAO.updateClientImage(existingProfilePicture);
+                } else {
+                    System.out.println("file is created fist time AAAAAAAAAAAAAAA");
+                    // save image to db
+                    ClientProfilePicture profilePicture = clientService.createClientImage(userId, bytes);
+                    clientDAO.saveClientImage(profilePicture, session);
+                }
                 return ResponseEntity.ok().body("File uploaded successfully.");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -236,4 +250,20 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             return ResponseEntity.badRequest().body("No file uploaded.");
         }
     }
+    @GetMapping("/changeImage/{userId}")
+    public ResponseEntity<byte[]>getProfileImage(@PathVariable long userId){
+
+        ClientDAO clientDAO = new ClientDAO(sessionFactory);
+        ClientProfilePicture profilePicture = clientDAO.getClientPictureById(userId);
+        if(profilePicture != null){
+            byte[] image = profilePicture.getImageData();
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            headers.setContentLength(image.length);
+            return new ResponseEntity<>(image, headers, HttpStatus.OK);
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
