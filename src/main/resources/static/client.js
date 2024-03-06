@@ -10,6 +10,7 @@
            });
        }
        getUserData();
+       getProfilePicture();
        // automatic display of home content,when website is loaded
                var homeContent = document.getElementById('homePage');
                if (homeContent) {
@@ -140,7 +141,7 @@ function deleteAllCookies() {
         console.log(cookies);
     }
 
-    // Vymazanie sessionId
+    // delete of sessionID
     sessionStorage.clear();
     // delete cache
     if ('caches' in window) {
@@ -264,72 +265,83 @@ function updateData(form) {
     event.preventDefault();
 }
 
-function saveProfilePicture(){
-    var inputPicture = document.getElementById("imageInput");
-    var image = inputPicture.files[0];
-    var resizedImage = resizeAndCompressImage(image, 32, 32, 0.7);
-    var formData = new FormData();
-    var userId = getUserIdFromUrl;
-    formData.append('image', resizedImage);
-     fetch('/Insurance/changeImage', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.text();
-            }
-            throw new Error('Network response was not ok.');
-        })
-        .then(data => {
-            console.log(data);
-            // process data from server
-        })
-        .catch(error => {
-            console.error('There was a problem with your fetch operation:', error);
+
+async function getProfilePicture() {
+    try {
+        var userId = getUserIdFromUrl();
+
+        const response = await fetch("/Insurance/changeImage/" + userId, {
+            method: "GET",
         });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch profile picture");
+        }
+
+        const imageData = await response.arrayBuffer(); //get image as Array buffer
+        const uint8Array = new Uint8Array(imageData);
+        console.log("array buffer contains"  + uint8Array);
+
+        // create URL from arraz buffer
+        const blob = new Blob([imageData]);
+        const imageUrl = URL.createObjectURL(blob);
+
+        // display profile picture
+        displayClientProfilePicture(imageUrl);
+
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function resizeAndCompressImage(file, maxWidth, maxHeight, quality) {
-    var img = new Image();
-    img.src = URL.createObjectURL(file);
+async function saveProfilePicture() {
+    try {
+        var formData = new FormData();
+        var userId = getUserIdFromUrl();
+        const resizedImage = await resizeAndCompressImage();
+        formData.append('image', resizedImage);
 
-    var canvas = document.createElement('canvas');
-    var ctx = canvas.getContext('2d');
+        const response = await fetch("/Insurance/changeImage/" + userId, {
+            method: 'PUT',
+            body: formData
+        });
 
-    var width = img.width;
-    var height = img.height;
-
-    if (width > height) {
-        if (width > maxWidth) {
-            height *= maxWidth / width;
-            width = maxWidth;
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
         }
-    } else {
-        if (height > maxHeight) {
-            width *= maxHeight / height;
-            height = maxHeight;
-        }
+
+        const data = await response.text();
+        console.log(data);
+        // process data from server
+
+    } catch (error) {
+        console.error('Failed to process  fetch request :', error);
     }
-
-    canvas.width = width;
-    canvas.height = height;
-    ctx.drawImage(img, 0, 0, width, height);
-
-    var compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
-
-    // Convert data URL to Blob
-    var byteString = atob(compressedDataUrl.split(',')[1]);
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-    var blob = new Blob([ab], { type: 'image/jpeg' });
-
-    return blob;
 }
 
+function resizeAndCompressImage() {
+    return new Promise((resolve, reject) => {
+        const file = document.getElementById("imageInput").files[0];
+        const maxWidth = 32;
+        const maxHeight = 32;
 
+        const img = new Image();
+        img.src = URL.createObjectURL(file);
+        img.onload = function () {
+            URL.revokeObjectURL(this.src);
+            const canvas = document.createElement("canvas");
+            canvas.width = maxWidth;
+            canvas.height = maxHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, maxWidth, maxHeight);
 
-
+            canvas.toBlob((blob) => {
+                resolve(blob);
+            }, "image/jpeg", 0.7);
+        };
+        img.onerror = function () {
+            URL.revokeObjectURL(this.src);
+            reject(new Error("failed to load image"));
+        };
+    });
+}
