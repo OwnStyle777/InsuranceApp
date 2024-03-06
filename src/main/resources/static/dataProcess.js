@@ -35,7 +35,8 @@ function displayClientInfo(client) {
 insuranceInformation.innerHTML =   "<br>" + "<b>ID of insured:</b> " + "<br>" + client.insuranceInfo.identificationNumberOfInsured + "<br>" +"<br>" +
                                   "<b>Insurance company:</b> "+ "<br>" + client.insuranceInfo.nameOfInsuranceCompany + "<br>" +"<br>" +
                                   "<b>ID of insurance company:</b> "+ "<br>" + client.insuranceInfo.insuranceNumber + "<br>" +"<br>" +
-                                  "<b>Birth number:</b> "+ "<br>" + client.insuranceInfo.birthNumber;}
+                                  "<b>Birth number:</b> "+ "<br>" + client.insuranceInfo.birthNumber;
+                                  }
 
 
 function calculatePZP(){
@@ -56,6 +57,37 @@ calculatedPrice = result < minimumPrice ? minimumPrice : result;
 updatePriceIndicator(calculatedPrice);
 resultElement.innerHTML = existingText + "<b>" + Math.round(calculatedPrice *100)/100 + "</b>€";
 }
+
+function displayClientProfilePicture(imageUrl){
+var profilePictureContainer = document.getElementById("profilePictureContainer");
+var profilePicture = document.getElementById("profilePicture");
+var profilePictureContainer1 = document.getElementById("profilePictureContainer1");
+var profilePicture1 = document.getElementById("profilePicture1");
+if (profilePicture){
+profilePictureContainer.removeChild(profilePicture);
+}
+
+if(profilePicture1){
+profilePictureContainer1.removeChild(profilePicture1);
+}
+ var imageElement = document.createElement("img")
+    imageElement.classList.add("rounded-circle");
+    imageElement.width = 32;
+    imageElement.height = 32;
+    imageElement.id = "profilePicture";
+    imageElement.src = imageUrl;
+
+    var imageElement1 = document.createElement("img")
+        imageElement1.classList.add("rounded-circle");
+        imageElement1.width = 32;
+        imageElement1.height = 32;
+        imageElement1.id = "profilePicture1";
+        imageElement1.src = imageUrl;
+
+profilePictureContainer.appendChild(imageElement);
+profilePictureContainer1.appendChild(imageElement1);
+}
+
 
 
 
