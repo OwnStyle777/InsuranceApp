@@ -188,7 +188,9 @@
                 <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                    data-bs-toggle="dropdown"
                    aria-expanded="false">
-                    <img th:src="@{/user.png}" alt="mdo" width="32" height="32" class="rounded-circle">
+                    <div id="profilePictureContainer">
+                    <img id ="profilePicture" th:src="@{/user.png}" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </div>
                 </a>
                 <ul class="dropdown-menu text-small" id="dropdown1">
                     <li><a class="nav-link dropdown-item " data-content="settings" href="#">Settings</a></li>
@@ -263,7 +265,7 @@
     <h2 class="customMargin1 ">Settings</h2>
     <label for="imageInput" class="form-label d-inline-block me-2">Import your profile picture</label>
     <div class="d-flex" id="importImageDiv">
-        <input type="file" class="form-control me-2" style="width: 350px; height: 38px;"  id="imageInput" accept="image/*">
+        <input type="file" class="form-control me-2" style="width: 350px; height: 38px;"  id="imageInput" accept="image/*" >
         <button class="btn btn-primary" style="width: 40px; height: 38px;" id="updateImage" type="submit"
                 onclick="saveProfilePicture()">
             <b> <svg class="bi">
@@ -364,8 +366,10 @@
         <a href="#"
            class="d-block link-body-emphasis d-flex align-items-center text-white text-decoration-none dropdown-toggle disabled"
            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img th:src="@{/user.png}" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong id="strongItem">Menu</strong>
+            <div id = "profilePictureContainer1">
+            <img id ="profilePicture1" th:src="@{/user.png}" alt="" width="32" height="32" class="rounded-circle me-2">
+            </div>
+            <strong id="strongItem" style = "padding-left: 10px;">Menu</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1" id="dropdownMenu">
             <li><a class="nav-link dropdown-item" data-content="settings" href="#">Settings</a></li>
