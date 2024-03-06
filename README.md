@@ -2,7 +2,7 @@
 
 The Insurance Application is a web-based platform that offers an intuitive user
 interface along with a range of features for registered users.
-the application is in test mode, you can register and log in  <a href="https://fast-ravine-46317-31b20063546d.herokuapp.com/Insurance/login">https://fast-ravine-46317-31b20063546d.herokuapp.com/Insurance/login</a>
+the application is in test mode, you can register and log in  <a href="https://insuranceapp-c0f26cd87cca.herokuapp.com/Insurance/login">https://insuranceapp-c0f26cd87cca.herokuapp.com/Insurance/login</a>
 
 <h3>Registration Proces</h3>
 Before accessing the application, users are guided through a seamless registration process. 
