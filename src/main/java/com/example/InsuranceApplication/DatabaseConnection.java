@@ -20,7 +20,7 @@ public class DatabaseConnection {
 
     @Value("${DATABASE_PASSWORD}")
     private String dbPassword ;
-//
+
 //    @Value("${spring.datasource.url}")
 //    private String dbUrl ;
 //

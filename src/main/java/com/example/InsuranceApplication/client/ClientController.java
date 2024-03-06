@@ -224,6 +224,9 @@ public class ClientController implements EmailValidator, PasswordValidator, Clie
             try (Session session = sessionFactory.openSession()) {
                 // Save the file to the server or process it
                 byte[] bytes = resizedImage.getBytes();
+
+                long imageSizeInBytes = resizedImage.getSize();
+                System.out.println("Velkost obrazka v bajtoch : " + imageSizeInBytes);
                 System.out.println("Updated bytes array"  + Arrays.toString(bytes));
                 // create object with image and id
                 ClientDAO clientDAO = new ClientDAO(sessionFactory);
