@@ -96,6 +96,7 @@
     --bg-body-color-end: #000000; /* Koncová farba pozadia pre dark mode */
   }
 
+
   /* Aplikovanie gradientu na body */
  html, body {
  min-height: 100%;
