@@ -64,6 +64,17 @@ function handleNavClick(event) {
       var contentId = clickedItem.getAttribute('data-content');
       var selectedContent = document.getElementById(contentId);
 
+
+     if (contentId === "advantages") {
+                   document.body.style.backgroundImage = "linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end))";
+                   document.body.style.height = 1250 + "px";
+
+               } else {
+                   // Ak je kliknuté na iný obsah, vrátime pozadie a výšku na pôvodný stav
+                  document.body.style.height = 737.8 + "px";
+               }
+
+
       var allContents = document.getElementsByClassName('content');
       for (var k = 0; k < allContents.length; k++) {
         allContents[k].style.display = 'none';
