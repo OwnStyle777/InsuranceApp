@@ -39,16 +39,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend+Deca&family=Montserrat:wght@300&family=Noto+Sans:wght@500&family=Orbitron&family=Space+Grotesk&family=Teko&display=swap"
           rel="stylesheet">
-
-
-    <!-- Other links -->
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lexend+Deca&family=Montserrat:wght@300&family=Noto+Sans:wght@500&family=Orbitron&family=Space+Grotesk&family=Teko&display=swap"
-          rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 <body >
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -174,25 +166,20 @@
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" id="navbar">
-                <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="homePage">Overview</a></li>
-                <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="personalData">Personal data</a>
+                <li><a style="font-weight: 600;" href="#" class="nav-link px-2 link-body-emphasis navbar" data-content="homePage">Overview</a></li>
+                <li style="font-weight: 600;"><a href="#" class="nav-link px-2 link-body-emphasis navbar" data-content="personalData">Personal data</a>
                 </li>
-                <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="insuranceData">Insurance
+                <li ><a style="font-weight: 600;" a href="#" class="nav-link px-2 link-body-emphasis navbar" data-content="insuranceData">Insurance
                     information</a></li>
-                <li><a href="#" class="nav-link px-2 link-body-emphasis" data-content="products">Products</a></li>
+                <li><a style="font-weight: 600;" href="#" class="nav-link px-2 link-body-emphasis navbar " data-content="products">Products</a></li>
             </ul>
-
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            </form>
-
             <hr class="customHr">
             <div class="dropdown text-end">
                 <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                    data-bs-toggle="dropdown"
                    aria-expanded="false">
                     <div id="profilePictureContainer">
-                    <img id ="profilePicture" th:src="@{/user.png}" alt="mdo" width="32" height="32" class="rounded-circle">
+                    <img id ="profilePicture" th:src="@{/user.png}"  width="32" height="32" class="rounded-circle">
                     </div>
                 </a>
                 <ul class="dropdown-menu text-small" id="dropdown1">
@@ -210,22 +197,22 @@
 
 <div class="content home-content" id="homePage">
     <h2 id="userName"></h2>
-    <p id="homeDataContent"><h5>Step into a world designed just for you. Your <b>experience matters</b>, and we're here
+    <p id="homeDataContent"><h5 style="font-weight: 400;">Step into a world designed just for you. Your <b>experience matters</b>, and we're here
     to make it
-    extraordinary.</h5><img th:src="@{/pexels-mikael-blomkvist-6476574.jpg}" class="homePageCover">
+    extraordinary.</h5><div class="imageContainer"> <img th:src="@{/pexels-mikael-blomkvist-6476574.jpg}" class="homePageCover"></div>
     </p>
 </div>
 
 <div class="content personalData-content" id="personalData">
-    <h2>Personal data Content</h2>
+    <h2 ><b>Personal data Content</b></h2>
     <p id="personalDataContent"></p><img th:src="@{/profileB.png}" class="profileBg">
 </div>
 <div class="content insuranceData-content" id="insuranceData">
-    <h2>Insurance information</h2>
+    <h2><b>Insurance information</b></h2>
     <p id="insuranceDataContent"></p><img th:src="@{/shield.png}" class="insuranceBg">
 </div>
 <div class="content products-content" id="products">
-    <h2 class="mb-5">Products </h2>
+    <h2 class="mb-5"><b>Products</b></h2>
     <p id="productsPar">
     <h5 class="customMargin" id="averageLiability">Average liability insurance : </h5>
     <form class="needs-validation" id="formPZP" novalidate>
@@ -252,7 +239,7 @@
             <label for="kilometres">Kilometres </label>
             <div class="invalid-feedback" id="kilometres-feedback">Please enter a valid password</div>
         </div>
-        <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg" id="calculate" type="submit"
+        <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg btnClass" id="calculate" type="submit"
                 onclick="calculatePZP()">
             <b>Calculate</b>
         </button>
@@ -262,23 +249,23 @@
 </div>
 <div class="content advantages-content" id="advantages">
     <div id="advantagesText">
-        <h2>Advantages</h2>
+        <h2 class="mb-5"><b>Advantages</b></h2>
         <!-- Prvý riadok -->
 
         <div class="firstLine">
             <div class="firstLineText">
-                <b>Financial Protection:</b><br>Insurance provides financial security by covering unexpected expenses,
-                such as medical bills, car repairs, or property damage, helping individuals and families avoid financial
-                hardships.
-                <br><b>Peace of Mind:</b><br>Having insurance offers peace of mind, knowing that you're protected
-                against unforeseen events. It reduces anxiety and stress associated with potential risks and
-                uncertainties.
-                <br><b> Risk Management:</b><br>Insurance helps individuals and businesses manage risks effectively by
+                <b>Financial Protection:</b><span style="font-weight: 200;"><br>Insurance provides <b>financial security</b> by covering <b>unexpected expenses</b>,
+                such as <b>medical bills</b>, <b>car repairs</b>, or <b>property damage</b>, helping individuals and families avoid financial
+                hardships.</span>
+                <br><b>Peace of Mind:</b><br><span style="font-weight: 200;">Having insurance offers <i>peace of mind</i>, knowing that you're protected
+                against <i>unforeseen events</i>. It reduces anxiety and stress associated with potential risks and
+                uncertainties.</span>
+                <br><b>Risk Management:</b><br><span style="font-weight: 200;">Insurance helps individuals and businesses <i>manage risks effectively</i> by
                 transferring the financial burden of losses to the insurance provider. This allows them to focus on
-                their core activities without worrying about unexpected setbacks.
-                <br><b>Legal Compliance:</b><br>In many cases, insurance is a legal requirement. For example, auto
-                insurance is mandatory in most jurisdictions to cover liability in case of accidents. Compliance with
-                legal regulations ensures that individuals and businesses avoid penalties and lawsuits.
+                their core activities without worrying about unexpected setbacks.</span>
+                <br><b>Legal Compliance:</b><br><span style="font-weight: 200;">In many cases, insurance is a <i>legal requirement</i>. For example, auto
+                insurance is mandatory in most jurisdictions to cover <i>liability</i> in case of accidents. Compliance with
+                legal regulations ensures that individuals and businesses avoid penalties and lawsuits.</span>
             </div>
             <div class="firstLinePic">
                 <img id="advantagesPic1"><img th:src="@{/financial-bg.jpg}">
@@ -290,17 +277,23 @@
                 <img id="advantagesPic2"><img th:src="@{/happy_friends_sparklers.jpg}">
             </div>
             <div class="secondLineText">
-            <br><b>Asset Protection:</b><br>Insurance safeguards valuable assets, such as homes, vehicles, and businesses, against damage or loss. It ensures that these assets can be repaired or replaced without significant financial strain.
-            <br><b>Business Continuity:</b><br>For businesses, insurance plays a crucial role in ensuring continuity of operations. It provides coverage for property damage, liability claims, and other risks that could disrupt business activities.
-            <br><b>Health and Well-being:</b><br>Health insurance offers access to quality healthcare services, including preventive care, diagnostic tests, and treatments, promoting overall health and well-being. It encourages individuals to seek timely medical attention without worrying about the cost.
-        </div>
+                <b>Asset Protection:</b><br>
+                <span style="font-weight: 200;">Insurance safeguards valuable assets, such as homes, vehicles, and businesses, against damage or loss. It ensures that these assets can be repaired or replaced without significant financial strain.</span>
+                <br><b>Business Continuity:</b><br>
+                <span style="font-weight: 200;">For businesses, insurance plays a crucial role in ensuring continuity of operations. It provides coverage for property damage, liability claims, and other risks that could disrupt business activities.</span>
+                <br><b>Health and Well-being:</b><br>
+                <span style="font-weight: 200;">Health insurance offers access to quality healthcare services, including preventive care, diagnostic tests, and treatments, promoting overall health and <i>well-being</i>. It encourages individuals to seek timely medical attention without worrying about the cost.</span>
+            </div>
         </div>
     <!-- Tretí riadok -->
     <div class="thirdLine">
         <div class="thirdLineText">
-            <br><b>Investment Opportunities: </b><br>Some insurance policies, such as life insurance and retirement plans, offer investment components that help individuals build savings and accumulate wealth over time. These policies provide financial benefits beyond risk protection.
-            <br><b>Enhanced Creditworthiness: </b><br>Having insurance coverage can improve an individual's or business's creditworthiness. Lenders and creditors may view insured entities more favorably, leading to better loan terms and access to credit.
-            <br><b>Social Responsibility:</b><br>By participating in insurance programs, individuals and businesses contribute to the collective welfare of society. Insurance pools resources to assist those in need and promote social solidarity during challenging times.
+            <b>Investment Opportunities: </b><br>
+            <span style="font-weight: 200;">Some insurance policies, such as life insurance and retirement plans, offer investment components that help individuals build savings and accumulate wealth over time. These policies provide financial benefits beyond risk protection.</span>
+            <br><b>Enhanced Creditworthiness: </b><br>
+            <span style="font-weight: 200;">Having insurance coverage can improve an individual's or business's creditworthiness. Lenders and creditors may view insured entities more favorably, leading to <b>better loan terms</b> and access to credit.</span>
+            <br><b>Social Responsibility:</b><br>
+            <span style="font-weight: 200;">By participating in insurance programs, individuals and businesses contribute to the collective <i>welfare</i> of society. Insurance pools resources to assist those in need and promote social solidarity during challenging times.</span>
         </div>
         <div class="thirdLinePic">
             <img id="advantagesPic3"><img th:src="@{/iStock-1267191229-1.jpg}">
@@ -309,11 +302,11 @@
 </div>
 </div>
 <div class="content settings-content" id="settings">
-    <h2 class="customMargin1 ">Settings</h2>
+    <h2 class="customMargin1 "><b>Settings</b></h2>
     <label for="imageInput" class="form-label d-inline-block me-2">Import your profile picture</label>
     <div class="d-flex" id="importImageDiv">
         <input type="file" class="form-control me-2" style="width: 350px; height: 38px;"  id="imageInput" accept="image/*" >
-        <button class="btn btn-primary" style="width: 40px; height: 38px;" id="updateImage" type="submit"
+        <button class="btn btn-primary btnClass" style="width: 40px; height: 38px;" id="updateImage" type="submit"
                 onclick="saveProfilePicture()">
             <b> <svg class="bi">
                 <use xlink:href="#circle-change"/>
@@ -351,7 +344,7 @@
             <i class="bi bi-pencil-square iconPencil"></i>
             <div class="invalid-feedback" id="insuranceSet-feedback">Please enter a valid password</div>
         </div>
-        <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg" id="update" type="submit"
+        <button class="btn btn-primary w-100 py-2 btn-sign-in btn-lg btnClass" id="update" type="submit"
                 onclick="updateData(this.form)">
             <b>Update</b>
         </button>
@@ -363,13 +356,13 @@
 <div class="d-flex flex-column flex-shrink-0 p-3  sidebar " id="sidebarContainer">
     <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none sidebar-toggle-icon">
         <img th:src="@{/favpng_logo-blue-removebg.png}" alt="User" width="40" height="32" class="rounded-circle">
-        <span class="fs-4" id="userFirstName">User</span>
+        <span class="fs-4" id="userFirstName"><b>User</b></span>
     </a>
     <hr class="customHr">
     <ul class="nav nav-pills flex-column mb-auto" id="sidebarNav">
         <li class="nav-item">
             <a href="#" class="nav-link " aria-current="page" data-content="homePage">
-                <svg class="bi me-2" width="16" height="16">
+                <svg class="bi me-2 lmIcon" width="16" height="16">
                     <use xlink:href="#home"/>
                 </svg>
                 <span class="text">Home</span>
@@ -377,7 +370,7 @@
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link " data-content="personalData">
-                <svg class="bi me-2" width="16" height="16">
+                <svg class="bi me-2 lmIcon" width="16" height="16">
                     <use xlink:href="#people-circle"/>
                 </svg>
                 <span class="text">Personal data</span>
@@ -385,7 +378,7 @@
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link " data-content="insuranceData">
-                <svg class="bi me-2" width="16" height="16">
+                <svg class="bi me-2 lmIcon" width="16" height="16">
                     <use xlink:href="#insurance"/>
                 </svg>
                 <span class="text">Insurance information</span>
@@ -393,7 +386,7 @@
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link " data-content="products">
-                <svg class="bi me-2" width="16" height="16">
+                <svg class="bi me-2 lmIcon" width="16" height="16">
                     <use xlink:href="#grid"/>
                 </svg>
                 <span class="text">Products</span>
@@ -401,7 +394,7 @@
         </li>
         <li class="nav-item">
             <a href="#" class="nav-link " data-content="advantages">
-                <svg class="bi me-2" width="16" height="16">
+                <svg class="bi me-2 lmIcon" width="16" height="16">
                     <use xlink:href="#advantagesSymbol"/>
                 </svg>
                 <span class="text">Advantages</span>
@@ -431,9 +424,9 @@
 <footer class="text-center text-small" id="footer">
     <p class="mb-1">&copy; 2024 Company Name</p>
     <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacy</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Support</a></li>
+        <li class="list-inline-item footerLi"><a href="#">Privacy</a></li>
+        <li class="list-inline-item footerLi"><a href="#">Terms</a></li>
+        <li class="list-inline-item footerLi"><a href="#">Support</a></li>
     </ul>
 </footer>
 </body>

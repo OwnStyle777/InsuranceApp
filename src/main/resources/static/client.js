@@ -64,10 +64,9 @@ function handleNavClick(event) {
       var contentId = clickedItem.getAttribute('data-content');
       var selectedContent = document.getElementById(contentId);
 
-
      if (contentId === "advantages") {
                    document.body.style.backgroundImage = "linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end))";
-                   document.body.style.height = 1250 + "px";
+                   document.body.style.height = 1500 + "px";
 
                } else {
                    // Ak je kliknuté na iný obsah, vrátime pozadie a výšku na pôvodný stav

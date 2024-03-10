@@ -18,7 +18,6 @@
      overflow: hidden;
       border-top-right-radius: 10px;
 
-
  }
 
 #sidebarContainer.collapsed {
@@ -63,19 +62,30 @@
 
 
    [data-bs-theme="light"] {
-      --bg-body-color-start: #0f60ca; /* starting color for light mode */
-      --bg-body-color-end: #ffffff; /* ending color for light mode */
+      --bg-body-color-start:  #EFF1F7;  /* starting color for light mode */
+      --bg-body-color-end:  #0f60ca; /* ending color for light mode */
         #sidebarContainer {
            background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end)) !important;
+
+         }
+         .footerLi{
+         color: black !important;}
+
+         .lmIcon{
+         color: #0055A5   !important;
+         }
+         .text{
+         color: #0055A5  !important;
+         font-weight: 600;
          }
         .customHr {
           border-top: 1px solid dodgerblue !important; /* color of the edge for light mode */
         }
         #userFirstName {
-         color: black !important;
+         color: #0055A5  !important;
                       }
             #strongItem{
-        color: black !important;
+        color: #0055A5   !important;
        }
 
     }
@@ -85,8 +95,17 @@
       --bg-body-color-start: #0f60ca; /* starting color for dark mode*/
       --bg-body-color-end: #000000; /* ending color for dark mode*/
       #sidebarContainer {
-                 background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end)) !important;
+      color: white !important;
+       background: linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end)) !important;
+
                }
+    .text{
+             color: white !important;
+             font-weight: 600;
+             }
+             .lmIcon{
+                      color: white !important;
+                      }
                 /* color of text in sidebar in dark mode */
       #userFirstName {
    color: white !important;
@@ -95,6 +114,18 @@
     color: white !important;
           }
     }
+     [data-bs-theme="auto"] {
+          --bg-body-color: #ffffff;
+#sidebarContainer {
+    background: var(--bg-body-color) !important;
+}
+#userFirstName {
+         color: dodgerblue !important;
+                      }
+            #strongItem{
+        color: dodgerblue !important;
+       }
+        }
     html, body {
       height: 100%;
       margin: 0;
@@ -130,14 +161,16 @@ background-image: linear-gradient(to bottom, var(--bg-body-color-start), var(--b
   }
 
   .homePageCover{
-
-  position: fixed;
-
+ position: fixed;
      top: 238px;
      left:51px;
      height:400px;
      width:1485px;
 
+}
+.imageContainer{
+ max-width:1000px ;
+    width: 100%;
 }
 @media (prefers-color-scheme: dark) {
     .homePageCover {
@@ -218,10 +251,13 @@ height: 300px;
 opacity: 0.7;
 }
 
-#footer{
-  position: fixed;
-  bottom: 10px;
- left:45%;
+
+ #footer {
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     padding: 10px;
+
  }
 
 .nav-link.dropdown-item {
@@ -267,16 +303,26 @@ width: 400px;
 }
 
 .firstLinePic,.thirdLinePic {
-    margin-left: 20px; /* Alebo ľubovoľná iná hodnota pre oddelenie textu od obrázka */
+    margin-left: 20px;
     max-width: 500px;
     max-height: 331px;
-
+filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+ overflow: hidden;
+       border-radius: 10px;
 }
 .secondLinePic{
-   margin-right: 20px; /* Alebo ľubovoľná iná hodnota pre oddelenie textu od obrázka */
+   margin-right: 20px;
     max-width: 500px;
     max-height: 331px;
+    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
+    overflow: hidden;
+ border-radius: 10px;
 }
+.btnClass:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
 
 
 

@@ -10,7 +10,7 @@ function displayClientInfo(client) {
 
  welcomeUserName.innerHTML = "Greetings, " + "<b>" + client.personalData.firstName + "</b> !";
  if(userFirstName != null){
- userFirstName.innerHTML= "  " + client.personalData.firstName ;}
+ userFirstName.innerHTML= "  <b>" + client.personalData.firstName + "</b>" ;}
  personalData.innerHTML = "<br>" +
   "<b>Name:</b> " + "<br>" + client.personalData.firstName + "<br>" + "<br>" +
   "<b>Last Name: </b> " + "<br>" + client.personalData.secondName + "<br>" + "<br>" +
