@@ -55,7 +55,7 @@
 
 .content {
  display: none;
-      max-width: 380px;
+      max-width: 350px;
       margin: 0 auto; /* center content to the middle */
       padding: 20px;
   position: absolute;
