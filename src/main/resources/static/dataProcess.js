@@ -55,7 +55,13 @@ const result = startingPrice + ageOfCar + powerOfCar + km  - yearsOfDriving;
 const existingText ="Average liability insurance : ";
 calculatedPrice = result < minimumPrice ? minimumPrice : result;
 updatePriceIndicator(calculatedPrice);
-resultElement.innerHTML = existingText + "<b>" + Math.round(calculatedPrice *100)/100 + "</b>€";
+var averagePrice = Math.round(calculatedPrice *100)/100;
+if (isNaN(averagePrice)) {
+    resultElement.innerHTML =  "<span style='color: red;'>You must fill in all fields</span>";
+} else {
+    resultElement.innerHTML = existingText + "<b>" + averagePrice + "</b>€";
+}
+
 }
 
 function displayClientProfilePicture(imageUrl){

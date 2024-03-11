@@ -1,4 +1,6 @@
 function updatePriceIndicator(price) {
+if(isNaN(price)){
+}else{
   const priceIndicator = document.getElementById('priceIndicator');
 
   let percentage = 100;
@@ -16,7 +18,7 @@ function updatePriceIndicator(price) {
        priceIndicator.style.fontFamily = 'Raleway, sans-serif';
        priceIndicator.style.fontSize = '1.9em';
        priceIndicator.style.color = 'white';
-
+}
 }
 function getColorForPercentage(percentage) {
 
