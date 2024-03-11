@@ -65,11 +65,16 @@ function handleNavClick(event) {
       var selectedContent = document.getElementById(contentId);
 
      if (contentId === "advantages") {
+
                    document.body.style.backgroundImage = "linear-gradient(to bottom, var(--bg-body-color-start), var(--bg-body-color-end))";
                    document.body.style.height = 1500 + "px";
+                   var footer = document.getElementById("footer");
+                                   footer.style.display = 'none';
 
                } else {
                    // Ak je kliknuté na iný obsah, vrátime pozadie a výšku na pôvodný stav
+                  var footer = document.getElementById("footer");
+                                  footer.style.display = 'block';
                   document.body.style.height = 737.8 + "px";
                }
 
