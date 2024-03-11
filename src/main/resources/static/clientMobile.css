@@ -91,8 +91,8 @@
   height: 280px;
   border-radius: 140px 140px 140px 140px;
   position:absolute;
-  top: 450px;
-  left:5px;
+  top: 440px;
+  left: 17px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 
 
@@ -100,7 +100,8 @@
   transition: background 0.5s ease;
 }
 #formPZP{
-width: 250px;
+height:600px ;
+width: 300px;
 }
 
 #ageOfCar{
@@ -190,6 +191,21 @@ width: 250px;
  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.8));
 
 }
+#footer {
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     padding: 10px;
+       height: 100px;
+ }
+
+ #footer1 {
+     position: relative;
+     bottom: 0;
+     width: 90%;
+     padding: 10px;
+     height: 100px;
+ }
 
 
 
