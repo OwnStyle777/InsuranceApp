@@ -174,7 +174,7 @@
                 <li><a style="font-weight: 600;" href="#" class="nav-link px-2 link-body-emphasis navbar " data-content="products">Products</a></li>
             </ul>
             <hr class="customHr">
-            <div class="dropdown text-end">
+            <div class="dropdown text-end ">
                 <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                    data-bs-toggle="dropdown"
                    aria-expanded="false">
@@ -367,6 +367,7 @@
         <img th:src="@{/favpng_logo-blue-removebg.png}" alt="User" width="40" height="32" class="rounded-circle">
         <span class="fs-4" id="userFirstName"><b>User</b></span>
     </a>
+
     <hr class="customHr">
     <ul class="nav nav-pills flex-column mb-auto" id="sidebarNav">
         <li class="nav-item">
@@ -412,11 +413,9 @@
     </ul>
     <hr class="customHr">
     <div class="dropdown">
-        <a href="#"
-           class="d-block link-body-emphasis d-flex align-items-center text-white text-decoration-none dropdown-toggle disabled"
-           id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href="#" class="d-block link-body-emphasis d-flex align-items-center text-white text-decoration-none dropdown-toggle disabled" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <div id = "profilePictureContainer1">
-            <img id ="profilePicture1" th:src="@{/user.png}" alt="" width="32" height="32" class="rounded-circle me-2">
+                <img id ="profilePicture1" th:src="@{/user.png}" alt="" width="32" height="32" class="rounded-circle me-2">
             </div>
             <strong id="strongItem" style = "padding-left: 10px;">Menu</strong>
         </a>
@@ -429,7 +428,9 @@
             <li><a class="dropdown-item signOut" type="submit" href="#">Sign out</a></li>
         </ul>
     </div>
+
 </div>
+
 <footer class="text-center text-small" id="footer">
     <p class="mb-1">&copy; 2024 Company Name</p>
     <ul class="list-inline">
